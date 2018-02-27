@@ -14,19 +14,32 @@ public class GameManager : MonoBehaviour
 	}
 	#endregion
 
+	//VARIABLES PÚBLICAS
+	[HideInInspector]public InputManager InputManager;
+
+	//INSTANCIADORES
+
+
 	//**************************************************
 
 	void Start () 
 	{
-		
+		Init ();
 	}
-	
-	void FixedUpdate()
+
+	void Init()
 	{
-		
+		InputManager = gameObject.GetComponent<InputManager> ();
 	}
+
 	void Update () 
 	{
-		
+		InputManager.Tick ();
 	}
+
+	void FixedUpdate()
+	{
+		InputManager.FixedTick ();
+	}
+		
 }
