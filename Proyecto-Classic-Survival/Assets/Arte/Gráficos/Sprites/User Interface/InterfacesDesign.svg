@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 744.09448819 1052.3622047"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="InterfacesDesign.svg">
+  <defs
+     id="defs4">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient4137">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop4139" />
+      <stop
+         style="stop-color:#000000;stop-opacity:0;"
+         offset="1"
+         id="stop4141" />
+    </linearGradient>
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient4137"
+       id="radialGradient4143"
+       cx="238.42857"
+       cy="125.54078"
+       fx="238.42857"
+       fy="125.54078"
+       r="50"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.98821692,-0.01517979,0.01512164,0.9844312,2.5831879,3.9016646)" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="6.2454167"
+     inkscape:cx="173.57608"
+     inkscape:cy="937.10141"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer5"
+     showgrid="false"
+     inkscape:window-width="1920"
+     inkscape:window-height="1027"
+     inkscape:window-x="-8"
+     inkscape:window-y="22"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Capa 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     sodipodi:insensitive="true"
+     style="display:none">
+    <rect
+       style="fill:#000000;fill-opacity:0;stroke:#000000;stroke-width:0.28160974;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0"
+       id="rect4138"
+       width="99.718391"
+       height="99.718391"
+       x="63.579685"
+       y="74.406265"
+       rx="0"
+       ry="0"
+       inkscape:export-xdpi="89.999992"
+       inkscape:export-ydpi="89.999992" />
+    <rect
+       style="fill:#000000;fill-opacity:0.39215686;stroke:#ffffff;stroke-width:1.00032234;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0"
+       id="rect4140"
+       width="96.99968"
+       height="96.99968"
+       x="64.954826"
+       y="75.749832"
+       inkscape:export-xdpi="89.999992"
+       inkscape:export-ydpi="89.999992" />
+    <rect
+       style="opacity:0.60900005;fill:url(#radialGradient4143);fill-opacity:1;stroke:#000000;stroke-width:0;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect4135"
+       width="99.999992"
+       height="99.999992"
+       x="190.10072"
+       y="73.868637"
+       inkscape:export-xdpi="90.000015"
+       inkscape:export-ydpi="90.000015" />
+  </g>
+  <g
+     id="g4140"
+     inkscape:groupmode="layer"
+     inkscape:label="Capa 1 copia"
+     style="display:none"
+     sodipodi:insensitive="true">
+    <rect
+       inkscape:export-ydpi="89.999992"
+       inkscape:export-xdpi="89.999992"
+       ry="0"
+       rx="0"
+       y="74.406265"
+       x="63.579685"
+       height="99.718391"
+       width="99.718391"
+       id="rect4142"
+       style="fill:#000000;fill-opacity:0;stroke:#000000;stroke-width:0.28160974;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0" />
+    <rect
+       inkscape:export-ydpi="91.836731"
+       inkscape:export-xdpi="91.836731"
+       y="73.428406"
+       x="155.13339"
+       height="96.99968"
+       width="96.99968"
+       id="rect4144"
+       style="fill:#000000;fill-opacity:0.5884774;stroke:#ffffff;stroke-width:1.00032234;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Bullet"
+     sodipodi:insensitive="true"
+     style="display:none">
+    <path
+       style="fill:#800000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 172.85714,101.82649 47.32143,-0.53571 -0.35714,20.53571 -22.85714,44.46429 -53.39286,-1.60715 0.35714,-16.25 z"
+       id="path4187"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="G:\Documentos\Unity V\_Android\Proyectos\4-Project [ClassicSurvival]\ClassicSurvival\Assets\_CS\Arte\Graficos\Sprites\PlaceHolders\Bullets.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <rect
+       style="opacity:0.60900005;fill:none;fill-opacity:1;stroke:#1a1a1a;stroke-width:0;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect4145"
+       width="99.999992"
+       height="99.999992"
+       x="138.97099"
+       y="74.105492"
+       inkscape:export-filename="G:\Documentos\Unity V\_Android\Proyectos\4-Project [ClassicSurvival]\ClassicSurvival\Assets\_CS\Arte\Graficos\Sprites\PlaceHolders\Bullets.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 173.21429,101.64792 46.42857,0 0.17857,20.35714 8.21428,-15.89286 0,-18.392852 -46.07142,0 z"
+       id="path4189"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="G:\Documentos\Unity V\_Android\Proyectos\4-Project [ClassicSurvival]\ClassicSurvival\Assets\_CS\Arte\Graficos\Sprites\PlaceHolders\Bullets.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 143.92857,165.04078 53.03572,1.60714 30.89285,-60.71429 0.35715,-18.392854 -46.60715,0 -37.67857,60.714284 z"
+       id="path4179"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="G:\Documentos\Unity V\_Android\Proyectos\4-Project [ClassicSurvival]\ClassicSurvival\Assets\_CS\Arte\Graficos\Sprites\PlaceHolders\Bullets.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 146.60714,148.6122 48.75,1.42858 0.89286,15.35714"
+       id="path4181"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="G:\Documentos\Unity V\_Android\Proyectos\4-Project [ClassicSurvival]\ClassicSurvival\Assets\_CS\Arte\Graficos\Sprites\PlaceHolders\Bullets.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 196.96429,147.54078 225.89286,89.683633"
+       id="path4183"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="G:\Documentos\Unity V\_Android\Proyectos\4-Project [ClassicSurvival]\ClassicSurvival\Assets\_CS\Arte\Graficos\Sprites\PlaceHolders\Bullets.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 173.92857,101.64792 45.71428,0.17857 c 0,0 0.89286,18.39286 0.17857,18.57143"
+       id="path4185"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccc"
+       inkscape:export-filename="G:\Documentos\Unity V\_Android\Proyectos\4-Project [ClassicSurvival]\ClassicSurvival\Assets\_CS\Arte\Graficos\Sprites\PlaceHolders\Bullets.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer3"
+     inkscape:label="Knife"
+     sodipodi:insensitive="true"
+     style="display:none">
+    <rect
+       style="opacity:1;fill:none;fill-opacity:1;stroke:none;stroke-width:0;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect4192"
+       width="100"
+       height="100"
+       x="125.89285"
+       y="79.326492"
+       inkscape:export-filename="G:\Documentos\Unity V\_Android\Proyectos\4-Project [ClassicSurvival]\ClassicSurvival\Assets\_CS\Arte\Graficos\Sprites\PlaceHolders\Cuchillo.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:#b3b3b3;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 216.51758,80.84375 -10.98242,11.875 -28.48243,30.53711 -15.08789,16.33789 4.46289,12.58984 7.32227,-7.23242 4.28516,-3.92773 7.94726,-7.32227 9.19531,-9.10742 8.83985,-10.08789 5.44726,-7.67969 3.66016,-7.320311 1.96484,-6.697265 0.89258,-5.982422 0.53516,-5.982422 z M 211.69727,91.111328 210,95.576172 l -3.57227,7.410158 -4.82031,7.76953 -5.26758,6.51758 -5.625,5.35742 -7.23242,6.42773 -6.33984,3.92774 -6.875,4.46484 5.26758,-5.80273 11.07226,-12.41211 13.48242,-15.17774 6.60743,-7.499996 5,-5.447266 z"
+       id="path4200"
+       inkscape:export-filename="G:\Documentos\Unity V\_Android\Proyectos\4-Project [ClassicSurvival]\ClassicSurvival\Assets\_CS\Arte\Graficos\Sprites\PlaceHolders\Cuchillo.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:#e6e6e6;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 167.76786,140.04078 170,137.71935 l 4.55357,-2.85715 5,-3.03571 5.08929,-3.57143 7.67857,-6.69643 6.875,-7.5 5.80357,-8.21428 3.30357,-6.51786 2.67857,-5.982143 1.96429,-4.107143 3.57143,-8.303571 -0.35715,6.428571 -0.98214,6.428572 -1.60714,5.446428 -2.5,5.089286 -3.03572,4.82143 -5.89285,8.21428 -5.625,6.25 -6.96429,6.96429 -6.07143,5.71429 -6.875,6.25 -5.80357,5.71428 -4.10714,3.83929 -2.41072,-2.67857 z"
+       id="path4205"
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="G:\Documentos\Unity V\_Android\Proyectos\4-Project [ClassicSurvival]\ClassicSurvival\Assets\_CS\Arte\Graficos\Sprites\PlaceHolders\Cuchillo.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
+       d="m 130.17857,173.6122 86.42857,-93.03571 c -1.74009,14.337564 1.1442,26.06135 -42.85714,64.28571 l -27.32143,28.21429 z"
+       id="path4194"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="G:\Documentos\Unity V\_Android\Proyectos\4-Project [ClassicSurvival]\ClassicSurvival\Assets\_CS\Arte\Graficos\Sprites\PlaceHolders\Cuchillo.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:#333333;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 173.03571,125.93363 c -5.05922,8.40913 -6.887,22.86262 -1.73867,28.72462 l -7.72561,0.0254 -0.89286,4.10715 -4.28571,1.42857 -0.89286,4.10714 -4.28571,1.07143 -0.17857,3.21428 -6.42858,5 -18.75,0.35715 0.89286,-6.60714 3.03572,3.39285 23.21428,-25 -2.67858,-3.03572 2.92587,-6.06617 4.21174,4.06383 z"
+       id="path4196"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccccccccccccccc"
+       inkscape:export-filename="G:\Documentos\Unity V\_Android\Proyectos\4-Project [ClassicSurvival]\ClassicSurvival\Assets\_CS\Arte\Graficos\Sprites\PlaceHolders\Cuchillo.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1"
+       d="m 169.82143,137.89792 43.39285,-48.928573 c -7.2885,12.473603 -6.55432,21.861553 -30.89285,40.892853 z"
+       id="path4198"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccc"
+       inkscape:export-filename="G:\Documentos\Unity V\_Android\Proyectos\4-Project [ClassicSurvival]\ClassicSurvival\Assets\_CS\Arte\Graficos\Sprites\PlaceHolders\Cuchillo.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer4"
+     inkscape:label="Afilador"
+     sodipodi:insensitive="true"
+     style="display:none">
+    <rect
+       style="opacity:1;fill:none;fill-opacity:1;stroke:#1a1a1a;stroke-width:0;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect4209"
+       width="100"
+       height="100"
+       x="122.67857"
+       y="57.362202"
+       inkscape:export-filename="G:\Documentos\Unity V\_Android\Proyectos\4-Project [ClassicSurvival]\ClassicSurvival\Assets\_CS\Arte\Graficos\Sprites\PlaceHolders\AfiladorCuchillos.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:#999999;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 126.42857,66.915776 c 2.44914,-0.33995 3.73922,-1.983847 4.28571,-4.464286 l 87.32143,87.58929 2.67858,5 -5.17858,-1.25 z"
+       id="path4211"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cccccc"
+       inkscape:export-filename="G:\Documentos\Unity V\_Android\Proyectos\4-Project [ClassicSurvival]\ClassicSurvival\Assets\_CS\Arte\Graficos\Sprites\PlaceHolders\AfiladorCuchillos.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:#784421;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 146.51786,87.719347 -21.875,-20.982143 c 1.43116,-5.583526 4.89424,-5.467807 5.89285,-6.160714 l 21.51787,21.785714 5.35714,-0.982142 c 2.31376,-0.695058 -10.77884,13.654694 -10.89286,11.517857 z"
+       id="path4213"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccccc"
+       inkscape:export-filename="G:\Documentos\Unity V\_Android\Proyectos\4-Project [ClassicSurvival]\ClassicSurvival\Assets\_CS\Arte\Graficos\Sprites\PlaceHolders\AfiladorCuchillos.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <ellipse
+       style="opacity:1;fill:#ffd42a;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path4215"
+       cx="128.61606"
+       cy="64.52932"
+       rx="0.93750006"
+       ry="0.91711956"
+       inkscape:export-filename="G:\Documentos\Unity V\_Android\Proyectos\4-Project [ClassicSurvival]\ClassicSurvival\Assets\_CS\Arte\Graficos\Sprites\PlaceHolders\AfiladorCuchillos.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <ellipse
+       style="opacity:1;fill:#ffd42a;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path4215-1"
+       cx="130.44643"
+       cy="66.380066"
+       rx="0.93750006"
+       ry="0.91711956"
+       inkscape:export-filename="G:\Documentos\Unity V\_Android\Proyectos\4-Project [ClassicSurvival]\ClassicSurvival\Assets\_CS\Arte\Graficos\Sprites\PlaceHolders\AfiladorCuchillos.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <ellipse
+       style="opacity:1;fill:#ffd42a;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="path4215-5"
+       cx="132.14285"
+       cy="67.808632"
+       rx="0.93750006"
+       ry="0.91711956"
+       inkscape:export-filename="G:\Documentos\Unity V\_Android\Proyectos\4-Project [ClassicSurvival]\ClassicSurvival\Assets\_CS\Arte\Graficos\Sprites\PlaceHolders\AfiladorCuchillos.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer5"
+     inkscape:label="ArmaduraPapel">
+    <rect
+       style="opacity:1;fill:none;fill-opacity:1;stroke:none;stroke-width:1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect4239"
+       width="100"
+       height="100"
+       x="102.79538"
+       y="56.024891"
+       inkscape:export-filename="G:\Documentos\Unity V\_Android\Proyectos\4-Project [ClassicSurvival]\ClassicSurvival\Assets\_CS\Arte\Graficos\Sprites\PlaceHolders\ArmaduraPapel.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:#e6e6e6;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 111.44173,108.63014 c -2.54992,23.19623 12.67891,34.19108 24.49797,32.18359 l 4.16305,-3.84281 c -14.21099,2.64601 -31.00449,-17.45499 -24.8182,-33.1443 z"
+       id="path4289"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="G:\Documentos\Unity V\_Android\Proyectos\4-Project [ClassicSurvival]\ClassicSurvival\Assets\_CS\Arte\Graficos\Sprites\PlaceHolders\ArmaduraPapel.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:#e6e6e6;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 138.32543,78.077757 c -2.54992,23.196233 12.67891,34.191083 24.49797,32.183593 l 4.16305,-3.84281 c -14.21099,2.64601 -31.00449,-17.454993 -24.8182,-33.144303 z"
+       id="path4289-2"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="G:\Documentos\Unity V\_Android\Proyectos\4-Project [ClassicSurvival]\ClassicSurvival\Assets\_CS\Arte\Graficos\Sprites\PlaceHolders\ArmaduraPapel.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:#ffffff;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 117.68631,117.27648 48.83581,-53.479223 c 25.16091,3.730352 21.89844,20.076015 15.53139,26.579491 l -49.15605,54.920282 c 3.47422,-7.72009 11.49971,-16.05728 -15.21115,-28.02055 z"
+       id="path4243"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="G:\Documentos\Unity V\_Android\Proyectos\4-Project [ClassicSurvival]\ClassicSurvival\Assets\_CS\Arte\Graficos\Sprites\PlaceHolders\ArmaduraPapel.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:#ffffff;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 118.62859,118.41732 167.4644,64.938093 c 25.16091,3.730352 21.89844,20.07601 15.53139,26.57949 l -49.15605,54.920287 c 3.47422,-7.72009 11.49971,-16.05728 -15.21115,-28.02055 z"
+       id="path4243-1"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="G:\Documentos\Unity V\_Android\Proyectos\4-Project [ClassicSurvival]\ClassicSurvival\Assets\_CS\Arte\Graficos\Sprites\PlaceHolders\ArmaduraPapel.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:#ffffff;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 121.19046,118.09708 48.83581,-53.479222 c 25.16091,3.730353 21.89844,20.076015 15.53139,26.579491 l -49.15605,54.920281 c 3.47422,-7.72009 11.49971,-16.05728 -15.21115,-28.02055 z"
+       id="path4243-8"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="G:\Documentos\Unity V\_Android\Proyectos\4-Project [ClassicSurvival]\ClassicSurvival\Assets\_CS\Arte\Graficos\Sprites\PlaceHolders\ArmaduraPapel.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:#ffffff;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 122.95176,118.41732 48.83581,-53.479227 c 25.16091,3.730352 21.89844,20.076014 15.53139,26.57949 l -49.15605,54.920287 c 3.47422,-7.72009 11.49971,-16.05728 -15.21115,-28.02055 z"
+       id="path4243-2"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="G:\Documentos\Unity V\_Android\Proyectos\4-Project [ClassicSurvival]\ClassicSurvival\Assets\_CS\Arte\Graficos\Sprites\PlaceHolders\ArmaduraPapel.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:#e6e6e6;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 148.58897,134.40904 c 5.59696,-22.49842 -24.12257,-31.55513 -37.6276,-25.77891 l 4.64341,-5.12376 c 15.75271,-10.845361 44.84286,11.17728 37.46748,26.09915 z"
+       id="path4272"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="G:\Documentos\Unity V\_Android\Proyectos\4-Project [ClassicSurvival]\ClassicSurvival\Assets\_CS\Arte\Graficos\Sprites\PlaceHolders\ArmaduraPapel.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+    <path
+       style="fill:#e6e6e6;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 175.87792,103.44831 c 5.59696,-22.498419 -24.12257,-31.555124 -37.6276,-25.778904 l 4.64341,-5.12376 c 15.75271,-10.845357 44.84286,11.177275 37.46748,26.09914 z"
+       id="path4272-3"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccc"
+       inkscape:export-filename="G:\Documentos\Unity V\_Android\Proyectos\4-Project [ClassicSurvival]\ClassicSurvival\Assets\_CS\Arte\Graficos\Sprites\PlaceHolders\ArmaduraPapel.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
+  </g>
+</svg>
