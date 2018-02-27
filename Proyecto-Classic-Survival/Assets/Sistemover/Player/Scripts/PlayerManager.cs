@@ -4,19 +4,21 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour 
 {
-	//EVENTOS
-	public event System.Action<LocomocionMotor> OnLocomocionMotorJoined;
+	//VARIABLES PÚBLICAS
+	public GameObject ActiveModel;
+	[HideInInspector] public Animator m_Animator;
+	[HideInInspector] public Rigidbody m_RigidBody;
+	[HideInInspector] public CapsuleCollider m_CapsuleCollider;
 
 	//INSTANCIADORES
-	private LocomocionMotor m_LocalLocomocionMotor;
-	public LocomocionMotor LocalLocomocionMotor
+	private LocomocionMotor m_LocomocionMotor;
+	public LocomocionMotor LocomocionMotor
 	{
-		get{ return m_LocalLocomocionMotor; }
-		set
+		get
 		{
-			m_LocalLocomocionMotor = value;
-			if (OnLocomocionMotorJoined != null)
-				OnLocomocionMotorJoined (LocalLocomocionMotor);
+			if (m_LocomocionMotor == null)
+				m_LocomocionMotor = gameObject.GetComponent<LocomocionMotor> ();
+			return m_LocomocionMotor;
 		}
 	}
 
@@ -30,23 +32,30 @@ public class PlayerManager : MonoBehaviour
 	}
 
 	void Start () 
-	{		
+	{	
+		Init ();
+		LocomocionMotor.Init (m_RigidBody, m_Animator);
 	}
 
-	public void FixedTick()
+	void Init()
 	{
-
+		m_Animator = ActiveModel.GetComponent<Animator> ();
+		m_CapsuleCollider = GetComponent<CapsuleCollider> ();
+		m_RigidBody = GetComponent<Rigidbody> ();
 	}
 
-	public void Tick () 
+	public void Tick (float d, bool d_a, bool d_b, bool d_x, bool d_y, bool u_a, bool u_b, bool u_x, bool u_y) 
 	{
-		if (LocalLocomocionMotor != null)
-			LocalLocomocionMotor.Tick ();
+		
+	}
+
+	public void FixedTick(float d, Vector2 AxisL, Vector2 AxisR)
+	{
+		
 	}
 
 	void JoinPlayer()
 	{
-		SimpleGameManager.instance.LocalPlayer = this;
-		Debug.Log ("Uniendo Player");
+		GameManager.instance.LocalPlayer = this;
 	}
 }

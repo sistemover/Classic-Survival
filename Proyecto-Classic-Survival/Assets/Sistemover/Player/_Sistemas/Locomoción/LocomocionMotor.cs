@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class LocomocionMotor : MonoBehaviour 
 {
-	void Awake ()
+	public void Init(Rigidbody r, Animator a)
 	{
-		SimpleGameManager.instance.LocalPlayer.LocalLocomocionMotor = this;
+		
 	}
 
 	public void FixedTick()

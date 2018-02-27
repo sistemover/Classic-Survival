@@ -43,7 +43,5 @@ public class SimpleGameManager : MonoBehaviour
 	
 	void Update () 
 	{
-		if (LocalPlayer != null)
-			LocalPlayer.Tick ();
 	}
 }
