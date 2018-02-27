@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour 
 {
+	public GameObject p;
+	
 	#region Singleton
 	public static GameManager instance;
 	void Awake ()
@@ -41,6 +43,7 @@ public class GameManager : MonoBehaviour
 	void Start () 
 	{
 		Init ();
+		p.SetActive (true);
 	}
 
 	void Init()

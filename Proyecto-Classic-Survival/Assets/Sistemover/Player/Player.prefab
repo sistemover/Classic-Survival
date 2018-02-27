@@ -1021,7 +1021,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1992400157913850
 GameObject:
   m_ObjectHideFlags: 1
@@ -2051,7 +2051,7 @@ Animator:
   m_GameObject: {fileID: 1357788700753096}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 2bbb280c964c6104fa5ffaae96926a85, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1dd60388402effa48bcea468a5a752c8, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 1
@@ -2085,6 +2085,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca5857f7e5ced8f4f8e6c305601b0dce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  vertical: 0
+  horizontal: 0
+  moveAmount: 0
+  moveDir: {x: 0, y: 0, z: 0}
+  moveSpeed: 0.7
+  runSpeed: 3.5
+  rotateSpeed: 50
+  toGround: 0.5
+  onGround: 0
+  run: 0
+  lockOn: 0
 --- !u!136 &136544196116276686
 CapsuleCollider:
   m_ObjectHideFlags: 1

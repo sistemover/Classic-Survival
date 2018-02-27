@@ -46,12 +46,12 @@ public class PlayerManager : MonoBehaviour
 
 	public void Tick (float d, bool d_a, bool d_b, bool d_x, bool d_y, bool u_a, bool u_b, bool u_x, bool u_y) 
 	{
-		
+		LocomocionMotor.Tick (d);
 	}
 
 	public void FixedTick(float d, Vector2 AxisL, Vector2 AxisR)
 	{
-		
+		LocomocionMotor.FixedTick (d, AxisL);
 	}
 
 	void JoinPlayer()
