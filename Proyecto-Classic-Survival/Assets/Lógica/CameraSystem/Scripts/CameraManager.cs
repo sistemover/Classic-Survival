@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CameraManager : MonoBehaviour 
 {
+	//VARIABLES PÚBLICAS
 	public GameObject[] Cameras;
 	public int ActiveCamera;
 
@@ -12,6 +13,20 @@ public class CameraManager : MonoBehaviour
 	void Awake ()
 	{
 		JoinCamera ();
+	}
+
+	void Start()
+	{
+		DesactivarCamaras (ActiveCamera);
+	}
+
+	public void DesactivarCamaras(int a)
+	{
+		ActiveCamera = a;
+		for (int i = 0; i < Cameras.Length; i++) {
+			Cameras [i].SetActive (false);
+		}
+		Cameras [ActiveCamera].SetActive (true);
 	}
 
 	void JoinCamera()
