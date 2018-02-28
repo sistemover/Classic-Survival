@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
 
 	//EVENTOS
 	public event System.Action<PlayerManager> OnLocalPlayerJoined;
+	public event System.Action<CameraManager> OnActualCameraManagerJoined;
 
 	//VARIABLES PÚBLICAS
 	[HideInInspector]public InputManager InputManager;
@@ -35,6 +36,21 @@ public class GameManager : MonoBehaviour
 			m_Player = value;
 			if (OnLocalPlayerJoined != null)
 				OnLocalPlayerJoined (m_Player);
+		}
+	}
+
+	private CameraManager m_Cam;
+	public CameraManager ActualCameraManager
+	{
+		get
+		{
+			return m_Cam;
+		}
+		set
+		{
+			m_Cam = value;
+			if (OnActualCameraManagerJoined != null)
+				OnActualCameraManagerJoined (m_Cam);
 		}
 	}
 
