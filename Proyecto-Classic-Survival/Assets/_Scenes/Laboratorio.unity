@@ -9883,6 +9883,11 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1636076170 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1393066712678786, guid: fdbc04ef9f691c74ba8461927ab1c82d,
+    type: 2}
+  m_PrefabInternal: {fileID: 1890373869}
 --- !u!1 &1647095521
 GameObject:
   m_ObjectHideFlags: 0
@@ -10153,6 +10158,7 @@ GameObject:
   - component: {fileID: 1721186028}
   - component: {fileID: 1721186029}
   - component: {fileID: 1721186030}
+  - component: {fileID: 1721186031}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -10184,7 +10190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12861dc02cf4b1142b1ae108fe449163, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  p: {fileID: 69020168}
+  cargar: {fileID: 1721186031}
   InputManager: {fileID: 0}
 --- !u!114 &1721186030
 MonoBehaviour:
@@ -10207,6 +10213,19 @@ MonoBehaviour:
   u_b: 0
   AxisL: {x: 0, y: 0}
   AxisR: {x: 0, y: 0}
+--- !u!114 &1721186031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1721186027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faa9ee1afaa43d64db533f69740f22d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 69020168}
+  cameraManager: {fileID: 1636076170}
 --- !u!1 &1735829144
 GameObject:
   m_ObjectHideFlags: 0

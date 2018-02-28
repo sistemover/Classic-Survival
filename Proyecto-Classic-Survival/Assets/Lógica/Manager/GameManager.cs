@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour 
 {
-	//public GameObject p;
+	public CargarPlayerCamera cargar;
 	
 	#region Singleton
 	public static GameManager instance;
@@ -76,6 +76,10 @@ public class GameManager : MonoBehaviour
 			LocalPlayer.Tick (delta, 
 				InputManager.d_a, InputManager.d_b, InputManager.d_x, InputManager.d_y, 
 				InputManager.u_a, InputManager.u_b, InputManager.u_x, InputManager.u_y);
+
+		//**
+		cargar.tick(InputManager.d_b);
+		//**
 	}
 
 	void FixedUpdate()
