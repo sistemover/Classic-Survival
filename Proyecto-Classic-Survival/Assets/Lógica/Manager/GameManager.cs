@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour 
 {
-	public GameObject p;
+	//public GameObject p;
 	
 	#region Singleton
 	public static GameManager instance;
@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
 	void Start () 
 	{
 		Init ();
-		p.SetActive (true);
+		//p.SetActive (true);
 	}
 
 	void Init()
@@ -84,7 +84,7 @@ public class GameManager : MonoBehaviour
 		InputManager.FixedTick ();
 
 		if (LocalPlayer != null)
-			LocalPlayer.FixedTick (fixedDelta, InputManager.AxisL, InputManager.AxisR);
+			LocalPlayer.FixedTick (fixedDelta, InputManager.AxisL, InputManager.AxisR, ActualCameraManager.Cameras[ActualCameraManager.ActiveCamera]);
 	}
 		
 }

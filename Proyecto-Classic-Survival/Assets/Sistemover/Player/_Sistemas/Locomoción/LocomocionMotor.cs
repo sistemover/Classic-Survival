@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class LocomocionMotor : MonoBehaviour 
-{
-	public GameObject cam;
-	
+{	
 	[Header("Inputs")]
 	public float vertical;
 	public float horizontal;
@@ -68,13 +66,13 @@ public class LocomocionMotor : MonoBehaviour
 		anim.SetBool ("onGround", true);
 	}
 
-	public void FixedTick(float d, Vector2 AxisL)
+	public void FixedTick(float d, Vector2 AxisL, GameObject c)
 	{
 		delta = d;
 		horizontal = AxisL.x;
 		vertical = AxisL.y;
 
-		UpdateOrientation ();
+		UpdateOrientation (c);
 		UpdateMoveDirection ();
 		UpdateFalling ();
 		UpdateSpeed ();
@@ -88,10 +86,21 @@ public class LocomocionMotor : MonoBehaviour
 		UpdateOnGround ();
 	}
 
-	void UpdateOrientation()
+	void UpdateOrientation(GameObject cam)
 	{
 		GameObject g = new GameObject ();
 		Transform t_g = g.transform;
+
+		CamA = cam;
+		if (CamB == CamA)
+			cam = CamA;
+		else if (CamB != CamA) 
+		{
+			if(!CheckOnAxis())
+				CamB=CamA;
+			cam=CamB;
+		}
+
 		Vector3 v_cam = new Vector3 (0, cam.transform.eulerAngles.y, cam.transform.eulerAngles.z);
 		t_g.eulerAngles = v_cam;
 
@@ -113,16 +122,10 @@ public class LocomocionMotor : MonoBehaviour
 
 	void UpdateMoveSpeed()
 	{
-		if (moveAmount > 0f) 
-		{
-			moveAmount = 1f;
-			moveSpeed = 1.5f;
-		}
-		/*
 		if (moveAmount >= 0.8f)
 			moveSpeed = 1.5f;
 		else if (moveAmount < 0.8f)
-			moveSpeed = antMoveSpeed;*/
+			moveSpeed = antMoveSpeed;
 	}
 
 	void UpdateFalling()
@@ -174,5 +177,12 @@ public class LocomocionMotor : MonoBehaviour
 			transform.position = targetPosition;
 		}
 		return r;
+	}
+
+	bool CheckOnAxis()
+	{
+		if (horizontal == 0 && vertical == 0)
+			return false;
+		return true;
 	}
 }

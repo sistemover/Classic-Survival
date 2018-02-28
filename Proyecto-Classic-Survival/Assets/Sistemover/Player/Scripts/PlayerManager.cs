@@ -49,9 +49,9 @@ public class PlayerManager : MonoBehaviour
 		LocomocionMotor.Tick (d);
 	}
 
-	public void FixedTick(float d, Vector2 AxisL, Vector2 AxisR)
+	public void FixedTick(float d, Vector2 AxisL, Vector2 AxisR, GameObject c)
 	{
-		LocomocionMotor.FixedTick (d, AxisL);
+		LocomocionMotor.FixedTick (d, AxisL, c);
 	}
 
 	void JoinPlayer()
