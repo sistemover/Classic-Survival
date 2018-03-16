@@ -50,7 +50,7 @@ public class L_Persistencia : MonoBehaviour
 		{
 			BinaryFormatter bf = new BinaryFormatter ();
 			FileStream file = File.Open (Application.persistentDataPath + "/PersistantData.txt", FileMode.Open);
-			LaboratoryDataToSave.current = (LaboratoryDataToSave)bf.Deserialize (file);
+			LaboratoryDataToSave.current = (LaboratoryDataToSave)bf.Deserialize (file); 
 			debug.text = "Datos Cargados Exitosamente: " + LaboratoryDataToSave.current.Entrada;
 		} 
 		else 
