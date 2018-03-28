@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
 	public static GameManager instance;
 	void Awake ()
 	{
+		Debug.Log ("GameManager");
 		if (instance != null)
 			return;
 		instance = this;
@@ -22,6 +23,7 @@ public class GameManager : MonoBehaviour
 
 	//VARIABLES PÚBLICAS
 	[HideInInspector]public InputManager InputManager;
+	[HideInInspector]public TouchGamePadManager touchGamePadManager;
 
 	//INSTANCIADORES
 	private  PlayerManager m_Player;
@@ -54,17 +56,41 @@ public class GameManager : MonoBehaviour
 		}
 	}
 
+	private CanvasManager m_canvasManager;
+	public CanvasManager canvasManager
+	{
+		get
+		{
+			if (m_canvasManager == null)
+				m_canvasManager = GameObject.Find ("CanvasManager").GetComponent<CanvasManager> ();
+			return m_canvasManager;
+		}
+	}
+
+	private LocalizationManager m_localizationManager;
+	public LocalizationManager localizationManager
+	{
+		get
+		{
+			if (m_localizationManager == null)
+				m_localizationManager = GameObject.Find ("LocalizationManager").GetComponent<LocalizationManager> ();
+			return m_localizationManager;
+		}
+	}
+
 	//**************************************************
 
 	void Start () 
 	{
 		Init ();
-		//p.SetActive (true);
+		canvasManager.Init();
+		localizationManager.Init();
 	}
 
 	void Init()
 	{
 		InputManager = gameObject.GetComponent<InputManager> ();
+		touchGamePadManager = canvasManager.touchGamePadManager;
 	}
 
 	void Update () 
@@ -76,10 +102,6 @@ public class GameManager : MonoBehaviour
 			LocalPlayer.Tick (delta, 
 				InputManager.d_a, InputManager.d_b, InputManager.d_x, InputManager.d_y, 
 				InputManager.u_a, InputManager.u_b, InputManager.u_x, InputManager.u_y);
-
-		//**
-		cargar.tick(InputManager.d_b);
-		//**
 	}
 
 	void FixedUpdate()

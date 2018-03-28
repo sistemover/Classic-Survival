@@ -2,60 +2,40 @@
 	"text":
 	[
 		{
-			"key"   : "items",
-			"value" : "localizedItems_es.json"
-		},
-				{
-			"key"   : "titulo_opciones",
-			"value" : "Seleccione Lenguaje"
-		},
-		{
-			"key"   : "titulo_main",
-			"value" : "Test Game"
-		},
-		{
-			"key"   : "titulo_pausa",
-			"value" : "Pausa"
-		},
-				{
-			"key"   : "titulo_comandos",
-			"value" : "Comandos"
-		},
-		{
-			"key"   : "boton_inicio",
+			"key"   : "tap_iniciar",
 			"value" : "Iniciar"
 		},
 		{
-			"key"   : "boton_opciones",
+			"key"   : "tap_opciones",
 			"value" : "Opciones"
 		},
 		{
-			"key"   : "boton_salir",
+			"key"   : "tap_salir",
 			"value" : "Salir"
 		},
 		{
-			"key"   : "boton_volver",
+			"key"   : "tap_idioma",
+			"value" : "Idioma"
+		},
+		{
+			"key"   : "tap_volver",
 			"value" : "Volver"
 		},
-				{
-			"key"   : "boton_inventario",
-			"value" : "Inventario"
+		{
+			"key"   : "tap_español",
+			"value" : "Español"
 		},
-				{
-			"key"   : "boton_pausa",
-			"value" : "Pausar"
+		{
+			"key"   : "tap_ingles",
+			"value" : "Inglés"
 		},
-				{
-			"key"   : "boton_atacar",
-			"value" : "Atacar"
+		{
+			"key"   : "titulo_opciones",
+			"value" : "OPCIONES"
 		},
-				{
-			"key"   : "boton_defender",
-			"value" : "Defender"
-		},
-				{
-			"key"   : "boton_mainmenu",
-			"value" : "Menú Principal"
+		{
+			"key"   : "titulo_idioma",
+			"value" : "IDIOMA"
 		}
 	],
 	"items":
