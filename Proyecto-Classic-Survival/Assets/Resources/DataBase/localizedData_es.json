@@ -1,0 +1,82 @@
+{
+	"text":
+	[
+		{
+			"key"   : "items",
+			"value" : "localizedItems_es.json"
+		},
+				{
+			"key"   : "titulo_opciones",
+			"value" : "Seleccione Lenguaje"
+		},
+		{
+			"key"   : "titulo_main",
+			"value" : "Test Game"
+		},
+		{
+			"key"   : "titulo_pausa",
+			"value" : "Pausa"
+		},
+				{
+			"key"   : "titulo_comandos",
+			"value" : "Comandos"
+		},
+		{
+			"key"   : "boton_inicio",
+			"value" : "Iniciar"
+		},
+		{
+			"key"   : "boton_opciones",
+			"value" : "Opciones"
+		},
+		{
+			"key"   : "boton_salir",
+			"value" : "Salir"
+		},
+		{
+			"key"   : "boton_volver",
+			"value" : "Volver"
+		},
+				{
+			"key"   : "boton_inventario",
+			"value" : "Inventario"
+		},
+				{
+			"key"   : "boton_pausa",
+			"value" : "Pausar"
+		},
+				{
+			"key"   : "boton_atacar",
+			"value" : "Atacar"
+		},
+				{
+			"key"   : "boton_defender",
+			"value" : "Defender"
+		},
+				{
+			"key"   : "boton_mainmenu",
+			"value" : "Menú Principal"
+		}
+	],
+	"items":
+	[
+		{
+			"key"              : "item_cubo",
+			"name"             : "Cubo",
+			"shortdescription" : "Añadir descripción Corta, Cubo",
+			"longdescription"  : "Añadir descripción Larga, Cubo"
+		},
+		{
+			"key"              : "item_esfera",
+			"name"             : "Esfera",
+			"shortdescription" : "Añadir descripción Corta, Esfera",
+			"longdescription"  : "Añadir descripción Larga, Esfera"
+		},
+		{
+			"key"              : "item_cilindro",
+			"name"             : "Cilindro",
+			"shortdescription" : "Añadir descripción Corta, Cilindro",
+			"longdescription"  : "Añadir descripción Larga, Cilindro"
+		}
+	]
+}
