@@ -36,6 +36,22 @@
 		{
 			"key"   : "titulo_idioma",
 			"value" : "LANGUAGE"
+		},
+		{
+			"key"   : "titulo_inventario",
+			"value" : "INVENTORY"
+		},
+		{
+			"key"   : "titulo_equipo",
+			"value" : "EQUIP"
+		},
+		{
+			"key"   : "titulo_usar",
+			"value" : "Drag HERE to USE"
+		},
+		{
+			"key"   : "titulo_status",
+			"value" : "STATUS"
 		}
 	],	
 	"items":

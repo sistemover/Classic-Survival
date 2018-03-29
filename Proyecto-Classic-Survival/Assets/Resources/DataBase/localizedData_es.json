@@ -36,6 +36,22 @@
 		{
 			"key"   : "titulo_idioma",
 			"value" : "IDIOMA"
+		},
+		{
+			"key"   : "titulo_inventario",
+			"value" : "INVENTARIO"
+		},
+		{
+			"key"   : "titulo_equipo",
+			"value" : "EQUIPO"
+		},
+		{
+			"key"   : "titulo_usar",
+			"value" : "Arrastre AQUÍ para USAR"
+		},
+		{
+			"key"   : "titulo_status",
+			"value" : "ESTATUS"
 		}
 	],
 	"items":
