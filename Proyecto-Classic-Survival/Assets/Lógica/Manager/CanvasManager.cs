@@ -8,6 +8,7 @@ public class CanvasManager : MonoBehaviour
 	public GameObject MenuInicio;
 	public GameObject MenuOpciones;
 	public GameObject MenuIdioma;
+	public GameObject MenuInventario;
 
 	private TouchGamePadManager m_touchGamePadManager;
 	public TouchGamePadManager touchGamePadManager
@@ -29,7 +30,7 @@ public class CanvasManager : MonoBehaviour
 
 	void InstanciarMenus()
 	{
-		GameObject[] menus = { MenuInicio, MenuOpciones, MenuIdioma };
+		GameObject[] menus = { MenuInicio, MenuOpciones, MenuIdioma, MenuInventario };
 		for (int i = 0; i < menus.Length; i++) 
 		{
 			menus [i].SetActive (true);
@@ -56,5 +57,9 @@ public class CanvasManager : MonoBehaviour
 	public void TapIdioma()
 	{
 		MenuIdioma.SetActive (!MenuIdioma.activeInHierarchy);
+	}
+	public void TapInventario()
+	{
+		MenuInventario.SetActive (!MenuInventario.activeInHierarchy);
 	}
 }
