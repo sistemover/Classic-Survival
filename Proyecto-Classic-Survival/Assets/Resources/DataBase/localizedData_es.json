@@ -52,6 +52,22 @@
 		{
 			"key"   : "titulo_status",
 			"value" : "ESTATUS"
+		},
+		{
+			"key"   : "titulo_examinar",
+			"value" : "EXAMINAR"
+		},
+		{
+			"key"   : "titulo_pausa",
+			"value" : "PAUSA"
+		},
+		{
+			"key"   : "tap_continuar",
+			"value" : "Continuar"
+		},
+		{
+			"key"   : "tap_menuprincipal",
+			"value" : "Menú Principal"
 		}
 	],
 	"items":

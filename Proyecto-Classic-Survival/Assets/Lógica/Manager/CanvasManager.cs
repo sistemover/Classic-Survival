@@ -5,11 +5,19 @@ using UnityEngine.UI;
 
 public class CanvasManager : MonoBehaviour 
 {
+	//Variables públicas
+	public GameObject Interfaz;
 	public GameObject MenuInicio;
 	public GameObject MenuOpciones;
 	public GameObject MenuIdioma;
 	public GameObject MenuInventario;
+	public GameObject MenuExaminar;
+	public GameObject MenuPausa;
 
+	//Variables Privadas
+	private GameManager gameManager;
+
+	//Instanciaciones
 	private TouchGamePadManager m_touchGamePadManager;
 	public TouchGamePadManager touchGamePadManager
 	{
@@ -23,14 +31,14 @@ public class CanvasManager : MonoBehaviour
 
 	public void Init()
 	{
+		gameManager = GameManager.instance;
 		InstanciarMenus ();
-
 		touchGamePadManager.ActivarDesactivarGamePad (false);//Apaga el GamePad
 	}
 
 	void InstanciarMenus()
 	{
-		GameObject[] menus = { MenuInicio, MenuOpciones, MenuIdioma, MenuInventario };
+		GameObject[] menus = { MenuInicio, MenuOpciones, MenuIdioma, MenuInventario, MenuExaminar, Interfaz, MenuPausa };
 		for (int i = 0; i < menus.Length; i++) 
 		{
 			menus [i].SetActive (true);
@@ -40,15 +48,16 @@ public class CanvasManager : MonoBehaviour
 	}
 	public void TapIniciar()
 	{
-		GameManager gameManager = GameManager.instance;
 		CargarPlayerCamera cargar = gameManager.cargar;
 		GameObject player = cargar.player;
 		GameObject cameraManager = cargar.cameraManager;
 
-		gameManager.touchGamePadManager.ActivarDesactivarGamePad (true);
+		gameManager.touchGamePadManager.ActivarDesactivarGamePad (MenuInicio.activeInHierarchy);
 		cameraManager.SetActive(!cameraManager.activeSelf);
 		player.SetActive(!player.activeSelf);
-		MenuInicio.SetActive (false);
+		Interfaz.SetActive (MenuInicio.activeInHierarchy);
+		MenuInicio.SetActive (!MenuInicio.activeInHierarchy);
+		Time.timeScale = 1f;
 	}
 	public void TapOpciones()
 	{
@@ -60,6 +69,30 @@ public class CanvasManager : MonoBehaviour
 	}
 	public void TapInventario()
 	{
+		gameManager.touchGamePadManager.ActivarDesactivarRightGamePad (MenuInventario.activeInHierarchy);
+		Interfaz.SetActive (!Interfaz.activeInHierarchy);
 		MenuInventario.SetActive (!MenuInventario.activeInHierarchy);
+	}
+	public void TapExaminar()
+	{		
+		gameManager.touchGamePadManager.ActivarDesactivarLeftGamePad (MenuExaminar.activeInHierarchy);
+		MenuInventario.SetActive (!MenuInventario.activeInHierarchy);
+		MenuExaminar.SetActive (!MenuExaminar.activeInHierarchy);
+	}
+	public void TapPausa()
+	{
+		if (MenuPausa.activeInHierarchy)
+			Time.timeScale = 1f;
+		else
+			Time.timeScale = 0f;
+		gameManager.touchGamePadManager.ActivarDesactivarGamePad (MenuPausa.activeInHierarchy);
+		gameManager.LocalPlayer.GetComponent<PlayerClick> ().enabled = MenuPausa.activeInHierarchy;
+		Interfaz.SetActive (!Interfaz.activeInHierarchy);
+		MenuPausa.SetActive (!MenuPausa.activeInHierarchy);
+	}
+	public void TapMenuPrincipal()
+	{
+		TapIniciar ();
+		MenuPausa.SetActive (!MenuPausa.activeInHierarchy);
 	}
 }
