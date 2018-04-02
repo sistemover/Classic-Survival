@@ -28,12 +28,24 @@ public class CanvasManager : MonoBehaviour
 			return m_touchGamePadManager;
 		}
 	}
+	private InventarioCanvasManager m_inventarioCanvasManager;
+	public InventarioCanvasManager inventarioCanvasManager
+	{
+		get
+		{
+			if (m_inventarioCanvasManager == null)
+				m_inventarioCanvasManager = gameObject.GetComponent<InventarioCanvasManager> ();
+			return m_inventarioCanvasManager;
+		}
+	}
+
 
 	public void Init()
 	{
 		gameManager = GameManager.instance;
 		InstanciarMenus ();
 		touchGamePadManager.ActivarDesactivarGamePad (false);//Apaga el GamePad
+		inventarioCanvasManager.Init();
 	}
 
 	void InstanciarMenus()

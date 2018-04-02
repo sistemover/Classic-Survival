@@ -78,6 +78,17 @@ public class GameManager : MonoBehaviour
 		}
 	}
 
+	private InventarioManager m_inventarioManager;
+	public InventarioManager inventarioManager
+	{
+		get
+		{
+			if (m_inventarioManager == null)
+				m_inventarioManager = GameObject.Find ("InventarioManager").GetComponent<InventarioManager> ();
+			return m_inventarioManager;
+		}
+	}
+
 	//**************************************************
 
 	void Start () 

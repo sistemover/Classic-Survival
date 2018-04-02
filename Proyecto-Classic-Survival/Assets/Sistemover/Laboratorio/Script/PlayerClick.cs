@@ -6,6 +6,10 @@ public class PlayerClick : MonoBehaviour
 {
 	void OnMouseDown()
 	{
-		GameManager.instance.canvasManager.TapInventario ();
+		CanvasManager canvasManager = GameManager.instance.canvasManager;
+		GameObject menuInventario = canvasManager.MenuInventario;
+		canvasManager.TapInventario ();
+		if (menuInventario.activeInHierarchy)
+			GameManager.instance.inventarioManager.ActualizarInventario ();
 	}
 }
