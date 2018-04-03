@@ -2,22 +2,31 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
-public class ItemDriver : MonoBehaviour 
+public class ItemDriver : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
+	//Canvas Objects
 	public Image IconContainer;
 	public Text AmountContainer;
 
+	//Public and Hide Objects
+	[HideInInspector]public PocketItem myPocketItem;
 	[HideInInspector]public Item myItem;
 	[HideInInspector]public SlotType mySlotType;
 
-	public void AgregarItem(string path, int amount)
+	//Private Objects
+	private Transform originalParent;
+	private Vector3 originalPosition;
+
+	public void AgregarItem(PocketItem pocketItem)
 	{
-		myItem = Resources.Load(path) as Item;
+		myPocketItem = pocketItem;
+		myItem = Resources.Load(myPocketItem.ItemPath) as Item;
 
 		if(myItem != null)
 			AsignarIcono();
-		AsignarAmount(amount);
+		AsignarAmount(myPocketItem.Amount);
 	}
 	void AsignarIcono()
 	{
@@ -47,5 +56,25 @@ public class ItemDriver : MonoBehaviour
 	{
 		IconContainer.enabled = false;
 		AmountContainer.text = "";
+		myPocketItem = null;
+		myItem = null;
+	}
+	public void OnBeginDrag(PointerEventData eventData)
+	{
+		originalParent = this.transform.parent;
+		originalPosition = this.transform.position;
+		this.transform.SetParent (this.transform.parent.parent.parent.parent);
+		GetComponent<CanvasGroup> ().blocksRaycasts = false;
+	}
+	public void OnDrag(PointerEventData eventData)
+	{
+		if (myPocketItem != null)
+			this.transform.position = eventData.position;
+	}
+	public void OnEndDrag(PointerEventData eventData)
+	{
+		this.transform.SetParent (originalParent);
+		this.transform.position = originalPosition;
+		GetComponent<CanvasGroup> ().blocksRaycasts = true;
 	}
 }

@@ -9,7 +9,10 @@ public class PlayerClick : MonoBehaviour
 		CanvasManager canvasManager = GameManager.instance.canvasManager;
 		GameObject menuInventario = canvasManager.MenuInventario;
 		canvasManager.TapInventario ();
-		if (menuInventario.activeInHierarchy)
+		if (menuInventario.activeInHierarchy) 
+		{
 			GameManager.instance.inventarioManager.ActualizarInventario ();
+			canvasManager.inventarioCanvasManager.SeleccionarSlot (0);
+		}
 	}
 }

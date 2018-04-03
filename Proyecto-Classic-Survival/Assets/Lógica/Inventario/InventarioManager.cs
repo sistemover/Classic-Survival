@@ -5,7 +5,7 @@ using UnityEngine;
 public class InventarioManager : MonoBehaviour 
 {
 	//Variables Públicas
-	public List<Pocket> PocketContainer = new List<Pocket> ();
+	public List<PocketItem> PocketContainer = new List<PocketItem> ();
 
 	//Delegates
 	public delegate void OnItemChanged();
@@ -19,7 +19,7 @@ public class InventarioManager : MonoBehaviour
 }
 
 [System.Serializable]
-public class Pocket
+public class PocketItem
 {
 	public string ItemPath = "Items/";
 	public int Amount;

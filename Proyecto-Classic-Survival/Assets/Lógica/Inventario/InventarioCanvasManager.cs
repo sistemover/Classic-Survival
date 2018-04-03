@@ -26,23 +26,21 @@ public class InventarioCanvasManager : MonoBehaviour
 	public void Tick()
 	{
 		CargarItems ();
-		SeleccionarPrimerSlot ();
 	}
 
 	void CargarItems()
 	{
-		List<Pocket> pocketContainer = inventarioManager.PocketContainer;
+		List<PocketItem> pocketContainer = inventarioManager.PocketContainer;
+
 		for (int i = 0; i < pocketContainer.Count; i++) 
-			PocketItemsDriver [i].AgregarItem (pocketContainer [i].ItemPath, pocketContainer [i].Amount);
-		for (int i = 0; i < PocketItemsDriver.Length; i++)
-		{
-			if (PocketItemsDriver [i].myItem == null)
-				PocketItemsDriver [i].LimpiarSlot ();
-		}
+			PocketItemsDriver [i].AgregarItem (pocketContainer [i]);
+		
+		for (int i = pocketContainer.Count; i < PocketItemsDriver.Length; i++)
+			PocketItemsDriver [i].LimpiarSlot ();
 	}
 
-	void SeleccionarPrimerSlot()
+	public void SeleccionarSlot(int index)
 	{
-		PocketItemsDriver [0].TapSeleccionarItem ();
+		PocketItemsDriver [index].TapSeleccionarItem ();
 	}
 }

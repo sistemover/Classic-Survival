@@ -95,6 +95,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slotType: 0
   itemDriver: {fileID: 114044436277557972}
+  highlight: {fileID: 114878170378691202}
 --- !u!114 &114044436277557972
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -108,6 +109,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IconContainer: {fileID: 114382601747814720}
   AmountContainer: {fileID: 114906800784234666}
+  myPocketItem:
+    ItemPath: Items/
+    Amount: 0
   myItem: {fileID: 0}
   mySlotType: 0
 --- !u!114 &114382601747814720
