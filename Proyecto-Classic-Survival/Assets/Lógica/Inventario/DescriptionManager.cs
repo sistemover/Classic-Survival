@@ -14,6 +14,12 @@ public class DescriptionManager : MonoBehaviour
 	public void FillDescription(Item item)
 	{
 		myItem = item;
+		if (myItem == null) 
+		{
+			nombre.text = "";
+			descripcion.text = "";
+			return;
+		}
 		itemText = GameManager.instance.localizationManager.GetlocalizedItem (myItem.name_key);
 		nombre.text = itemText.name;
 		descripcion.text = itemText.shortdescription;

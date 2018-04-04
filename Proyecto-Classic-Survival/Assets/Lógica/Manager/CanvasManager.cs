@@ -13,6 +13,7 @@ public class CanvasManager : MonoBehaviour
 	public GameObject MenuInventario;
 	public GameObject MenuExaminar;
 	public GameObject MenuPausa;
+	public GameObject MenuPickup;
 
 	//Variables Privadas
 	private GameManager gameManager;
@@ -50,7 +51,7 @@ public class CanvasManager : MonoBehaviour
 
 	void InstanciarMenus()
 	{
-		GameObject[] menus = { MenuInicio, MenuOpciones, MenuIdioma, MenuInventario, MenuExaminar, Interfaz, MenuPausa };
+		GameObject[] menus = { MenuInicio, MenuOpciones, MenuIdioma, MenuInventario, MenuExaminar, Interfaz, MenuPausa,MenuPickup};
 		for (int i = 0; i < menus.Length; i++) 
 		{
 			menus [i].SetActive (true);
@@ -84,6 +85,7 @@ public class CanvasManager : MonoBehaviour
 		gameManager.touchGamePadManager.ActivarDesactivarRightGamePad (MenuInventario.activeInHierarchy);
 		Interfaz.SetActive (!Interfaz.activeInHierarchy);
 		MenuInventario.SetActive (!MenuInventario.activeInHierarchy);
+		MenuPickup.SetActive (!MenuPickup.activeInHierarchy);
 	}
 	public void TapExaminar()
 	{		

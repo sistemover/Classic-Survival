@@ -4,4 +4,4 @@ using UnityEngine;
 
 public class EnumResources : MonoBehaviour {}
 
-public enum SlotType {Pocket, Pickup, Equipment}
+public enum SlotType {Pocket, Pickup, Equip, Storage}

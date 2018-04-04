@@ -8,6 +8,7 @@ public class ItemDriver : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
 {
 	//Canvas Objects
 	public Image IconContainer;
+	public Image Highlight;
 	public Text AmountContainer;
 
 	//Public and Hide Objects
@@ -45,12 +46,16 @@ public class ItemDriver : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
 	}
 	public void TapSeleccionarItem()
 	{
-		FillDescription ();
-	}
-	void FillDescription()
-	{
-		if (mySlotType.Equals (SlotType.Pocket))
-			GameManager.instance.canvasManager.inventarioCanvasManager.descriptionManager [0].FillDescription (myItem);
+		InventarioCanvasManager inventarioCanvasManager = GameManager.instance.canvasManager.inventarioCanvasManager;
+
+		inventarioCanvasManager.descriptionManager [0].FillDescription (myItem);
+
+		LimpiarHighlight (inventarioCanvasManager.PocketItemsDriver, inventarioCanvasManager.descriptionManager [0]);
+		LimpiarHighlight (inventarioCanvasManager.PickupItemsDriver, inventarioCanvasManager.descriptionManager [0]);
+		
+		if (myItem == null)
+			return;
+		AplicarHighlight (inventarioCanvasManager.descriptionManager[0]);
 	}
 	public void LimpiarSlot()
 	{
@@ -58,6 +63,35 @@ public class ItemDriver : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
 		AmountContainer.text = "";
 		myPocketItem = null;
 		myItem = null;
+	}
+	void LimpiarHighlight(ItemDriver[] itemDrivers, DescriptionManager descriptionManager)
+	{
+		Image nombre = descriptionManager.nombre.GetComponentInParent<Image> ();
+		Button descripcion = descriptionManager.descripcion.GetComponentInParent<Button> ();
+		nombre.color = Color.black;
+		ColorBlock colorBlock = descripcion.colors;
+		colorBlock.normalColor = Color.black;
+		descripcion.colors = colorBlock;
+
+		for (int i = 0; i < itemDrivers.Length; i++) 
+			itemDrivers [i].Highlight.color = Color.black;
+	}
+	void AplicarHighlight(DescriptionManager descriptionManager)
+	{
+		Color color = Color.black;
+		Image nombre = descriptionManager.nombre.GetComponentInParent<Image> ();
+		Button descripcion = descriptionManager.descripcion.GetComponentInParent<Button> ();
+
+		if(mySlotType.Equals(SlotType.Pocket))
+			color = Color.blue;
+		else if (mySlotType.Equals (SlotType.Pickup))
+			color = Color.cyan;
+
+		nombre.color = color;
+		ColorBlock colorBlock = descripcion.colors;
+		colorBlock.normalColor = color;
+		descripcion.colors = colorBlock;
+		Highlight.color = color;
 	}
 	public void OnBeginDrag(PointerEventData eventData)
 	{

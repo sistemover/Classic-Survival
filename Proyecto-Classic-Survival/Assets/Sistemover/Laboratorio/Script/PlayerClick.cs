@@ -12,7 +12,7 @@ public class PlayerClick : MonoBehaviour
 		if (menuInventario.activeInHierarchy) 
 		{
 			GameManager.instance.inventarioManager.ActualizarInventario ();
-			canvasManager.inventarioCanvasManager.SeleccionarSlot (0);
+			canvasManager.inventarioCanvasManager.SeleccionarSlot (0, canvasManager.inventarioCanvasManager.PocketItemsDriver);
 		}
 	}
 }

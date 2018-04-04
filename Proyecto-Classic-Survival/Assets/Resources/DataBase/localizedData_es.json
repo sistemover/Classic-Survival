@@ -68,6 +68,10 @@
 		{
 			"key"   : "tap_menuprincipal",
 			"value" : "Menú Principal"
+		},
+		{
+			"key"   : "titulo_pickup",
+			"value" : "RECOGER"
 		}
 	],
 	"items":
@@ -75,14 +79,14 @@
 		{
 			"key"              : "item_cubo",
 			"name"             : "Cubo",
-			"shortdescription" : "Añadir descripción Corta, Cubo",
-			"longdescription"  : "Añadir descripción Larga, Cubo"
+			"shortdescription" : "Pequeño cubo blanco, no sirve para nada.",
+			"longdescription"  : "Se dice en un lenguaje antiguo y ya casi extinto: -blap eeuqe kdnalow kef askldas f askdfn kfnsaflas infas- Lo cual no se sabe que significa, pero se cree tenga que ver con el cubo blanco ya que está escrito en el (DUH!!), aunque su romanización podría torcer su significado, por lo que aparentemente en nuestros tiempos, este pequeño cubo blanco resulta que no sirve para nada, aunque puede ser consumido."
 		},
 		{
 			"key"              : "item_esfera",
 			"name"             : "Esfera",
-			"shortdescription" : "Añadir descripción Corta, Esfera",
-			"longdescription"  : "Añadir descripción Larga, Esfera"
+			"shortdescription" : "Pequeña esfera blanca, sirve para probar lo esférico que es la tierra, metaforicamente hablando, claro...",
+			"longdescription"  : " En tiempos ancestrales se creía que la tierra era un plano cuyos bordes sostenian el final del mundo y universo.Luego de comprobar lo contrario (o sea, tierra esférica) mediante ritos paganos, se ha sostenido hasta la actualidad su forma casi esférica, quitando de lado claro, algunos problemas producto de las nuevas teorías paganas modernas como que esta gira sobre su propio eje (valla tontería). Por dichas afirmaciones es que se han creado numerosas esferas poligonales que insisten en recordar a aquellos retrasados modernos, lo equivocados que estan, ya que al poderse fabricar esferas esféricas y no planas son prueba de que la tierra misma es esférica."
 		},
 		{
 			"key"              : "item_cilindro",

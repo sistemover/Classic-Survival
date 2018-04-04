@@ -68,6 +68,10 @@
 		{
 			"key"   : "tap_menuprincipal",
 			"value" : "Main Menu"
+		},
+		{
+			"key"   : "titulo_pickup",
+			"value" : "PICKUP"
 		}
 	],	
 	"items":
