@@ -6077,11 +6077,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PocketContainer:
   - ItemPath: Items/Cubo
-    Amount: 123
+    Amount: 14
   - ItemPath: Items/Esfera
-    Amount: 321
+    Amount: 6
   - ItemPath: Items/Cilindro
     Amount: 12
+  - ItemPath: Items/Cubo
+    Amount: 30
 --- !u!4 &500396981
 Transform:
   m_ObjectHideFlags: 0

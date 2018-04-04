@@ -12,7 +12,11 @@ MonoBehaviour:
   m_Name: Cilindro
   m_EditorClassIdentifier: 
   name_key: item_cilindro
-  MaxAmount: 0
   "IconoPeque\xF1o": Sprites/Simples/Cilindro
   IconoGrande: Sprites/Amplios/Cilindro
   Modelo: Primitivas/Cilindro
+  MaxAmount: 30
+  isStackable: 0
+  isUsable: 0
+  isEquipment: 0
+  isCombinable: 0

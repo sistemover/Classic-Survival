@@ -12,7 +12,11 @@ MonoBehaviour:
   m_Name: Esfera
   m_EditorClassIdentifier: 
   name_key: item_esfera
-  MaxAmount: 0
   "IconoPeque\xF1o": Sprites/Simples/Esfera
   IconoGrande: Sprites/Amplios/Esfera
   Modelo: Primitivas/Esfera
+  MaxAmount: 45
+  isStackable: 0
+  isUsable: 0
+  isEquipment: 0
+  isCombinable: 0

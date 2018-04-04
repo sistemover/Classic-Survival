@@ -6,11 +6,16 @@ using UnityEngine;
 public class Item : ScriptableObject
 {
 	public string name_key;
-	public int MaxAmount;
 	public string IconoPequeño = "Sprites/Simples/";
 	public string IconoGrande = "Sprites/Amplios/";
 	public string Modelo = "Primitivas/";
 
+	public int MaxAmount;
+
+	public bool isStackable = false;
+	public bool isUsable = false;
+	public bool isEquipment = false;
+	public bool isCombinable = false;
 
 	public virtual void Use()
 	{
