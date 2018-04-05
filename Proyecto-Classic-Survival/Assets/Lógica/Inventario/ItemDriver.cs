@@ -23,7 +23,7 @@ public class ItemDriver : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
 	public void AgregarItem(PocketItem pocketItem)
 	{
 		myPocketItem = pocketItem;
-		myItem = Resources.Load(myPocketItem.ItemPath) as Item;
+		myItem = LoaderManager.singleton.CargarItem (myPocketItem.ItemPath);
 
 		if(myItem != null)
 			AsignarIcono();
@@ -31,7 +31,7 @@ public class ItemDriver : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
 	}
 	void AsignarIcono()
 	{
-		IconContainer.sprite = Resources.Load<Sprite> (myItem.IconoPequeño);
+		IconContainer.sprite = LoaderManager.singleton.CargarSprite (myItem.IconoPequeño);
 		if (IconContainer.sprite != null)
 			IconContainer.enabled = true;
 		else
@@ -43,6 +43,13 @@ public class ItemDriver : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
 			AmountContainer.text = "";
 		else
 			AmountContainer.text = amount.ToString ();
+	}
+	public void LimpiarSlot()
+	{
+		IconContainer.enabled = false;
+		AmountContainer.text = "";
+		myPocketItem = null;
+		myItem = null;
 	}
 	public void TapSeleccionarItem()
 	{
@@ -56,13 +63,6 @@ public class ItemDriver : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
 		if (myItem == null)
 			return;
 		AplicarHighlight (inventarioCanvasManager.descriptionManager[0]);
-	}
-	public void LimpiarSlot()
-	{
-		IconContainer.enabled = false;
-		AmountContainer.text = "";
-		myPocketItem = null;
-		myItem = null;
 	}
 	void LimpiarHighlight(ItemDriver[] itemDrivers, DescriptionManager descriptionManager)
 	{
@@ -93,6 +93,8 @@ public class ItemDriver : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
 		descripcion.colors = colorBlock;
 		Highlight.color = color;
 	}
+
+	#region |Algoritmos de DRAG|
 	public void OnBeginDrag(PointerEventData eventData)
 	{
 		originalParent = this.transform.parent;
@@ -111,4 +113,5 @@ public class ItemDriver : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
 		this.transform.position = originalPosition;
 		GetComponent<CanvasGroup> ().blocksRaycasts = true;
 	}
+	#endregion
 }

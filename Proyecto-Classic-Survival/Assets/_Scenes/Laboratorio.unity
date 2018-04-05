@@ -6164,7 +6164,11 @@ MonoBehaviour:
     Amount: 30
   - ItemPath: Items/Cubo
     Amount: 15
-  EquipContainer: []
+  EquipContainer:
+  - ItemPath: 
+    Amount: 0
+  - ItemPath: 
+    Amount: 0
   StorageContainer: []
 --- !u!4 &500396981
 Transform:
@@ -17987,6 +17991,7 @@ GameObject:
   - component: {fileID: 1721186029}
   - component: {fileID: 1721186030}
   - component: {fileID: 1721186031}
+  - component: {fileID: 1721186032}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -18055,6 +18060,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 69020168}
   cameraManager: {fileID: 1636076170}
+--- !u!114 &1721186032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1721186027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4de7441e960a3d5498a6ddb9d28b56cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1728054212
 GameObject:
   m_ObjectHideFlags: 0

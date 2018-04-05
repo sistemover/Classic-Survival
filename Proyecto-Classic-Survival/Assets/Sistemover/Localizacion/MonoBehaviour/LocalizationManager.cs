@@ -32,7 +32,7 @@ public class LocalizationManager : MonoBehaviour
 		localizedText = new Dictionary<string, string> ();
 		localizedItem = new Dictionary<string, ItemText> ();
 
-		TextAsset jsonOnTextAsset = Resources.Load ("DataBase/"+fileName) as TextAsset;
+		TextAsset jsonOnTextAsset = LoaderManager.singleton.CargarTextAsset ("DataBase/"+fileName);
 		string jsonOnString = jsonOnTextAsset.ToString ();
 		LocalizationData loadedData = JsonUtility.FromJson<LocalizationData> (jsonOnString);
 

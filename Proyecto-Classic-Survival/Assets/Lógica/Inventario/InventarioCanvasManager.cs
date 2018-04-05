@@ -27,10 +27,8 @@ public class InventarioCanvasManager : MonoBehaviour
 		PocketItemsDriver = PocketItemDriverParent.GetComponentsInChildren<ItemDriver> ();
 		PickupItemsDriver = PickupItemDriverParent.GetComponentsInChildren<ItemDriver> ();
 		EquipItemsDriver = EquipItemDriverParent.GetComponentsInChildren<ItemDriver> ();
-
-		inventarioManager.onItemSelectedCallback += Tick;
 	}
-	public void Tick()
+	public void CargarPocketsContainers()
 	{
 		CargandoPocketContainer ();
 		CargandoPickupContainer ();

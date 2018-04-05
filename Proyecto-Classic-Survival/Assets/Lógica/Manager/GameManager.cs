@@ -95,6 +95,7 @@ public class GameManager : MonoBehaviour
 		Init ();
 		canvasManager.Init();
 		localizationManager.Init();
+		inventarioManager.Init ();
 	}
 
 	void Init()

@@ -85,6 +85,12 @@ public class CanvasManager : MonoBehaviour
 		gameManager.touchGamePadManager.ActivarDesactivarRightGamePad (MenuInventario.activeInHierarchy);
 		Interfaz.SetActive (!Interfaz.activeInHierarchy);
 		MenuInventario.SetActive (!MenuInventario.activeInHierarchy);
+		//Abriendo Pickup
+		TapPickup();
+	}
+	public void TapPickup()
+	{
+		gameManager.touchGamePadManager.ActivarDesactivarLeftGamePad(MenuPickup.activeInHierarchy);
 		MenuPickup.SetActive (!MenuPickup.activeInHierarchy);
 	}
 	public void TapExaminar()

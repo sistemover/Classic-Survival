@@ -10,10 +10,6 @@ public class InventarioManager : MonoBehaviour
 	public List<PocketItem> EquipContainer = new List<PocketItem> ();
 	public List<PocketItem> StorageContainer = new List<PocketItem> ();
 
-	//Delegates
-	public delegate void OnItemChanged();
-	public OnItemChanged onItemSelectedCallback;
-
 	//DROP MANAGER
 	ItemDriver dropDriver;
 	PocketItem dropPocket;
@@ -28,10 +24,13 @@ public class InventarioManager : MonoBehaviour
 
 	InventarioCanvasManager inventarioCanvasManager;
 
+	public void Init()
+	{
+		inventarioCanvasManager = GameManager.instance.canvasManager.inventarioCanvasManager;
+	}
 	public void ActualizarInventario()
 	{
-		if (onItemSelectedCallback != null)
-			onItemSelectedCallback.Invoke ();
+		inventarioCanvasManager.CargarPocketsContainers ();
 	}
 
 	public void DropManager(ItemDriver dropDriver, ItemDriver hostDriver)
@@ -47,8 +46,6 @@ public class InventarioManager : MonoBehaviour
 		dropPocket = drop.myPocketItem;
 		hostDriver = host;
 		hostPocket = host.myPocketItem;
-	
-		inventarioCanvasManager = GameManager.instance.canvasManager.inventarioCanvasManager;
 
 		SeteandoContainer ();
 	}
@@ -114,6 +111,8 @@ public class InventarioManager : MonoBehaviour
 	{
 		if (hostPocket != null) 
 		{
+			if (hostDriver.myItem == null)
+				return;
 			if (CheckStackable (hostDriver.myItem, dropDriver.myItem))
 			{
 				Acumular ();
