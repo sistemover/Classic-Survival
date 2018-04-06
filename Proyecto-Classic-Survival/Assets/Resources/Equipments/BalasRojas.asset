@@ -15,7 +15,7 @@ MonoBehaviour:
   "IconoPeque\xF1o": Sprites/Simples/BalasRojas
   IconoGrande: Sprites/Amplios/BalasRojas
   Modelo: Primitivas/Cubo
-  MaxAmount: 15
+  MaxAmount: 45
   isStackable: 1
   isUsable: 0
   isEquipment: 1
