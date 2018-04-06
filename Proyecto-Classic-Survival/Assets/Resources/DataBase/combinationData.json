@@ -1,0 +1,17 @@
+{
+	"container":
+	[
+		{
+			"combKey"  : "comb_cubo_esfera",
+			"needKey"  : "item_esfera",
+			"itemPath" : "Items/Cilindro",
+			"amount"    : 0
+		},
+		{
+			"combKey"  : "comb_esfera_cilindro",
+			"needKey"  : "item_cilindro",
+			"itemPath" : "Items/Cubo",
+			"amount"    : 15
+		}
+	]
+}

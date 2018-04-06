@@ -6134,6 +6134,7 @@ GameObject:
   m_Component:
   - component: {fileID: 500396981}
   - component: {fileID: 500396980}
+  - component: {fileID: 500396982}
   m_Layer: 0
   m_Name: InventarioManager
   m_TagString: Untagged
@@ -6154,16 +6155,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PocketContainer:
   - ItemPath: Items/Esfera
-    Amount: 15
-  - ItemPath: Items/Cubo
-    Amount: 6
-  - ItemPath: Items/Cilindro
-    Amount: 7
-  PickupContainer:
+    Amount: 0
   - ItemPath: Items/Esfera
+    Amount: 0
+  PickupContainer:
+  - ItemPath: Items/Cubo
     Amount: 30
   - ItemPath: Items/Cubo
-    Amount: 15
+    Amount: 31
   EquipContainer:
   - ItemPath: 
     Amount: 0
@@ -6183,6 +6182,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &500396982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 500396979}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d436836e3b894a749a243485aeaf7cf4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ActualCombinationItem:
+    needKey: 
+    itemPath: 
+    amount: 0
 --- !u!1 &501044113
 GameObject:
   m_ObjectHideFlags: 0

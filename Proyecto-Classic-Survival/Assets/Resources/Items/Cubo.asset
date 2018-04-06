@@ -19,4 +19,6 @@ MonoBehaviour:
   isStackable: 1
   isUsable: 0
   isEquipment: 0
-  isCombinable: 0
+  isCombinable: 1
+  CombinableWith:
+  - comb_cubo_esfera

@@ -17,6 +17,8 @@ public class Item : ScriptableObject
 	public bool isEquipment = false;
 	public bool isCombinable = false;
 
+	public string[] CombinableWith;
+
 	public virtual void Use()
 	{
 		Debug.Log ("Usado el Item: " + name_key);

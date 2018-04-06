@@ -23,10 +23,13 @@ public class InventarioManager : MonoBehaviour
 	ItemDriver[] hostItemsDriver;
 
 	InventarioCanvasManager inventarioCanvasManager;
+	CombinationManager combinationManager;
 
 	public void Init()
 	{
 		inventarioCanvasManager = GameManager.instance.canvasManager.inventarioCanvasManager;
+		combinationManager = GetComponent<CombinationManager> ();
+		//combinationManager.OpenDictionary ();
 	}
 	public void ActualizarInventario()
 	{
@@ -118,6 +121,16 @@ public class InventarioManager : MonoBehaviour
 				Acumular ();
 				return;
 			}
+			else if(CheckCombinable())
+			{
+				Debug.Log ("Son Combinables");
+				dropContainer.Remove (dropPocket);
+				hostPocket.ItemPath = combinationManager.ActualCombinationItem.itemPath;
+				hostPocket.Amount = combinationManager.ActualCombinationItem.amount;
+				combinationManager.CloseDictionary ();
+				ActualizarInventario ();
+				hostItemsDriver [GetContainerIndex (hostPocket, hostItemsDriver)].TapSeleccionarItem ();
+			}
 			else
 			{
 				Cambiar ();
@@ -162,6 +175,20 @@ public class InventarioManager : MonoBehaviour
 			return result;
 		return true;
 	}
+	bool CheckCombinable()
+	{
+		bool result = true;
+		combinationManager.OpenDictionary ();
+		if (!ExistCombination (dropDriver.myItem, hostDriver.myItem)) 
+		{
+			if(!ExistCombination (hostDriver.myItem, dropDriver.myItem))
+			{
+				combinationManager.CloseDictionary ();
+				result = false;
+			}
+		}
+		return result;
+	}
 	int GetContainerIndex(PocketItem pocket, ItemDriver[] itemsDrivers)
 	{		
 		for (int i = 0; i < itemsDrivers.Length; i++) 
@@ -170,6 +197,23 @@ public class InventarioManager : MonoBehaviour
 				return i;
 		}
 		return 0;
+	}
+	bool ExistCombination(Item Base, Item Reactivo)
+	{
+		bool result = false;
+		if (!Base.isCombinable)
+			return result;
+		for (int i = 0; i < Base.CombinableWith.Length; i++) 
+		{		
+			string base_key = Base.CombinableWith [i];
+			string need_key = combinationManager.GetCombinationItem (base_key);
+			if (need_key == Reactivo.name_key) 
+			{
+				result = true;
+				break;
+			}
+		}
+		return result;
 	}
 	void SumarAmount(int MaxAmount, PocketItem drop, PocketItem host)
 	{
@@ -186,11 +230,4 @@ public class InventarioManager : MonoBehaviour
 			drop.Amount = dif;
 		}
 	}
-}
-
-[System.Serializable]
-public class PocketItem
-{
-	public string ItemPath = "Items/";
-	public int Amount;
 }

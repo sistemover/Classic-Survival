@@ -99,7 +99,7 @@ public class ItemDriver : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
 	{
 		originalParent = this.transform.parent;
 		originalPosition = this.transform.position;
-		this.transform.SetParent (this.transform.parent.parent.parent.parent);
+		this.transform.SetParent (this.transform.parent.parent.parent.parent.parent);
 		GetComponent<CanvasGroup> ().blocksRaycasts = false;
 	}
 	public void OnDrag(PointerEventData eventData)
