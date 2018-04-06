@@ -42,6 +42,10 @@ public class InventarioManager : MonoBehaviour
 		DropToVoid ();
 		DropToHost ();
 	}
+	public void EquipManager()
+	{
+		Debug.Log ("El item es un Equipment");
+	}
 
 	void Init(ItemDriver drop, ItemDriver host)
 	{
@@ -123,17 +127,13 @@ public class InventarioManager : MonoBehaviour
 			}
 			else if(CheckCombinable())
 			{
-				Debug.Log ("Son Combinables");
-				dropContainer.Remove (dropPocket);
-				hostPocket.ItemPath = combinationManager.ActualCombinationItem.itemPath;
-				hostPocket.Amount = combinationManager.ActualCombinationItem.amount;
-				combinationManager.CloseDictionary ();
-				ActualizarInventario ();
-				hostItemsDriver [GetContainerIndex (hostPocket, hostItemsDriver)].TapSeleccionarItem ();
+				Combinar ();
+				return;
 			}
 			else
 			{
 				Cambiar ();
+				return;
 			}
 		}
 	}
@@ -150,6 +150,15 @@ public class InventarioManager : MonoBehaviour
 		ActualizarInventario ();
 		hostDriver.TapSeleccionarItem ();
 		return;
+	}
+	void Combinar()
+	{
+		dropContainer.Remove (dropPocket);
+		hostPocket.ItemPath = combinationManager.ActualCombinationItem.itemPath;
+		hostPocket.Amount = combinationManager.ActualCombinationItem.amount;
+		combinationManager.CloseDictionary ();
+		ActualizarInventario ();
+		hostItemsDriver [GetContainerIndex (hostPocket, hostItemsDriver)].TapSeleccionarItem ();
 	}
 	void Cambiar()
 	{

@@ -15,7 +15,7 @@ MonoBehaviour:
   "IconoPeque\xF1o": Sprites/Simples/Esfera
   IconoGrande: Sprites/Amplios/Esfera
   Modelo: Primitivas/Esfera
-  MaxAmount: 0
+  MaxAmount: 1
   isStackable: 0
   isUsable: 0
   isEquipment: 0

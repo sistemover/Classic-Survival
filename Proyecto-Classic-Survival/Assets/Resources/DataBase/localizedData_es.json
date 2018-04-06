@@ -93,6 +93,18 @@
 			"name"             : "Cilindro",
 			"shortdescription" : "Añadir descripción Corta, Cilindro",
 			"longdescription"  : "Añadir descripción Larga, Cilindro"
+		},
+		{
+			"key"              : "item_pistola",
+			"name"             : "Pistola [2 mm]",
+			"shortdescription" : "Pequeña pistola portatil de 2 mm, quizas podrias herir un gato con ella.",
+			"longdescription"  : "No tengo ganas de hacer una descripción larga, asique conformemonos con esto: - wowowowowo!! -"
+		},
+		{
+			"key"              : "item_balas_rojas",
+			"name"             : "Balas Rojas [2 mm]",
+			"shortdescription" : "Balas Rojas de 2 mm, el color indica que hacen tanto daño como el golpe de un recién nacido.",
+			"longdescription"  : "Sep, así como suena."
 		}
 	]
 }

@@ -11,6 +11,9 @@ public class ItemDriver : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
 	public Image Highlight;
 	public Text AmountContainer;
 
+	//Public GameObjects
+	public GameObject slotDriver;
+
 	//Public and Hide Objects
 	[HideInInspector]public PocketItem myPocketItem;
 	[HideInInspector]public Item myItem;
@@ -51,6 +54,10 @@ public class ItemDriver : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
 		myPocketItem = null;
 		myItem = null;
 	}
+	public void ActivarDesactivarSlot(bool valor)
+	{
+		slotDriver.SetActive (valor);
+	}
 	public void TapSeleccionarItem()
 	{
 		InventarioCanvasManager inventarioCanvasManager = GameManager.instance.canvasManager.inventarioCanvasManager;
@@ -59,6 +66,7 @@ public class ItemDriver : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
 
 		LimpiarHighlight (inventarioCanvasManager.PocketItemsDriver, inventarioCanvasManager.descriptionManager [0]);
 		LimpiarHighlight (inventarioCanvasManager.PickupItemsDriver, inventarioCanvasManager.descriptionManager [0]);
+		LimpiarHighlight (inventarioCanvasManager.EquipItemsDriver, inventarioCanvasManager.descriptionManager [0]);
 		
 		if (myItem == null)
 			return;
@@ -86,6 +94,8 @@ public class ItemDriver : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
 			color = Color.blue;
 		else if (mySlotType.Equals (SlotType.Pickup))
 			color = Color.cyan;
+		else if (mySlotType.Equals (SlotType.Equip))
+			color = Color.green;
 
 		nombre.color = color;
 		ColorBlock colorBlock = descripcion.colors;

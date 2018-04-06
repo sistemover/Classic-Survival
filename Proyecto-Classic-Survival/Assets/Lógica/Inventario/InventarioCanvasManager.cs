@@ -32,12 +32,17 @@ public class InventarioCanvasManager : MonoBehaviour
 	{
 		CargandoPocketContainer ();
 		CargandoPickupContainer ();
+		CargandoEquipContainer ();
 	}
 	void CargandoPocketContainer()
 	{
 		List<PocketItem> Container = inventarioManager.PocketContainer;
 
 		for (int i = 0; i < Container.Count; i++) 
+			if (Container [i].Amount == 0)
+				Container.Remove (Container [i]);
+
+		for (int i = 0; i < Container.Count; i++)
 			PocketItemsDriver [i].AgregarItem (Container [i]);
 
 		for (int i = Container.Count; i < PocketItemsDriver.Length; i++)
@@ -47,11 +52,33 @@ public class InventarioCanvasManager : MonoBehaviour
 	{
 		List<PocketItem> Container = inventarioManager.PickupContainer;
 
-		for (int i = 0; i < Container.Count; i++) 
-			PickupItemsDriver[i].AgregarItem (Container [i]);
+		if (Container.Count == 0)
+			GameManager.instance.canvasManager.TapPickup ();
 
+		for (int i = 0; i < Container.Count; i++) 
+			if (Container [i].Amount == 0)
+				Container.Remove (Container [i]);
+
+		for (int i = 0; i < Container.Count; i++) {
+			PickupItemsDriver[i].ActivarDesactivarSlot (true);
+			PickupItemsDriver [i].AgregarItem (Container [i]);
+		}
 		for (int i = Container.Count; i < PickupItemsDriver.Length; i++)
-			PickupItemsDriver[i].LimpiarSlot ();
+			PickupItemsDriver[i].ActivarDesactivarSlot (false);
+	}
+	void CargandoEquipContainer()
+	{
+		List<PocketItem> Container = inventarioManager.EquipContainer;
+
+		for (int i = 0; i < Container.Count; i++) 
+			if (Container [i].Amount == 0)
+				Container.Remove (Container [i]);
+
+		for (int i = 0; i < Container.Count; i++)
+			EquipItemsDriver [i].AgregarItem (Container [i]);
+
+		for (int i = Container.Count; i < EquipItemsDriver.Length; i++)
+			EquipItemsDriver[i].LimpiarSlot ();
 	}
 	public void SeleccionarSlot(int index, ItemDriver[] itemDrivers)
 	{

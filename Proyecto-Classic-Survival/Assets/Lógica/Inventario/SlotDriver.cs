@@ -20,7 +20,15 @@ public class SlotDriver : MonoBehaviour, IDropHandler
 	public void OnDrop(PointerEventData eventData)
 	{
 		Init (eventData);
-		inventarioManager.DropManager (dropDriver, hostDriver);
+		if (!slotType.Equals (SlotType.Equip)) 
+		{
+			inventarioManager.DropManager (dropDriver, hostDriver);
+		} 
+		else 
+		{
+			if (dropDriver.myItem.isEquipment) 				
+				inventarioManager.DropManager (dropDriver, hostDriver);
+		}
 	}
 	void Init(PointerEventData eventData)
 	{

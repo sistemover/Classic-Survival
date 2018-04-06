@@ -15,9 +15,10 @@ MonoBehaviour:
   "IconoPeque\xF1o": Sprites/Simples/Cilindro
   IconoGrande: Sprites/Amplios/Cilindro
   Modelo: Primitivas/Cilindro
-  MaxAmount: 0
+  MaxAmount: 1
   isStackable: 0
   isUsable: 0
   isEquipment: 0
-  isCombinable: 0
-  CombinableWith: []
+  isCombinable: 1
+  CombinableWith:
+  - comb_esfera_cilindro
