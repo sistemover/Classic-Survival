@@ -29,31 +29,28 @@ public class InventarioManager : MonoBehaviour
 	{
 		inventarioCanvasManager = GameManager.instance.canvasManager.inventarioCanvasManager;
 		combinationManager = GetComponent<CombinationManager> ();
-		//combinationManager.OpenDictionary ();
 	}
 	public void ActualizarInventario()
 	{
 		inventarioCanvasManager.CargarPocketsContainers ();
 	}
 
-	public void DropManager(ItemDriver dropDriver, ItemDriver hostDriver)
+	public void DropItemControl(ItemDriver dropDriver, ItemDriver hostDriver)
 	{
+		if (hostDriver == null)
+			return;
 		Init (dropDriver, hostDriver);
-		DropToVoid ();
-		DropToHost ();
+		if(hostPocket == null)
+			DropToVoid ();
+		else
+			DropToHost ();
 	}
-	public void EquipManager()
-	{
-		Debug.Log ("El item es un Equipment");
-	}
-
 	void Init(ItemDriver drop, ItemDriver host)
 	{
 		dropDriver = drop;
 		dropPocket = drop.myPocketItem;
 		hostDriver = host;
-		hostPocket = host.myPocketItem;
-
+		hostPocket = hostDriver.myPocketItem;
 		SeteandoContainer ();
 	}
 	void SeteandoContainer()
@@ -105,36 +102,66 @@ public class InventarioManager : MonoBehaviour
 	}
 	void DropToVoid()
 	{
-		if (hostPocket == null) 
+		if (hostDriver.mySlotType.Equals (SlotType.Equip)) 
 		{
-			dropContainer.Remove (dropPocket);
-			hostContainer.Add (dropPocket);
-
-			ActualizarInventario ();
-			inventarioCanvasManager.SeleccionarSlot (hostContainer.Count-1, hostItemsDriver);
+			if (!dropDriver.myItem.isEquipment)
+				return;
+			if (!CheckIsBeing(dropDriver.myItem))
+				return;
+			Debug.Log ("El item " + dropDriver.myItem.name_key +" - " + dropPocket.Amount+ " ha sido EQUIPADO!");
 		}
+		if (dropDriver.mySlotType.Equals (SlotType.Equip)) 
+		{
+			Debug.Log ("El item " + dropDriver.myItem.name_key +" - " + dropPocket.Amount+ " ha sido DESEQUIPADO!");
+		}
+		dropContainer.Remove (dropPocket);
+		hostContainer.Add (dropPocket);
+
+		ActualizarInventario ();
+		inventarioCanvasManager.SeleccionarSlot (hostContainer.Count-1, hostItemsDriver);
 	}
 	void DropToHost()
 	{
-		if (hostPocket != null) 
+		if (hostDriver.myItem == null)
+			return;
+		if (CheckIsFood (dropDriver.myItem, hostDriver.myItem) || CheckIsFood (hostDriver.myItem, dropDriver.myItem)) 
 		{
-			if (hostDriver.myItem == null)
-				return;
-			if (CheckStackable (hostDriver.myItem, dropDriver.myItem))
+			Alimentar (hostDriver.myItem.GetEquip ().equipType);
+		} 
+		else if (CheckStackable (hostDriver.myItem, dropDriver.myItem)) 
+		{
+			Acumular ();
+		} 
+		else if (CheckCombinable ()) 
+		{
+			Combinar ();
+			AlgoritmoEquipar();
+		} 
+		else
+		{
+			if (dropDriver.mySlotType.Equals (SlotType.Equip) || hostDriver.mySlotType.Equals (SlotType.Equip)) 
 			{
-				Acumular ();
-				return;
+				Debug.Log ("Existe transacción en EquipSlot");
+				if (!CheckIsBeing (hostDriver.myItem) ||!CheckIsBeing (dropDriver.myItem))
+				{
+					Debug.Log ("No permito cambio por que alguno no es Being");
+					dropDriver.TapSeleccionarItem ();
+					return;	
+				}
 			}
-			else if(CheckCombinable())
-			{
-				Combinar ();
-				return;
-			}
-			else
-			{
-				Cambiar ();
-				return;
-			}
+			Cambiar ();
+			AlgoritmoEquipar ();
+		}
+	}
+	void AlgoritmoEquipar()
+	{
+		if (dropDriver.mySlotType.Equals (SlotType.Equip)) 
+		{
+			Debug.Log ("El item " + dropDriver.myItem.name_key +" - " + dropPocket.Amount+ " ha sido EQUIPADO!");
+		}
+		if (hostDriver.mySlotType.Equals (SlotType.Equip)) 
+		{
+			Debug.Log ("El item " + hostDriver.myItem.name_key + " - " + hostPocket.Amount + " ha sido EQUIPADO!");
 		}
 	}
 	void Acumular()
@@ -150,6 +177,15 @@ public class InventarioManager : MonoBehaviour
 		ActualizarInventario ();
 		hostDriver.TapSeleccionarItem ();
 		return;
+	}
+	void Alimentar(EquipType type)
+	{
+		if (type.Equals (EquipType.ArmaDeFuego))
+			Debug.Log ("Recargando");
+		else
+			Debug.Log ("Reparando");
+		ActualizarInventario ();
+		dropDriver.TapSeleccionarItem ();
 	}
 	void Combinar()
 	{
@@ -198,15 +234,6 @@ public class InventarioManager : MonoBehaviour
 		}
 		return result;
 	}
-	int GetContainerIndex(PocketItem pocket, ItemDriver[] itemsDrivers)
-	{		
-		for (int i = 0; i < itemsDrivers.Length; i++) 
-		{
-			if (itemsDrivers [i].myPocketItem == pocket) 
-				return i;
-		}
-		return 0;
-	}
 	bool ExistCombination(Item Base, Item Reactivo)
 	{
 		bool result = false;
@@ -223,6 +250,56 @@ public class InventarioManager : MonoBehaviour
 			}
 		}
 		return result;
+	}
+	bool CheckIsBeing(Item equipment)
+	{
+		bool resultado = true;
+		if (!equipment.isEquipment) 
+		{
+			Debug.Log (equipment.name_key + " NO es Equipable");
+			return false;
+		}
+		if (!equipment.GetEquip ().equipMainType.Equals (EquipMainType.Being)) {
+			Debug.Log (equipment.name_key + " NO es Being");
+			return false;
+		}
+		Debug.Log (equipment.name_key + " SI es Being");
+		return resultado;			
+	}
+	bool CheckIsFood(Item A, Item B)
+	{
+		bool resultado = true;
+		if (!A.isEquipment) 
+		{
+			Debug.Log (A.name_key + " NO es Equipable");
+			return false;
+		}
+		if (!A.GetEquip ().equipMainType.Equals (EquipMainType.Food)) 
+		{
+			Debug.Log (A.name_key + " NO es Food");
+			return false;
+		}
+		if (!B.GetEquip ().equipMainType.Equals (EquipMainType.Being)) 
+		{
+			Debug.Log (A.name_key + " NO es Being");
+			return false;
+		}
+		if (!A.GetEquip ().equipSubType.Equals (B.GetEquip().equipSubType))
+		{
+			Debug.Log (A.name_key + " NO es Comida para " + B.name_key);
+			return false;
+		}
+		Debug.Log (A.name_key + " SI es Food para " + B.name_key);
+		return resultado;	
+	}
+	int GetContainerIndex(PocketItem pocket, ItemDriver[] itemsDrivers)
+	{		
+		for (int i = 0; i < itemsDrivers.Length; i++) 
+		{
+			if (itemsDrivers [i].myPocketItem == pocket) 
+				return i;
+		}
+		return 0;
 	}
 	void SumarAmount(int MaxAmount, PocketItem drop, PocketItem host)
 	{

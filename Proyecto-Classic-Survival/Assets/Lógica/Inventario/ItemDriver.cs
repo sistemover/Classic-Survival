@@ -28,8 +28,8 @@ public class ItemDriver : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
 		myPocketItem = pocketItem;
 		myItem = LoaderManager.singleton.CargarItem (myPocketItem.ItemPath);
 
-		if(myItem != null)
-			AsignarIcono();
+		if (myItem != null) 
+			AsignarIcono ();
 		AsignarAmount(myPocketItem.Amount);
 	}
 	void AsignarIcono()
@@ -42,10 +42,22 @@ public class ItemDriver : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
 	}
 	void AsignarAmount(int amount)
 	{
-		if (amount == 0)
-			AmountContainer.text = "";
-		else
+		if (amount == 0) 
+		{
+			if (!myItem.isStackable) 
+			{
+				AmountContainer.text = "";
+			}
+			if (myItem.isEquipment) 
+			{
+				if(myItem.GetEquip ().equipMainType.Equals (EquipMainType.Being))
+					AmountContainer.text = amount.ToString();
+			}
+		} 
+		else 
+		{
 			AmountContainer.text = amount.ToString ();
+		}
 	}
 	public void LimpiarSlot()
 	{

@@ -8,16 +8,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef99b722f2a7aad48a7a6b2179a9b7ed, type: 3}
-  m_Name: Cilindro
+  m_Script: {fileID: 11500000, guid: 83782d0a94b92e748b772673d13c3d8d, type: 3}
+  m_Name: CilindroEsp
   m_EditorClassIdentifier: 
   name_key: item_cilindro
   "IconoPeque\xF1o": Sprites/Simples/Cilindro
   IconoGrande: Sprites/Amplios/Cilindro
   Modelo: Primitivas/Cilindro
-  MaxAmount: 1
+  MaxAmount: 45
   isStackable: 0
   isUsable: 0
-  isEquipment: 0
-  isCombinable: 0
-  CombinableWith: []
+  isEquipment: 1
+  isCombinable: 1
+  CombinableWith:
+  - comb_esfera_cilindro
+  equipType: 0
+  equipMainType: 0
+  equipSubType: 0

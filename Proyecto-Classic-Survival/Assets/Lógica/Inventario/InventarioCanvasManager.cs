@@ -38,9 +38,7 @@ public class InventarioCanvasManager : MonoBehaviour
 	{
 		List<PocketItem> Container = inventarioManager.PocketContainer;
 
-		for (int i = 0; i < Container.Count; i++) 
-			if (Container [i].Amount == 0)
-				Container.Remove (Container [i]);
+		CheckAmount (Container);
 
 		for (int i = 0; i < Container.Count; i++)
 			PocketItemsDriver [i].AgregarItem (Container [i]);
@@ -55,9 +53,7 @@ public class InventarioCanvasManager : MonoBehaviour
 		if (Container.Count == 0)
 			GameManager.instance.canvasManager.TapPickup ();
 
-		for (int i = 0; i < Container.Count; i++) 
-			if (Container [i].Amount == 0)
-				Container.Remove (Container [i]);
+		CheckAmount (Container);
 
 		for (int i = 0; i < Container.Count; i++) {
 			PickupItemsDriver[i].ActivarDesactivarSlot (true);
@@ -70,18 +66,36 @@ public class InventarioCanvasManager : MonoBehaviour
 	{
 		List<PocketItem> Container = inventarioManager.EquipContainer;
 
-		for (int i = 0; i < Container.Count; i++) 
-			if (Container [i].Amount == 0)
-				Container.Remove (Container [i]);
-
 		for (int i = 0; i < Container.Count; i++)
 			EquipItemsDriver [i].AgregarItem (Container [i]);
 
 		for (int i = Container.Count; i < EquipItemsDriver.Length; i++)
-			EquipItemsDriver[i].LimpiarSlot ();
+			EquipItemsDriver [i].LimpiarSlot ();
+	}
+	void CheckAmount(List<PocketItem> Container)
+	{
+		for (int i = 0; i < Container.Count; i++) 
+		{
+			int amount = Container[i].Amount;
+			bool isStackable = LoaderManager.singleton.CargarItem (Container [i].ItemPath).isStackable;
+			if (amount == 0 && isStackable)
+				Container.Remove (Container [i]);
+
+		}
 	}
 	public void SeleccionarSlot(int index, ItemDriver[] itemDrivers)
 	{
 		itemDrivers [index].TapSeleccionarItem ();
+	}
+	public int GetEquipDriverID(string name)
+	{
+		int id = 0;
+		for (int i = 0; i <EquipItemsDriver.Length; i++) 
+		{ 
+			string driverName = EquipItemsDriver[i].GetComponentInParent<SlotDriver> ().name;
+			if (driverName.Equals (name))
+				id = i;
+		}
+		return id;
 	}
 }

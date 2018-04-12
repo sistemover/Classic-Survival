@@ -13,4 +13,9 @@ public class Equipment : Item
 	{
 		base.Use ();
 	}
+	public override Equipment GetEquip ()
+	{
+		//return base.GetEquip ();
+		return this;
+	}
 }

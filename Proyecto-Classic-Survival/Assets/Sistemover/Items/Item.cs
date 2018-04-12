@@ -23,4 +23,8 @@ public class Item : ScriptableObject
 	{
 		Debug.Log ("Usado el Item: " + name_key);
 	}
+	public virtual Equipment GetEquip()
+	{
+		return null;
+	}
 }
