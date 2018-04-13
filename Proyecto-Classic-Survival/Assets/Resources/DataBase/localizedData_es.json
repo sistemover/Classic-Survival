@@ -105,6 +105,18 @@
 			"name"             : "Balas P Horn [2 mm]",
 			"shortdescription" : "Balas Rojas de 2 mm, el color indica que hacen tanto daño como el golpe de un recién nacido.",
 			"longdescription"  : "Sep, así como suena."
+		},
+		{
+			"key"              : "item_samurai_bone_breakers",
+			"name"             : "Samurái Rompe Huesos",
+			"shortdescription" : "Descripción corta para este Cuchillo",
+			"longdescription"  : "Wup!"
+		},
+		{
+			"key"              : "item_knife_sharpener",
+			"name"             : "Afilador de Cuchillos",
+			"shortdescription" : "Es el Afilador, wey el afilador-dor-dor-dor!",
+			"longdescription"  : "dor como door"
 		}
 	]
 }

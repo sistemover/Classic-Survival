@@ -7,4 +7,4 @@ public class EnumResources : MonoBehaviour {}
 public enum SlotType {Pocket, Pickup, Equip, Storage}
 public enum EquipType {ArmaDeFuego, ArmaCuerpoACuerpo, Armadura}
 public enum EquipMainType {Being, Food}
-public enum EquipSubType {Especial, Pistola, Escopeta}
+public enum EquipSubType {Especial, Pistola, Escopeta, Cuchillo}

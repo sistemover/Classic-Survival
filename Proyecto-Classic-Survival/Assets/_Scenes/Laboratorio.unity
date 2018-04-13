@@ -6509,6 +6509,10 @@ MonoBehaviour:
     Amount: 4
   - ItemPath: Items/Cubo
     Amount: 4
+  - ItemPath: Equipments/samurai_bone_breakers
+    Amount: 85
+  - ItemPath: Equipments/knife_sharpener
+    Amount: 5
   PickupContainer:
   - ItemPath: Equipments/item_p_horn_bullets
     Amount: 45
@@ -8918,7 +8922,7 @@ GameObject:
   m_Component:
   - component: {fileID: 686863279}
   m_Layer: 0
-  m_Name: "Versi\xF3n: 0.0.0"
+  m_Name: "Versi\xF3n: 0.1.D15"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

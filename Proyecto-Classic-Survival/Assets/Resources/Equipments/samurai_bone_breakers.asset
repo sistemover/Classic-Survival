@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83782d0a94b92e748b772673d13c3d8d, type: 3}
+  m_Name: samurai_bone_breakers
+  m_EditorClassIdentifier: 
+  name_key: item_samurai_bone_breakers
+  "IconoPeque\xF1o": Sprites/Armas/Simples/samurai_bone_breakers
+  IconoGrande: Sprites/Armas/Amplios/samurai_bone_breakers
+  Modelo: Modelos/Armas/samurai_bone_breakers
+  MaxAmount: 100
+  isStackable: 0
+  isUsable: 0
+  isEquipment: 1
+  isCombinable: 0
+  CombinableWith: []
+  equipType: 1
+  equipMainType: 0
+  equipSubType: 3

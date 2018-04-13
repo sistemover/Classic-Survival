@@ -105,6 +105,18 @@
 			"name"             : "P Horn Bullets [2 mm]",
 			"shortdescription" : "Bullets Reds of 2 mm with a power similar to baby hit",
 			"longdescription"  : "Yes, thats right!"
+		},
+		{
+			"key"              : "item_samurai_bone_breakers",
+			"name"             : "Samurai Bone Breakers",
+			"shortdescription" : "Short Description for this Knife",
+			"longdescription"  : "Wup!"
+		},
+		{
+			"key"              : "item_knife_sharpener",
+			"name"             : "Knife Sharpener",
+			"shortdescription" : "is this Sharpener, wey and have the bad word",
+			"longdescription"  : "pener like pener!"
 		}
 	]
 }
