@@ -6505,13 +6505,9 @@ MonoBehaviour:
   PocketContainer: []
   PickupContainer:
   - ItemPath: Equipments/BalasRojas
-    Amount: 18
-  - ItemPath: Equipments/CilindroEsp
-    Amount: 15
-  - ItemPath: Items/Esfera
-    Amount: 0
+    Amount: 45
   - ItemPath: Equipments/Pistola
-    Amount: 5
+    Amount: 15
   EquipContainer: []
   StorageContainer: []
 --- !u!4 &500396981
@@ -18054,6 +18050,7 @@ GameObject:
   - component: {fileID: 1700749805}
   - component: {fileID: 1700749804}
   - component: {fileID: 1700749806}
+  - component: {fileID: 1700749807}
   m_Layer: 5
   m_Name: UseSlot
   m_TagString: Untagged
@@ -18127,6 +18124,17 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &1700749807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1700749802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c7926793194f8c43b112820918352b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1704293896
 GameObject:
   m_ObjectHideFlags: 0
@@ -18434,6 +18442,7 @@ GameObject:
   - component: {fileID: 1721186030}
   - component: {fileID: 1721186031}
   - component: {fileID: 1721186032}
+  - component: {fileID: 1721186033}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -18513,6 +18522,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4de7441e960a3d5498a6ddb9d28b56cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1721186033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1721186027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef566fd55e995cb44a574e985551c06b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Normal: {r: 0, g: 0, b: 0, a: 1}
+  Denied: {r: 0.78676474, g: 0, b: 0, a: 1}
+  Approved: {r: 0.21135303, g: 0.7205882, b: 0.010596896, a: 1}
+  Pocket: {r: 0.29098186, g: 0.41269684, b: 0.8602941, a: 1}
+  Pickup: {r: 1, g: 0.6981744, b: 0.31617647, a: 1}
+  Equip: {r: 0.5687224, g: 0.36364618, b: 0.86764705, a: 1}
 --- !u!1 &1728054212
 GameObject:
   m_ObjectHideFlags: 0

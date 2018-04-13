@@ -42,7 +42,7 @@ public class DescriptionManager : MonoBehaviour
 
 	void AsignarIcono(Image icono)
 	{
-		icono.sprite = LoaderManager.singleton.CargarSprite (myItem.IconoGrande);
+		icono.sprite = LoaderManager.Singleton.CargarSprite (myItem.IconoGrande);
 		if (icono.sprite != null)
 			icono.enabled = true;
 		else

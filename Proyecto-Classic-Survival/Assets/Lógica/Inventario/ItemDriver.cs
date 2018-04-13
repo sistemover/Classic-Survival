@@ -26,7 +26,7 @@ public class ItemDriver : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
 	public void AgregarItem(PocketItem pocketItem)
 	{
 		myPocketItem = pocketItem;
-		myItem = LoaderManager.singleton.CargarItem (myPocketItem.ItemPath);
+		myItem = LoaderManager.Singleton.CargarItem (myPocketItem.ItemPath);
 
 		if (myItem != null) 
 			AsignarIcono ();
@@ -34,7 +34,7 @@ public class ItemDriver : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
 	}
 	void AsignarIcono()
 	{
-		IconContainer.sprite = LoaderManager.singleton.CargarSprite (myItem.IconoPequeño);
+		IconContainer.sprite = LoaderManager.Singleton.CargarSprite (myItem.IconoPequeño);
 		if (IconContainer.sprite != null)
 			IconContainer.enabled = true;
 		else
@@ -88,26 +88,26 @@ public class ItemDriver : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
 	{
 		Image nombre = descriptionManager.nombre.GetComponentInParent<Image> ();
 		Button descripcion = descriptionManager.descripcion.GetComponentInParent<Button> ();
-		nombre.color = Color.black;
+		nombre.color = ColorManager.Singleton.Normal;
 		ColorBlock colorBlock = descripcion.colors;
-		colorBlock.normalColor = Color.black;
+		colorBlock.normalColor = ColorManager.Singleton.Normal;
 		descripcion.colors = colorBlock;
 
 		for (int i = 0; i < itemDrivers.Length; i++) 
-			itemDrivers [i].Highlight.color = Color.black;
+			itemDrivers [i].Highlight.color = ColorManager.Singleton.Normal;
 	}
 	void AplicarHighlight(DescriptionManager descriptionManager)
 	{
-		Color color = Color.black;
+		Color color = ColorManager.Singleton.Normal;
 		Image nombre = descriptionManager.nombre.GetComponentInParent<Image> ();
 		Button descripcion = descriptionManager.descripcion.GetComponentInParent<Button> ();
 
 		if(mySlotType.Equals(SlotType.Pocket))
-			color = Color.blue;
+			color = ColorManager.Singleton.Pocket;
 		else if (mySlotType.Equals (SlotType.Pickup))
-			color = Color.cyan;
+			color = ColorManager.Singleton.Pickup;
 		else if (mySlotType.Equals (SlotType.Equip))
-			color = Color.green;
+			color = ColorManager.Singleton.Equip;
 
 		nombre.color = color;
 		ColorBlock colorBlock = descripcion.colors;

@@ -13,7 +13,7 @@ public class CombinationManager : MonoBehaviour
 		CombinationDictionary = new Dictionary<string, CombinationItem> ();
 		ActualCombinationItem = new CombinationItem ();
 
-		TextAsset jsonOnTextAsset = LoaderManager.singleton.CargarTextAsset ("DataBase/combinationData");
+		TextAsset jsonOnTextAsset = LoaderManager.Singleton.CargarTextAsset ("DataBase/combinationData");
 		string jsonOnString = jsonOnTextAsset.ToString ();
 		CombinationData loadedData = JsonUtility.FromJson<CombinationData> (jsonOnString);
 

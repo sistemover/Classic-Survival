@@ -48,7 +48,7 @@ public class EquipmentManager : MonoBehaviour
 			bool estado = false;
 			for (int e = 0; e < container.Count; e++) 
 			{
-				Equipment equip = LoaderManager.singleton.CargarItem(container[e].ItemPath).GetEquip();
+				Equipment equip = LoaderManager.Singleton.CargarItem(container[e].ItemPath).GetEquip();
 				if (currentEquipment [i] == equip) 
 				{
 					estado = true;

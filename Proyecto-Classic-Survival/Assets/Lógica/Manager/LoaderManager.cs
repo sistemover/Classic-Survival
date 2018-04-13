@@ -5,12 +5,12 @@ using UnityEngine;
 public class LoaderManager : MonoBehaviour 
 {
 	#region Singleton
-	public static LoaderManager singleton;
+	public static LoaderManager Singleton;
 	void Awake ()
 	{
-		if (singleton != null)
+		if (Singleton != null)
 			return;
-		singleton = this;
+		Singleton = this;
 	}
 	#endregion
 

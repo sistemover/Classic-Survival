@@ -68,7 +68,7 @@ public class InventarioCanvasManager : MonoBehaviour
 
 		for (int i = 0; i < Container.Count; i++) 
 		{
-			Equipment equip = LoaderManager.singleton.CargarItem (Container [i].ItemPath).GetEquip ();
+			Equipment equip = LoaderManager.Singleton.CargarItem (Container [i].ItemPath).GetEquip ();
 			if (!EquipmentManager.Singleton.CheckIsEquip (equip)) 
 				equip.Use ();
 		}
@@ -85,7 +85,7 @@ public class InventarioCanvasManager : MonoBehaviour
 		for (int i = 0; i < Container.Count; i++) 
 		{
 			int amount = Container[i].Amount;
-			bool isStackable = LoaderManager.singleton.CargarItem (Container [i].ItemPath).isStackable;
+			bool isStackable = LoaderManager.Singleton.CargarItem (Container [i].ItemPath).isStackable;
 			if (amount == 0 && isStackable)
 				Container.Remove (Container [i]);
 

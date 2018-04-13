@@ -191,7 +191,7 @@ public class InventarioManager : MonoBehaviour
 				{
 					if (hostDriver.myItem == null) 
 					{
-						Item neoItem = LoaderManager.singleton.CargarItem (hostContainer [0].ItemPath);
+						Item neoItem = LoaderManager.Singleton.CargarItem (hostContainer [0].ItemPath);
 						hostType = neoItem.GetEquip ().equipType;
 						if (hostType == dropType)
 							resultado = true;
@@ -231,7 +231,7 @@ public class InventarioManager : MonoBehaviour
 			{
 				for (int i = 0; i < container.Count; i++) 
 				{
-					Item neoItem = LoaderManager.singleton.CargarItem (container[i].ItemPath);
+					Item neoItem = LoaderManager.Singleton.CargarItem (container[i].ItemPath);
 					if (neoItem != driver.myItem) 
 					{
 						EquipType neoType = neoItem.GetEquip().equipType;
