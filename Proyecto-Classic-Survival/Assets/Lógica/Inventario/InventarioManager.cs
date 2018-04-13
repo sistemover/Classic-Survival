@@ -39,13 +39,13 @@ public class InventarioManager : MonoBehaviour
 	{
 		if (hostDriver == null)
 			return;
-		Init (dropDriver, hostDriver);
+		SeteandoVariables (dropDriver, hostDriver);
 		if(hostPocket == null)
 			DropToVoid ();
 		else
 			DropToHost ();
 	}
-	void Init(ItemDriver drop, ItemDriver host)
+	void SeteandoVariables(ItemDriver drop, ItemDriver host)
 	{
 		dropDriver = drop;
 		dropPocket = drop.myPocketItem;
@@ -108,11 +108,8 @@ public class InventarioManager : MonoBehaviour
 				return;
 			if (!CheckIsBeing(dropDriver.myItem))
 				return;
-			Debug.Log ("El item " + dropDriver.myItem.name_key +" - " + dropPocket.Amount+ " ha sido EQUIPADO!");
-		}
-		if (dropDriver.mySlotType.Equals (SlotType.Equip)) 
-		{
-			Debug.Log ("El item " + dropDriver.myItem.name_key +" - " + dropPocket.Amount+ " ha sido DESEQUIPADO!");
+			if (AlgoritmoEquipar ())
+				return;
 		}
 		dropContainer.Remove (dropPocket);
 		hostContainer.Add (dropPocket);
@@ -135,34 +132,116 @@ public class InventarioManager : MonoBehaviour
 		else if (CheckCombinable ()) 
 		{
 			Combinar ();
-			AlgoritmoEquipar();
 		} 
 		else
 		{
 			if (dropDriver.mySlotType.Equals (SlotType.Equip) || hostDriver.mySlotType.Equals (SlotType.Equip)) 
 			{
-				Debug.Log ("Existe transacción en EquipSlot");
 				if (!CheckIsBeing (hostDriver.myItem) ||!CheckIsBeing (dropDriver.myItem))
 				{
-					Debug.Log ("No permito cambio por que alguno no es Being");
 					dropDriver.TapSeleccionarItem ();
 					return;	
 				}
 			}
+			if (AlgoritmoEquipar ())
+				return;
 			Cambiar ();
-			AlgoritmoEquipar ();
 		}
 	}
-	void AlgoritmoEquipar()
+	bool AlgoritmoEquipar()
 	{
-		if (dropDriver.mySlotType.Equals (SlotType.Equip)) 
-		{
-			Debug.Log ("El item " + dropDriver.myItem.name_key +" - " + dropPocket.Amount+ " ha sido EQUIPADO!");
-		}
+		bool resultado = false;
+		bool drop = false;
+		bool host = false;
+
+		EquipType dropType = dropDriver.myItem.GetEquip().equipType;
+		EquipType hostType;
+
+		if (dropDriver.mySlotType.Equals (SlotType.Equip))
+			drop = true;
 		if (hostDriver.mySlotType.Equals (SlotType.Equip)) 
+			host = true;
+		
+		if(drop != host)
 		{
-			Debug.Log ("El item " + hostDriver.myItem.name_key + " - " + hostPocket.Amount + " ha sido EQUIPADO!");
+			if (drop == true) 
+			{
+				hostType = hostDriver.myItem.GetEquip().equipType;
+				resultado = ValidarEquip (hostType, dropType, dropContainer, dropDriver);
+				/*if (hostType != dropType) 
+				{
+					if (dropContainer.Count > 1) 
+					{
+						for (int i = 0; i < dropContainer.Count; i++) 
+						{
+							Item neoItem = LoaderManager.singleton.CargarItem (dropContainer[i].ItemPath);
+							if (neoItem != dropDriver.myItem) 
+							{
+								EquipType neoType = neoItem.GetEquip().equipType;
+								if(neoType == hostType)
+									resultado = true;	
+							}
+						}
+					}
+				}*/
+			}
+			if (host == true) 
+			{				
+				if (hostContainer.Count != 0) 
+				{
+					if (hostDriver.myItem == null) 
+					{
+						Item neoItem = LoaderManager.singleton.CargarItem (hostContainer [0].ItemPath);
+						hostType = neoItem.GetEquip ().equipType;
+						if (hostType == dropType)
+							resultado = true;
+					} 
+					else 
+					{
+						hostType = hostDriver.myItem.GetEquip().equipType;
+						resultado = ValidarEquip (dropType, hostType, hostContainer, hostDriver);
+						/*if (dropType != hostType) 
+						{
+							if (hostContainer.Count > 1) 
+							{
+								for (int i = 0; i < hostContainer.Count; i++) 
+								{
+									Item neoItem = LoaderManager.singleton.CargarItem (hostContainer[i].ItemPath);
+									if (neoItem != hostDriver.myItem) 
+									{
+										EquipType neoType = neoItem.GetEquip().equipType;
+										if(neoType == dropType)
+											resultado = true;
+									}
+								}
+							}
+						}*/
+					}
+				}
+			}
+		}			
+		return resultado;			
+	}
+	bool ValidarEquip(EquipType a, EquipType b, List<PocketItem> container, ItemDriver driver)
+	{
+		bool resultado = false;
+		if (a != b) 
+		{
+			if (container.Count > 1) 
+			{
+				for (int i = 0; i < container.Count; i++) 
+				{
+					Item neoItem = LoaderManager.singleton.CargarItem (container[i].ItemPath);
+					if (neoItem != driver.myItem) 
+					{
+						EquipType neoType = neoItem.GetEquip().equipType;
+						if(neoType == a)
+							resultado = true;	
+					}
+				}
+			}
 		}
+		return resultado;
 	}
 	void Acumular()
 	{
@@ -256,14 +335,14 @@ public class InventarioManager : MonoBehaviour
 		bool resultado = true;
 		if (!equipment.isEquipment) 
 		{
-			Debug.Log (equipment.name_key + " NO es Equipable");
+			//Debug.Log (equipment.name_key + " NO es Equipable");
 			return false;
 		}
 		if (!equipment.GetEquip ().equipMainType.Equals (EquipMainType.Being)) {
-			Debug.Log (equipment.name_key + " NO es Being");
+			//Debug.Log (equipment.name_key + " NO es Being");
 			return false;
 		}
-		Debug.Log (equipment.name_key + " SI es Being");
+		//Debug.Log (equipment.name_key + " SI es Being");
 		return resultado;			
 	}
 	bool CheckIsFood(Item A, Item B)
@@ -271,25 +350,25 @@ public class InventarioManager : MonoBehaviour
 		bool resultado = true;
 		if (!A.isEquipment) 
 		{
-			Debug.Log (A.name_key + " NO es Equipable");
+			//Debug.Log (A.name_key + " NO es Equipable");
 			return false;
 		}
 		if (!A.GetEquip ().equipMainType.Equals (EquipMainType.Food)) 
 		{
-			Debug.Log (A.name_key + " NO es Food");
+			//Debug.Log (A.name_key + " NO es Food");
 			return false;
 		}
 		if (!B.GetEquip ().equipMainType.Equals (EquipMainType.Being)) 
 		{
-			Debug.Log (A.name_key + " NO es Being");
+			//Debug.Log (A.name_key + " NO es Being");
 			return false;
 		}
 		if (!A.GetEquip ().equipSubType.Equals (B.GetEquip().equipSubType))
 		{
-			Debug.Log (A.name_key + " NO es Comida para " + B.name_key);
+			//Debug.Log (A.name_key + " NO es Comida para " + B.name_key);
 			return false;
 		}
-		Debug.Log (A.name_key + " SI es Food para " + B.name_key);
+		//Debug.Log (A.name_key + " SI es Food para " + B.name_key);
 		return resultado;	
 	}
 	int GetContainerIndex(PocketItem pocket, ItemDriver[] itemsDrivers)

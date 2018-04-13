@@ -24,7 +24,6 @@ public class LocalizationManager : MonoBehaviour
 	public void Init()
 	{
 		SelectLanguage (StartLanguageKey);
-		Debug.Log ("LocalizationManager");
 	}
 
 	public void LoadLocalizedText(string fileName)
@@ -47,8 +46,6 @@ public class LocalizationManager : MonoBehaviour
 			itemText.longdescription = loadedData.items [i].longdescription;
 			localizedItem.Add (loadedData.items [i].key, itemText);
 		}
-
-		Debug.Log ("LoadLocalizedText");
 	}
 
 	public string GetLocalizedText(string key)

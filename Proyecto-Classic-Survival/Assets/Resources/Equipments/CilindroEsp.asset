@@ -22,6 +22,6 @@ MonoBehaviour:
   isCombinable: 1
   CombinableWith:
   - comb_esfera_cilindro
-  equipType: 0
+  equipType: 2
   equipMainType: 0
   equipSubType: 0

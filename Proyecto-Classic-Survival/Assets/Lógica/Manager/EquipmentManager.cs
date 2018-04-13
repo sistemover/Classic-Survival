@@ -14,9 +14,9 @@ public class EquipmentManager : MonoBehaviour
 	}
 	#endregion
 
-	Equipment[] currentEquipment;
+	public Equipment[] currentEquipment;
 
-	public void init()
+	public void Init()
 	{
 		int numSlots = System.Enum.GetNames (typeof(EquipType)).Length;
 		currentEquipment=new Equipment[numSlots];
@@ -28,7 +28,35 @@ public class EquipmentManager : MonoBehaviour
 	}
 	public void RemoveEquip(Equipment newItem)
 	{
+		if (newItem == null)
+			return;
 		int slotIndex = (int)newItem.equipType;
 		currentEquipment [slotIndex] = null;
+	}
+	public bool CheckIsEquip(Equipment e)
+	{
+		bool resultado = false;
+		int slotIndex = (int)e.equipType;
+		if (currentEquipment [slotIndex] == e)
+			resultado = true;
+		return resultado;
+	}
+	public void QuitarExtraEquip(List <PocketItem> container)
+	{
+		for (int i = 0; i < currentEquipment.Length; i++) 
+		{
+			bool estado = false;
+			for (int e = 0; e < container.Count; e++) 
+			{
+				Equipment equip = LoaderManager.singleton.CargarItem(container[e].ItemPath).GetEquip();
+				if (currentEquipment [i] == equip) 
+				{
+					estado = true;
+					break;
+				}
+			}
+			if (estado == false)
+				RemoveEquip (currentEquipment [i]);
+		}
 	}
 }

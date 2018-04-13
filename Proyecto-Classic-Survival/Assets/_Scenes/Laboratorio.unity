@@ -6502,13 +6502,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf242a55978136347bae0428451c0ddd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PocketContainer:
-  - ItemPath: Equipments/CilindroEsp
-    Amount: 0
+  PocketContainer: []
   PickupContainer:
-  - ItemPath: Items/Cubo
+  - ItemPath: Equipments/BalasRojas
     Amount: 18
-  - ItemPath: Items/Cubo
+  - ItemPath: Equipments/CilindroEsp
     Amount: 15
   - ItemPath: Items/Esfera
     Amount: 0
@@ -6555,6 +6553,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 927a2154e03282a479ff0c1e46209ede, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentEquipment: []
 --- !u!1 &501044113
 GameObject:
   m_ObjectHideFlags: 0

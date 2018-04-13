@@ -66,6 +66,14 @@ public class InventarioCanvasManager : MonoBehaviour
 	{
 		List<PocketItem> Container = inventarioManager.EquipContainer;
 
+		for (int i = 0; i < Container.Count; i++) 
+		{
+			Equipment equip = LoaderManager.singleton.CargarItem (Container [i].ItemPath).GetEquip ();
+			if (!EquipmentManager.Singleton.CheckIsEquip (equip)) 
+				equip.Use ();
+		}
+		EquipmentManager.Singleton.QuitarExtraEquip (Container);
+
 		for (int i = 0; i < Container.Count; i++)
 			EquipItemsDriver [i].AgregarItem (Container [i]);
 

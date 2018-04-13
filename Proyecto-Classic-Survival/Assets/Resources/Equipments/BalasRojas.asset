@@ -22,5 +22,5 @@ MonoBehaviour:
   isCombinable: 0
   CombinableWith: []
   equipType: 0
-  equipMainType: 1
+  equipMainType: 0
   equipSubType: 1

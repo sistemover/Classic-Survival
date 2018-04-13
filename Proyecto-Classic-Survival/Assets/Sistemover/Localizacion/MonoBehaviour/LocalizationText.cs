@@ -10,7 +10,6 @@ public class LocalizationText : MonoBehaviour
 
 	void Awake()
 	{
-		Debug.Log ("LocalizationText");
 		localizationManager = GameManager.instance.localizationManager;
 		localizationManager.onLocalizationChangedCallback += CargarTexto;
 	}

@@ -4,7 +4,7 @@
 		{
 			"combKey"  : "comb_esfera_cilindro",
 			"needKey"  : "item_cilindro",
-			"itemPath" : "Equipments/Pistola",
+			"itemPath" : "Equipments/BalasRojas",
 			"amount"    : 15
 		}
 	]
