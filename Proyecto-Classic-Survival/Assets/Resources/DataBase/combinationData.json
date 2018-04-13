@@ -2,10 +2,11 @@
 	"container":
 	[
 		{
-			"combKey"  : "comb_esfera_cilindro",
-			"needKey"  : "item_cilindro",
-			"itemPath" : "Equipments/BalasRojas",
-			"amount"    : 15
+			"combKey"   : "comb_esfera_cubo",
+			"needKey"   : "item_cubo",
+			"needAmount": "5",
+			"itemPath"  : "Items/Cilindro",
+			"amount"    : 1
 		}
 	]
 }

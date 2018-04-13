@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Name: Esfera
   m_EditorClassIdentifier: 
   name_key: item_esfera
-  "IconoPeque\xF1o": Sprites/Simples/Esfera
-  IconoGrande: Sprites/Amplios/Esfera
-  Modelo: Primitivas/Esfera
+  "IconoPeque\xF1o": Sprites/Primitivas/Simples/Esfera
+  IconoGrande: Sprites/Primitivas/Amplios/Esfera
+  Modelo: Modelos/Primitivas/Esfera
   MaxAmount: 1
   isStackable: 0
   isUsable: 0
   isEquipment: 0
   isCombinable: 1
   CombinableWith:
-  - comb_esfera_cilindro
+  - comb_esfera_cubo

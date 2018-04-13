@@ -21,6 +21,7 @@ public class CombinationManager : MonoBehaviour
 		{
 			ActualCombinationItem = new CombinationItem ();
 			ActualCombinationItem.needKey = loadedData.container [i].needKey;
+			ActualCombinationItem.needAmount = loadedData.container [i].needAmount;
 			ActualCombinationItem.itemPath = loadedData.container [i].itemPath;
 			ActualCombinationItem.amount = loadedData.container [i].amount;
 			CombinationDictionary.Add (loadedData.container [i].combKey, ActualCombinationItem);

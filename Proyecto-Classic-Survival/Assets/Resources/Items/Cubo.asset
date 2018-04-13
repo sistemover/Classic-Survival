@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Name: Cubo
   m_EditorClassIdentifier: 
   name_key: item_cubo
-  "IconoPeque\xF1o": Sprites/Simples/Cubo
-  IconoGrande: Sprites/Amplios/Cubo
-  Modelo: Primitivas/Cubo
-  MaxAmount: 27
+  "IconoPeque\xF1o": Sprites/Primitivas/Simples/Cubo
+  IconoGrande: Sprites/Primitivas/Amplios/Cubo
+  Modelo: Modelos/Primitivas/Cubo
+  MaxAmount: 5
   isStackable: 1
   isUsable: 0
   isEquipment: 0

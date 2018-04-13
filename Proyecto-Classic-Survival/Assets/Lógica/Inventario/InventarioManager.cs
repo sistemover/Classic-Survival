@@ -150,6 +150,9 @@ public class InventarioManager : MonoBehaviour
 	}
 	bool AlgoritmoEquipar()
 	{
+		if (!dropDriver.myItem.isEquipment)
+			return false;
+		
 		bool resultado = false;
 		bool drop = false;
 		bool host = false;
@@ -303,9 +306,9 @@ public class InventarioManager : MonoBehaviour
 	{
 		bool result = true;
 		combinationManager.OpenDictionary ();
-		if (!ExistCombination (dropDriver.myItem, hostDriver.myItem)) 
+		if (!ExistCombination (dropDriver.myItem, hostDriver.myItem, hostPocket.Amount)) 
 		{
-			if(!ExistCombination (hostDriver.myItem, dropDriver.myItem))
+			if(!ExistCombination (hostDriver.myItem, dropDriver.myItem, dropPocket.Amount))
 			{
 				combinationManager.CloseDictionary ();
 				result = false;
@@ -313,7 +316,7 @@ public class InventarioManager : MonoBehaviour
 		}
 		return result;
 	}
-	bool ExistCombination(Item Base, Item Reactivo)
+	bool ExistCombination(Item Base, Item Reactivo, int ReactivoAmount)
 	{
 		bool result = false;
 		if (!Base.isCombinable)
@@ -322,10 +325,14 @@ public class InventarioManager : MonoBehaviour
 		{		
 			string base_key = Base.CombinableWith [i];
 			string need_key = combinationManager.GetCombinationItem (base_key);
+			int need_amount = combinationManager.ActualCombinationItem.needAmount;
 			if (need_key == Reactivo.name_key) 
 			{
-				result = true;
-				break;
+				if (need_amount == ReactivoAmount) 
+				{
+					result = true;
+					break;
+				}
 			}
 		}
 		return result;

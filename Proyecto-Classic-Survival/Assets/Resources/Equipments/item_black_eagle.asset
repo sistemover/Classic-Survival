@@ -9,12 +9,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 83782d0a94b92e748b772673d13c3d8d, type: 3}
-  m_Name: Pistola
+  m_Name: item_black_eagle
   m_EditorClassIdentifier: 
-  name_key: item_pistola
-  "IconoPeque\xF1o": Sprites/Simples/Pistola
-  IconoGrande: Sprites/Amplios/Pistola
-  Modelo: Primitivas/Cubo
+  name_key: item_black_eagle
+  "IconoPeque\xF1o": Sprites/Armas/Simples/black_eagle
+  IconoGrande: Sprites/Armas/Amplios/black_eagle
+  Modelo: Modelos/Armas/black_eagle
   MaxAmount: 15
   isStackable: 0
   isUsable: 0

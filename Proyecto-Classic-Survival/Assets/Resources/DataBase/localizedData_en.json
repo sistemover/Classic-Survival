@@ -95,14 +95,14 @@
 			"longdescription"  : "Add long description, Cylinder"
 		},
 		{
-			"key"              : "item_pistola",
-			"name"             : "Gun [2 mm]",
+			"key"              : "item_black_eagle",
+			"name"             : "Black Eagle [2 mm]",
 			"shortdescription" : "Little Gun, may you can Hurt a Little Pussy",
 			"longdescription"  : "Fuck with this Men!"
 		},
 		{
-			"key"              : "item_balas_rojas",
-			"name"             : "Red Bullets [2 mm]",
+			"key"              : "item_p_horn_bullets",
+			"name"             : "P Horn Bullets [2 mm]",
 			"shortdescription" : "Bullets Reds of 2 mm with a power similar to baby hit",
 			"longdescription"  : "Yes, thats right!"
 		}

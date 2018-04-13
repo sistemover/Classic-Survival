@@ -6502,11 +6502,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf242a55978136347bae0428451c0ddd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PocketContainer: []
+  PocketContainer:
+  - ItemPath: Items/Esfera
+    Amount: 1
+  - ItemPath: Items/Cubo
+    Amount: 4
+  - ItemPath: Items/Cubo
+    Amount: 4
   PickupContainer:
-  - ItemPath: Equipments/BalasRojas
+  - ItemPath: Equipments/item_p_horn_bullets
     Amount: 45
-  - ItemPath: Equipments/Pistola
+  - ItemPath: Equipments/item_black_eagle
     Amount: 15
   EquipContainer: []
   StorageContainer: []
@@ -6536,6 +6542,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ActualCombinationItem:
     needKey: 
+    needAmount: 0
     itemPath: 
     amount: 0
 --- !u!114 &500396983
@@ -21537,9 +21544,9 @@ MonoBehaviour:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 25
     m_FontStyle: 0
-    m_BestFit: 0
-    m_MinSize: 2
-    m_MaxSize: 70
+    m_BestFit: 1
+    m_MinSize: 15
+    m_MaxSize: 25
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1

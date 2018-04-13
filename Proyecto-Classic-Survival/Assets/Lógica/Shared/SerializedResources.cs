@@ -18,6 +18,7 @@ public class CombinationContainer
 {
 	public string combKey;
 	public string needKey;
+	public int needAmount;
 	public string itemPath;
 	public int amount;
 }
@@ -26,6 +27,7 @@ public class CombinationContainer
 public class CombinationItem
 {
 	public string needKey;
+	public int needAmount;
 	public string itemPath;
 	public int amount;
 }
