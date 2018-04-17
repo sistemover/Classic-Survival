@@ -6503,27 +6503,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PocketContainer:
-  - ItemPath: Items/Esfera
-    Amount: 1
-  - ItemPath: Items/Cubo
-    Amount: 4
   - ItemPath: Items/heap_of_paper
-    Amount: 1
-  - ItemPath: Equipments/samurai_bone_breakers
-    Amount: 85
-  - ItemPath: Equipments/knife_sharpener
     Amount: 5
-  - ItemPath: Equipments/p_horn_bullets
-    Amount: 25
-  PickupContainer:
-  - ItemPath: Equipments/p_horn_bullets
-    Amount: 35
-  - ItemPath: Equipments/black_eagle
-    Amount: 15
   - ItemPath: Items/cinta_adhesiva
-    Amount: 2
+    Amount: 3
   - ItemPath: Items/heap_of_paper
-    Amount: 4
+    Amount: 5
+  PickupContainer: []
   EquipContainer: []
   StorageContainer: []
 --- !u!4 &500396981

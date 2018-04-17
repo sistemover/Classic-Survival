@@ -15,7 +15,7 @@ MonoBehaviour:
   "IconoPeque\xF1o": Sprites/Objetos/Simples/cinta_adhesiva
   IconoGrande: Sprites/Objetos/Amplios/cinta_adhesiva
   Modelo: Modelos/Objetos/cinta_adhesiva
-  MaxAmount: 25
+  MaxAmount: 3
   isStackable: 1
   isUsable: 0
   isEquipment: 0

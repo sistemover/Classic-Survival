@@ -15,6 +15,8 @@ public class InventarioManager : MonoBehaviour
 	PocketItem dropPocket;
 	ItemDriver hostDriver;
 	PocketItem hostPocket;
+	PocketItem basePocket;
+	bool isCombinableDrop;
 
 	List<PocketItem> dropContainer;
 	List<PocketItem> hostContainer;
@@ -131,7 +133,16 @@ public class InventarioManager : MonoBehaviour
 		} 
 		else if (CheckCombinable ()) 
 		{
-			Combinar ();
+			if (isCombinableDrop) 
+			{
+				Combinar (hostDriver.myPocketItem, hostItemsDriver);
+			} 
+			else
+			{
+				Combinar (dropDriver.myPocketItem, dropItemsDriver);
+			}
+			basePocket = null;
+			isCombinableDrop = false;
 		} 
 		else
 		{
@@ -269,14 +280,14 @@ public class InventarioManager : MonoBehaviour
 		ActualizarInventario ();
 		dropDriver.TapSeleccionarItem ();
 	}
-	void Combinar()
+	void Combinar(PocketItem reactPocket, ItemDriver[] reactItemsDriver)
 	{
-		dropContainer.Remove (dropPocket);
-		hostPocket.ItemPath = combinationManager.ActualCombinationItem.itemPath;
-		hostPocket.Amount = combinationManager.ActualCombinationItem.amount;
+		basePocket.Amount--;
+		reactPocket.ItemPath = combinationManager.ActualCombinationItem.itemPath;
+		reactPocket.Amount = combinationManager.ActualCombinationItem.amount;
 		combinationManager.CloseDictionary ();
 		ActualizarInventario ();
-		hostItemsDriver [GetContainerIndex (hostPocket, hostItemsDriver)].TapSeleccionarItem ();
+		reactItemsDriver [GetContainerIndex (reactPocket, reactItemsDriver)].TapSeleccionarItem ();
 	}
 	void Cambiar()
 	{
@@ -306,13 +317,22 @@ public class InventarioManager : MonoBehaviour
 	{
 		bool result = true;
 		combinationManager.OpenDictionary ();
-		if (!ExistCombination (dropDriver.myItem, hostDriver.myItem, hostPocket.Amount)) 
+		if (ExistCombination (dropDriver.myItem, hostDriver.myItem, hostPocket.Amount)) 
 		{
-			if(!ExistCombination (hostDriver.myItem, dropDriver.myItem, dropPocket.Amount))
-			{
-				combinationManager.CloseDictionary ();
-				result = false;
-			}
+			basePocket = dropDriver.myPocketItem;
+			isCombinableDrop = true;
+			Debug.Log ("La Base es un Drop: " + dropDriver.myItem.name);
+		} 
+		else if (ExistCombination (hostDriver.myItem, dropDriver.myItem, dropPocket.Amount)) 
+		{
+			basePocket = hostDriver.myPocketItem;
+			isCombinableDrop = false;
+			Debug.Log ("La Base es un host: " + hostDriver.myItem.name);
+		} 
+		else 
+		{
+			combinationManager.CloseDictionary ();
+			result = false;
 		}
 		return result;
 	}
