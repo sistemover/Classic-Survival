@@ -9,18 +9,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 83782d0a94b92e748b772673d13c3d8d, type: 3}
-  m_Name: item_black_eagle
+  m_Name: armor_paper
   m_EditorClassIdentifier: 
-  name_key: item_black_eagle
-  "IconoPeque\xF1o": Sprites/Armas/Simples/black_eagle
-  IconoGrande: Sprites/Armas/Amplios/black_eagle
-  Modelo: Modelos/Armas/black_eagle
-  MaxAmount: 15
-  isStackable: 0
+  name_key: item_armor_paper
+  "IconoPeque\xF1o": Sprites/Armas/Simples/armor_paper
+  IconoGrande: Sprites/Armas/Amplios/armor_paper
+  Modelo: Modelos/Armas/armor_paper
+  MaxAmount: 100
+  isStackable: 1
   isUsable: 0
   isEquipment: 1
   isCombinable: 0
   CombinableWith: []
-  equipType: 0
+  equipType: 2
   equipMainType: 0
-  equipSubType: 1
+  equipSubType: 4

@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef99b722f2a7aad48a7a6b2179a9b7ed, type: 3}
+  m_Name: cinta_adhesiva
+  m_EditorClassIdentifier: 
+  name_key: item_cinta_adhesiva
+  "IconoPeque\xF1o": Sprites/Objetos/Simples/cinta_adhesiva
+  IconoGrande: Sprites/Objetos/Amplios/cinta_adhesiva
+  Modelo: Modelos/Objetos/cinta_adhesiva
+  MaxAmount: 25
+  isStackable: 1
+  isUsable: 0
+  isEquipment: 0
+  isCombinable: 1
+  CombinableWith:
+  - comb_cinta_papel

@@ -117,6 +117,24 @@
 			"name"             : "Afilador de Cuchillos",
 			"shortdescription" : "Es el Afilador, wey el afilador-dor-dor-dor!",
 			"longdescription"  : "dor como door"
+		},
+		{
+			"key"              : "item_armor_paper",
+			"name"             : "Protección de Papel",
+			"shortdescription" : "Una especie de armadura hecha de Papel sujeto con Cinta, ideal para proteger partes suceptibles a mordeduras.",
+			"longdescription"  : "En resumen eso de antes."
+		},
+		{
+			"key"              : "item_cinta_adhesiva",
+			"name"             : "Cinta Adhesiva",
+			"shortdescription" : "Es una cinta adhesiva industrial, por lo que es más resistente que las clásicas que compras en el Chino de la Esquina.",
+			"longdescription"  : "No sé qué más escribír aquí"
+		},
+		{
+			"key"              : "item_heap_of_paper",
+			"name"             : "Montón de Papel",
+			"shortdescription" : "Descripción corta para este item en Particular 1313",
+			"longdescription"  : "Puede ser util para hacer cohetes de papel y así bombardear zombies desde la seguridad de tu ventana."
 		}
 	]
 }

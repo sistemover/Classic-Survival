@@ -7,6 +7,13 @@
 			"needAmount": "5",
 			"itemPath"  : "Items/Cilindro",
 			"amount"    : 1
+		},
+		{
+			"combKey"   : "comb_cinta_papel",
+			"needKey"   : "item_heap_of_paper",
+			"needAmount": "5",
+			"itemPath"  : "Equipments/armor_paper",
+			"amount"    : 100
 		}
 	]
 }

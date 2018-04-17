@@ -113,10 +113,22 @@
 			"longdescription"  : "Wup!"
 		},
 		{
-			"key"              : "item_knife_sharpener",
-			"name"             : "Knife Sharpener",
-			"shortdescription" : "is this Sharpener, wey and have the bad word",
-			"longdescription"  : "pener like pener!"
+			"key"              : "item_armor_paper",
+			"name"             : "Paper Protection",
+			"shortdescription" : "Some kind of Armor protection, made from paper (not higienic of horse), and, you know, WWZ reference!!!",
+			"longdescription"  : "Wow, thats was hard!!"
+		},
+		{
+			"key"              : "item_cinta_adhesiva",
+			"name"             : "Scotch Tape",
+			"shortdescription" : "Its a Scotch Tape Industrial, yeah madafaka!!",
+			"longdescription"  : "Idk what more write jir."
+		},
+		{
+			"key"              : "item_heap_of_paper",
+			"name"             : "Heap of Paper",
+			"shortdescription" : "Description for Heap of Paper",
+			"longdescription"  : "Is a kind of Heap of Paper, it can be useful for, idk, make some kind of... armor, like a child, kakakaka"
 		}
 	]
 }

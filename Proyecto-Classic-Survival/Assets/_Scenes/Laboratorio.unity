@@ -6507,17 +6507,23 @@ MonoBehaviour:
     Amount: 1
   - ItemPath: Items/Cubo
     Amount: 4
-  - ItemPath: Items/Cubo
-    Amount: 4
+  - ItemPath: Items/heap_of_paper
+    Amount: 1
   - ItemPath: Equipments/samurai_bone_breakers
     Amount: 85
   - ItemPath: Equipments/knife_sharpener
     Amount: 5
+  - ItemPath: Equipments/p_horn_bullets
+    Amount: 25
   PickupContainer:
-  - ItemPath: Equipments/item_p_horn_bullets
-    Amount: 45
-  - ItemPath: Equipments/item_black_eagle
+  - ItemPath: Equipments/p_horn_bullets
+    Amount: 35
+  - ItemPath: Equipments/black_eagle
     Amount: 15
+  - ItemPath: Items/cinta_adhesiva
+    Amount: 2
+  - ItemPath: Items/heap_of_paper
+    Amount: 4
   EquipContainer: []
   StorageContainer: []
 --- !u!4 &500396981
