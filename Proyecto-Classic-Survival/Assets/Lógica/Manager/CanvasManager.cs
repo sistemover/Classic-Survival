@@ -86,7 +86,7 @@ public class CanvasManager : MonoBehaviour
 		Interfaz.SetActive (!Interfaz.activeInHierarchy);
 		MenuInventario.SetActive (!MenuInventario.activeInHierarchy);
 		//Abriendo Pickup
-		TapPickup();
+		//TapPickup();
 	}
 	public void TapPickup()
 	{
@@ -103,18 +103,15 @@ public class CanvasManager : MonoBehaviour
 	}
 	public void TapExaminar()
 	{
+		TapInventario ();
+
+		gameManager.touchGamePadManager.ActivarDesactivarGamePad (false);
+		
 		if(MenuInventario.activeInHierarchy)
 			gameManager.touchGamePadManager.ActivarDesactivarLeftGamePad (true);
-		else
-			gameManager.touchGamePadManager.ActivarDesactivarLeftGamePad (false);
-		if(MenuPickup.activeInHierarchy)
-			gameManager.touchGamePadManager.ActivarDesactivarRightGamePad (true);
-		else
-			gameManager.touchGamePadManager.ActivarDesactivarRightGamePad (false);
 
-		TapInventario ();
-		gameManager.touchGamePadManager.ActivarDesactivarGamePad (false);
 		Interfaz.SetActive (false);
+
 		MenuExaminar.SetActive (!MenuExaminar.activeInHierarchy);
 	}
 	public void TapPausa()

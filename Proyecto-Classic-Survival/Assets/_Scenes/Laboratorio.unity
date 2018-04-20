@@ -6507,7 +6507,13 @@ MonoBehaviour:
     Amount: 5
   - ItemPath: Items/cinta_adhesiva
     Amount: 3
-  - ItemPath: Items/heap_of_paper
+  - ItemPath: Equipments/black_eagle
+    Amount: 0
+  - ItemPath: Equipments/samurai_bone_breakers
+    Amount: 50
+  - ItemPath: Equipments/p_horn_bullets
+    Amount: 25
+  - ItemPath: Equipments/knife_sharpener
     Amount: 5
   PickupContainer: []
   EquipContainer: []
@@ -10257,7 +10263,7 @@ GameObject:
   m_Component:
   - component: {fileID: 836011074}
   m_Layer: 0
-  m_Name: Desarrollo
+  m_Name: Feature-Persistencia
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
