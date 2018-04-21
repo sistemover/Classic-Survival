@@ -32,6 +32,38 @@ public class InventarioManager : MonoBehaviour
 		inventarioCanvasManager = GameManager.instance.canvasManager.inventarioCanvasManager;
 		combinationManager = GetComponent<CombinationManager> ();
 	}
+	public void GuardarInventario ()
+	{
+		Persistant.Data.SavedPocketContainer = new PocketItem[PocketContainer.Count];
+		Persistant.Data.SavedPocketContainer = GuardarPockets (Persistant.Data.SavedPocketContainer, PocketContainer);
+
+		Persistant.Data.SavedEquipContainer = new PocketItem[EquipContainer.Count];
+		Persistant.Data.SavedEquipContainer = GuardarPockets (Persistant.Data.SavedEquipContainer, EquipContainer);
+
+		LoaderManager.Singleton.Guardar ();
+	}
+
+	public void CargarInventario()
+	{
+		if (!LoaderManager.Singleton.Cargar ())
+			return;
+		CargarPockets (Persistant.Data.SavedPocketContainer, PocketContainer);
+		CargarPockets (Persistant.Data.SavedEquipContainer, EquipContainer);
+	}
+	PocketItem[] GuardarPockets(PocketItem[] current, List<PocketItem> container)
+	{
+		for (int i = 0; i < container.Count; i++) {
+			current [i] = container [i];
+		}
+		return current;
+	}
+	void CargarPockets(PocketItem[] current, List<PocketItem> container)
+	{
+		container.Clear ();
+		for (int i = 0; i < current.Length; i++) {
+			container.Add (current [i]);
+		}
+	}
 	public void ActualizarInventario()
 	{
 		inventarioCanvasManager.CargarPocketsContainers ();
@@ -378,6 +410,11 @@ public class InventarioManager : MonoBehaviour
 		if (!A.isEquipment) 
 		{
 			//Debug.Log (A.name_key + " NO es Equipable");
+			return false;
+		}
+		if (!B.isEquipment) 
+		{
+			//Debug.Log (B.name_key + " NO es Equipable");
 			return false;
 		}
 		if (!A.GetEquip ().equipMainType.Equals (EquipMainType.Food)) 

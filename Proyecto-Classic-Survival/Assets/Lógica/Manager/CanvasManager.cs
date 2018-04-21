@@ -61,6 +61,7 @@ public class CanvasManager : MonoBehaviour
 	}
 	public void TapIniciar()
 	{
+		gameManager.inventarioManager.CargarInventario ();
 		CargarPlayerCamera cargar = gameManager.cargar;
 		GameObject player = cargar.player;
 		GameObject cameraManager = cargar.cameraManager;
@@ -85,6 +86,11 @@ public class CanvasManager : MonoBehaviour
 		gameManager.touchGamePadManager.ActivarDesactivarRightGamePad (MenuInventario.activeInHierarchy);
 		Interfaz.SetActive (!Interfaz.activeInHierarchy);
 		MenuInventario.SetActive (!MenuInventario.activeInHierarchy);
+		if (!MenuInventario.activeInHierarchy) 
+		{
+			gameManager.inventarioManager.GuardarInventario ();
+			Debug.Log ("Cerrando Inventario");
+		}
 		//Abriendo Pickup
 		//TapPickup();
 	}

@@ -1,6 +1,14 @@
 ﻿public class SerializedResources{}
 
 [System.Serializable]
+public class Persistant
+{
+	public static Persistant Data;
+	public PocketItem[] SavedPocketContainer;
+	public PocketItem[] SavedEquipContainer;
+}
+
+[System.Serializable]
 public class PocketItem
 {
 	public string ItemPath = "Items/";
