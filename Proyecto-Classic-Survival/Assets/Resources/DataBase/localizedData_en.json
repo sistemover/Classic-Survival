@@ -113,6 +113,12 @@
 			"longdescription"  : "Wup!"
 		},
 		{
+			"key"              : "item_knife_sharpener",
+			"name"             : "Knife Sharpener",
+			"shortdescription" : "It is an Fucking Knife Sharpener, what more you need!!!",
+			"longdescription"  : "Like a virgin, ( ͡ ͡° ͜ ʖ ͡ ͡°)"
+		},
+		{
 			"key"              : "item_armor_paper",
 			"name"             : "Paper Protection",
 			"shortdescription" : "Some kind of Armor protection, made from paper (not higienic of horse), and, you know, WWZ reference!!!",
