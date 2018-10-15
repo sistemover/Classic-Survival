@@ -97,6 +97,7 @@ public class GameManager : MonoBehaviour
 		localizationManager.Init();
 		EquipmentManager.Singleton.Init ();
 		inventarioManager.Init ();
+		canvasManager.TapIniciar ();
 	}
 
 	void Init()
@@ -110,10 +111,17 @@ public class GameManager : MonoBehaviour
 		float delta = Time.deltaTime;
 		InputManager.Tick ();
 
-		if (LocalPlayer != null)
-			LocalPlayer.Tick (delta, 
+		GameObject goPlayer = GameObject.Find ("Player");
+		
+		if (LocalPlayer != null && goPlayer != null) {
+			Debug.Log ("Tick LocalPlayer");
+			LocalPlayer.Tick 
+			(
+				delta, 
 				InputManager.d_a, InputManager.d_b, InputManager.d_x, InputManager.d_y, 
-				InputManager.u_a, InputManager.u_b, InputManager.u_x, InputManager.u_y);
+				InputManager.u_a, InputManager.u_b, InputManager.u_x, InputManager.u_y
+			);
+		}
 	}
 
 	void FixedUpdate()
@@ -121,8 +129,18 @@ public class GameManager : MonoBehaviour
 		float fixedDelta = Time.fixedDeltaTime;
 		InputManager.FixedTick ();
 
-		if (LocalPlayer != null)
-			LocalPlayer.FixedTick (fixedDelta, InputManager.AxisL, InputManager.AxisR, ActualCameraManager.Cameras[ActualCameraManager.ActiveCamera]);
+		GameObject goPlayer = GameObject.Find ("Player");
+
+		if (LocalPlayer != null && goPlayer != null) {
+			Debug.Log ("fTick LocalPlayer");
+			LocalPlayer.FixedTick 
+			(
+				fixedDelta, 
+				InputManager.AxisL, 
+				InputManager.AxisR, 
+				ActualCameraManager.Cameras [ActualCameraManager.ActiveCamera]
+			);
+		}
 	}
 		
 }

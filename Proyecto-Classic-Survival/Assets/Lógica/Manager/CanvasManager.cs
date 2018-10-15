@@ -49,13 +49,13 @@ public class CanvasManager : MonoBehaviour
 		inventarioCanvasManager.Init();
 	}
 
-	void InstanciarMenus()
+	void InstanciarMenus()//Setea los Menús, para poder luego cargar los idiomas.
 	{
 		GameObject[] menus = { MenuInicio, MenuOpciones, MenuIdioma, MenuInventario, MenuExaminar, Interfaz, MenuPausa,MenuPickup};
 		for (int i = 0; i < menus.Length; i++) 
 		{
 			menus [i].SetActive (true);
-			if (i > 0)
+			if (i > 0)//Se preocupa de Dejar activado solamente el menú de inicio.
 				menus [i].SetActive (false);
 		}
 	}

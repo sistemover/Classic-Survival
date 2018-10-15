@@ -3671,7 +3671,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4253323296163980, guid: fb33a4630bc31b44a81c01fc1e8a887e, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.559
       objectReference: {fileID: 0}
     - target: {fileID: 4253323296163980, guid: fb33a4630bc31b44a81c01fc1e8a887e, type: 2}
       propertyPath: m_LocalPosition.z
@@ -10819,6 +10819,11 @@ Prefab:
         type: 2}
       propertyPath: m_FontData.m_FontSize
       value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 114139423437974440, guid: 6ad310c35dbbc4f408f48dd173ed7d7b,
+        type: 2}
+      propertyPath: m_Interactable
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6ad310c35dbbc4f408f48dd173ed7d7b, type: 2}

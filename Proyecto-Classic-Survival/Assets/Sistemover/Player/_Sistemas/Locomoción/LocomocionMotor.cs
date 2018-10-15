@@ -74,15 +74,16 @@ public class LocomocionMotor : MonoBehaviour
 
 		UpdateOrientation (c);
 		UpdateMoveDirection ();
-		UpdateFalling ();
+
 		UpdateSpeed ();
 		UpdateRotation ();
-		UpdateAnimation ();
 	}
 
 	public void Tick(float d)
 	{
 		delta = d;
+		UpdateFalling ();//FixedTick()
+		UpdateAnimation ();//FixedTick()
 		UpdateOnGround ();
 	}
 
