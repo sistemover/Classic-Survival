@@ -45,10 +45,12 @@ public class InventarioManager : MonoBehaviour
 
 	public void CargarInventario()
 	{
-		if (!LoaderManager.Singleton.Cargar ())
-			return;
-		CargarPockets (Persistant.Data.SavedPocketContainer, PocketContainer);
-		CargarPockets (Persistant.Data.SavedEquipContainer, EquipContainer);
+		//if (!LoaderManager.Singleton.Cargar ())
+		//	return;
+		if(Persistant.Data.SavedPocketContainer != null)
+			CargarPockets (Persistant.Data.SavedPocketContainer, PocketContainer);
+		if(Persistant.Data.SavedEquipContainer != null)
+			CargarPockets (Persistant.Data.SavedEquipContainer, EquipContainer);
 	}
 	PocketItem[] GuardarPockets(PocketItem[] current, List<PocketItem> container)
 	{

@@ -59,4 +59,8 @@ public class LoaderManager : MonoBehaviour
 	{
 		return Resources.Load (path) as TextAsset;
 	}
+	public GameObject CargarGameObject(string path)
+	{
+		return Resources.Load (path) as GameObject;
+	}
 }

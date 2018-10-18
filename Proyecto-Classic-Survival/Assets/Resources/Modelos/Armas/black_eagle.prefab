@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33200678319070482}
   - component: {fileID: 65459785371056824}
   - component: {fileID: 23436009412981706}
+  - component: {fileID: 114660115454066950}
   m_Layer: 0
   m_Name: black_eagle
   m_TagString: Untagged
@@ -93,3 +94,15 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114660115454066950
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1441883013780812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb28ebe8d24b61e48b429f56f1f7e4a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: 0
