@@ -9196,7 +9196,7 @@ GameObject:
   m_Component:
   - component: {fileID: 686863279}
   m_Layer: 0
-  m_Name: "Versi\xF3n: 0.1.D19"
+  m_Name: "Versi\xF3n: 0.1.D20"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10539,7 +10539,7 @@ GameObject:
   m_Component:
   - component: {fileID: 836011074}
   m_Layer: 0
-  m_Name: Editor de Niveles
+  m_Name: "Gesti\xF3n de Niveles"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
