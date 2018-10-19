@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEditor;
 
 public class LevelManager : MonoBehaviour 
 {
@@ -163,7 +162,7 @@ public class LevelManager : MonoBehaviour
 
 	#endregion
 
-	public void Init()
+	public void Start()
 	{
 		CargarConfiguracion ();
 		for (int i = 0; i < GamePlus [Round].LevelObjects.Length; i++) 
@@ -194,24 +193,3 @@ public class LevelManager : MonoBehaviour
 		go.transform.parent = ObjectContainer.transform;
 	}
 }
-
-/*
-[UnityEditor.CustomEditor(typeof(LevelManager))]
-public class InspectorCustomizer : UnityEditor.Editor
-{
-	public void ShowArrayProperty(UnityEditor.SerializedProperty list)
-	{
-		UnityEditor.EditorGUI.indentLevel += 1;
-		for (int i = 0; i < list.arraySize; i++)
-		{
-			UnityEditor.EditorGUILayout.PropertyField(list.GetArrayElementAtIndex(i), new UnityEngine.GUIContent("GamePlus " + (i + 1).ToString()));
-		}
-		UnityEditor.EditorGUI.indentLevel -= 1;
-	}
-
-
-	public override void OnInspectorGUI()
-	{
-		ShowArrayProperty(serializedObject.FindProperty("GamePlus"));
-	}
-}*/

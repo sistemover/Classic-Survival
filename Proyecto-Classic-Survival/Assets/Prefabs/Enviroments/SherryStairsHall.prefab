@@ -260,7 +260,6 @@ GameObject:
   - component: {fileID: 33116633745046916}
   - component: {fileID: 65174822621250460}
   - component: {fileID: 23541740920675742}
-  - component: {fileID: 114020575249990442}
   m_Layer: 0
   m_Name: P1M (1)
   m_TagString: Untagged
@@ -10606,14 +10605,3 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!114 &114020575249990442
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1082029092223468}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 597f6b1e1d9d633488a36457eb421aac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

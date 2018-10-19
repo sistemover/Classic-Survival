@@ -62,16 +62,12 @@ public class CanvasManager : MonoBehaviour
 	public void TapIniciar()
 	{
 		gameManager.inventarioManager.CargarInventario ();
-		CargarPlayerCamera cargar = gameManager.cargar;
-		GameObject player = cargar.player;
-		GameObject cameraManager = cargar.cameraManager;
-
 		gameManager.touchGamePadManager.ActivarDesactivarGamePad (MenuInicio.activeInHierarchy);
-		cameraManager.SetActive(!cameraManager.activeSelf);
-		player.SetActive(!player.activeSelf);
 		Interfaz.SetActive (MenuInicio.activeInHierarchy);
 		MenuInicio.SetActive (!MenuInicio.activeInHierarchy);
 		Time.timeScale = 1f;
+
+		gameManager.sceneController.InitiateScene ();
 	}
 	public void TapOpciones()
 	{
@@ -133,7 +129,14 @@ public class CanvasManager : MonoBehaviour
 	}
 	public void TapMenuPrincipal()
 	{
-		TapIniciar ();
+		gameManager.inventarioManager.CargarInventario ();
+		gameManager.touchGamePadManager.ActivarDesactivarGamePad (MenuInicio.activeInHierarchy);
+		Interfaz.SetActive (MenuInicio.activeInHierarchy);
+		MenuInicio.SetActive (!MenuInicio.activeInHierarchy);
+		Time.timeScale = 1f;
+
+		gameManager.sceneController.QuitScene ();
+
 		MenuPausa.SetActive (!MenuPausa.activeInHierarchy);
 	}
 }

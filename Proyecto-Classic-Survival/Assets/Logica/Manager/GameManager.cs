@@ -88,6 +88,17 @@ public class GameManager : MonoBehaviour
 		}
 	}
 
+	private SceneController m_sceneController;
+	public SceneController sceneController
+	{
+		get
+		{
+			if (m_sceneController == null)
+				m_sceneController = transform.GetComponent<SceneController> ();
+			return m_sceneController;
+		}
+	}
+
 	//**************************************************
 
 	void Start () 

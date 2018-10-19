@@ -7,9 +7,13 @@ public class SceneController : MonoBehaviour
 {
 	public string startingSceneName;
 
-	public void Init()
+	public void InitiateScene()
 	{
 		StartCoroutine (LoadSceneAndSetActive(startingSceneName));
+	}
+	public void QuitScene()
+	{
+		StartCoroutine(RemoveSceneAndDeactive ());
 	}
 
 	private IEnumerable On()
@@ -22,5 +26,10 @@ public class SceneController : MonoBehaviour
 		yield return SceneManager.LoadSceneAsync (sceneName, LoadSceneMode.Additive);
 		Scene newlyLoadedScene = SceneManager.GetSceneAt (SceneManager.sceneCount - 1);
 		SceneManager.SetActiveScene (newlyLoadedScene);
+	}
+
+	private IEnumerator RemoveSceneAndDeactive()
+	{
+		yield return SceneManager.UnloadSceneAsync (SceneManager.GetActiveScene().buildIndex);
 	}
 }
