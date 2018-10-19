@@ -34,13 +34,13 @@ public class LevelManager : MonoBehaviour
 		GuardarConfiguración ();
 	}
 
-	public void TapReemplazar()
+	public void TapReemplazar(int id, string path, int amount)
 	{
 		ObjectsData actualObject = new ObjectsData ();
 
 		//tengo el objeto idToReplace, y quiero reemplazarlo por el newO
 		for (int i = 0; i < GamePlus[Round].LevelObjects.Length; i++)
-			if (idToReplace == GamePlus [Round].LevelObjects [i].ID) 
+			if (id == GamePlus [Round].LevelObjects [i].ID) 
 				actualObject = GamePlus [Round].LevelObjects [i];
 
 		//Identificar objeto físico mediante ID y Destruirlo.
@@ -49,8 +49,8 @@ public class LevelManager : MonoBehaviour
 
 
 		//Intercambiar elemento viejo por elemento nuevo.
-		actualObject.path = newO.path;
-		actualObject.Amount = newO.Amount;
+		actualObject.path = path;
+		actualObject.Amount = amount;
 
 		//Instanciar nuevo Objeto en mundo físico.
 		for (int i = 0; i < GamePlus [Round].LevelObjects.Length; i++)
