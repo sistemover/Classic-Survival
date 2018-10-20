@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 65879259731019664}
   - component: {fileID: 23378247105860124}
   - component: {fileID: 114620316640077028}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: heap_of_paper
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 136631578293020920}
   - component: {fileID: 23259223637996900}
   - component: {fileID: 114826035412030238}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Cilindro
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb28ebe8d24b61e48b429f56f1f7e4a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ID: 0
+  ID: 10
 --- !u!136 &136631578293020920
 CapsuleCollider:
   m_ObjectHideFlags: 1

@@ -9058,7 +9058,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2558f0802554fdf4e828f5d8edd68f26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingSceneName: Laboratorio2
+  startingSceneName: Laboratorio
   startingPositionName: p1
   startingCameraIndex: 0
 --- !u!1 &1728054212

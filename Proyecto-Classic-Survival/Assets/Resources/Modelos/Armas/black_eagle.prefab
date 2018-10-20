@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 65459785371056824}
   - component: {fileID: 23436009412981706}
   - component: {fileID: 114660115454066950}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: black_eagle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

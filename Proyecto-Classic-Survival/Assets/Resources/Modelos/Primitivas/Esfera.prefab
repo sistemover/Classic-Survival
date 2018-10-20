@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 135584657052295294}
   - component: {fileID: 23299153675662030}
   - component: {fileID: 114197339064315192}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Esfera
   m_TagString: Untagged
   m_Icon: {fileID: 0}

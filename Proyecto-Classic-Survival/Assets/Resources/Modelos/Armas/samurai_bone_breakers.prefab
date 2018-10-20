@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 65879259731019664}
   - component: {fileID: 23378247105860124}
   - component: {fileID: 114738031512961532}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: samurai_bone_breakers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
