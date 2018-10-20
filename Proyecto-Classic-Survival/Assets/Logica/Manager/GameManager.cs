@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
 	//EVENTOS
 	public event System.Action<PlayerManager> OnLocalPlayerJoined;
 	public event System.Action<CameraManager> OnActualCameraManagerJoined;
+	public event System.Action<LevelManager> OnActualLevelManagerJoined;
 
 	//VARIABLES PÚBLICAS
 	[HideInInspector]public InputManager InputManager;
@@ -50,6 +51,21 @@ public class GameManager : MonoBehaviour
 			m_Cam = value;
 			if (OnActualCameraManagerJoined != null)
 				OnActualCameraManagerJoined (m_Cam);
+		}
+	}
+
+	private LevelManager m_Lvl;
+	public LevelManager ActualLevelManager
+	{
+		get
+		{
+			return m_Lvl;
+		}
+		set
+		{
+			m_Lvl = value;
+			if (OnActualLevelManagerJoined != null)
+				OnActualLevelManagerJoined (m_Lvl);
 		}
 	}
 

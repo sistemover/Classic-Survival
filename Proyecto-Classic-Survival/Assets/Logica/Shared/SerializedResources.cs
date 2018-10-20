@@ -8,6 +8,7 @@ public class Persistant
 	public PocketItem[] SavedPocketContainer;
 	public PocketItem[] SavedEquipContainer;
 	public Level[] SavedLevelContainer;
+	public SavedPlayerSpawn SavedPlayerSpawn;
 }
 
 [System.Serializable]
@@ -82,4 +83,12 @@ public class PlayerSpawn
 	public int activeCamera;
 	public Vector3 position;
 	public Vector3 rotation;
+}
+
+[System.Serializable]
+public class SavedPlayerSpawn
+{
+	public string levelName;
+	public int activeCamera;
+	public float posX,posY,posZ,rotX,rotY,rotZ;
 }

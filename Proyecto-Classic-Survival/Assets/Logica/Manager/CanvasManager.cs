@@ -17,6 +17,7 @@ public class CanvasManager : MonoBehaviour
 
 	//Variables Privadas
 	private GameManager gameManager;
+	private LoaderManager loaderManager;
 
 	//Instanciaciones
 	private TouchGamePadManager m_touchGamePadManager;
@@ -45,6 +46,7 @@ public class CanvasManager : MonoBehaviour
 	{
 		Debug.Log ("Start CanvasManager");
 		gameManager = GameManager.instance;
+		loaderManager = LoaderManager.Singleton;
 		InstanciarMenus ();
 		touchGamePadManager.ActivarDesactivarGamePad (false);//Apaga el GamePad
 		inventarioCanvasManager.Init();
@@ -134,11 +136,19 @@ public class CanvasManager : MonoBehaviour
 	public void TapMenuPrincipal()
 	{
 		Time.timeScale = 1f;
+		//Guardar Posicion relativa del player.
+		loaderManager.SavePlayerPosition();
+		loaderManager.Guardar ();
+
 		StartCoroutine (IEQuitScene());
+	}
+	public void TapCerrarAplicacion()
+	{
+		Application.Quit ();
 	}
 	private IEnumerator IEQuitScene()
 	{
-		yield return gameManager.sceneController.QuitScene ();
+		yield return gameManager.sceneController.Quit ();
 
 		gameManager.inventarioManager.CargarInventario ();
 		gameManager.touchGamePadManager.ActivarDesactivarGamePad (MenuInicio.activeInHierarchy);
@@ -147,5 +157,14 @@ public class CanvasManager : MonoBehaviour
 		MenuPausa.SetActive (!MenuPausa.activeInHierarchy);
 
 		StartCoroutine (gameManager.sceneController.Fade (0f));
+	}
+	void OnApplicationQuit()
+	{
+		if (gameManager.LocalPlayer != null) 
+		{
+			loaderManager.SavePlayerPosition ();
+			loaderManager.Guardar ();
+		}
+		Debug.Log ("Cerrando aplicación!!");
 	}
 }

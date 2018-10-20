@@ -11,6 +11,17 @@ public class LevelManager : MonoBehaviour
 	public List<PlayerSpawn> SpawnList = new List<PlayerSpawn> ();
 	GameManager gameManager;
 
+	void Awake ()
+	{
+		Debug.Log ("Awake LevelManager");
+		JoinLevel ();
+	}
+
+	void JoinLevel()
+	{
+		GameManager.instance.ActualLevelManager = this;
+	}
+
 	#region CRUD Objeto
 
 	public ObjectsData newO;
@@ -202,17 +213,37 @@ public class LevelManager : MonoBehaviour
 	public IEnumerator Start()
 	{
 		Debug.Log ("********* LevelManager Inicia la carga **********");
-		Init ();
-		string startingPositionName = gameManager.sceneController.startingPositionName;
-		int startingCameraIndex = gameManager.sceneController.startingCameraIndex;
+		gameManager = GameManager.instance;
+		SetearConfiguracion ();
+
+		//Setear Spawn de Player.
+		int startingCameraIndex = 0;
 		Vector3 position = new Vector3();
 		Vector3 rotation = new Vector3();
 
-		for (int i = 0; i < SpawnList.Count; i++) {
-			if (SpawnList[i].key==startingPositionName) {
-				startingCameraIndex = SpawnList [i].activeCamera;
-				position = SpawnList [i].position;
-				rotation = SpawnList [i].rotation;
+		string startingPositionName = gameManager.sceneController.startingPositionName;
+
+		//Setear si existe p0
+		if (Persistant.Data.SavedPlayerSpawn != null) 
+		{
+			startingCameraIndex = Persistant.Data.SavedPlayerSpawn.activeCamera;
+			position.x = Persistant.Data.SavedPlayerSpawn.posX;
+			position.y = Persistant.Data.SavedPlayerSpawn.posY;
+			position.z = Persistant.Data.SavedPlayerSpawn.posZ;
+			rotation.x = Persistant.Data.SavedPlayerSpawn.rotX;
+			rotation.y = Persistant.Data.SavedPlayerSpawn.rotY;
+			rotation.z = Persistant.Data.SavedPlayerSpawn.rotZ;
+			Persistant.Data.SavedPlayerSpawn = null;
+			LoaderManager.Singleton.Guardar ();
+		} 
+		else //Setea si p0 no proviene de un persistan
+		{
+			for (int i = 0; i < SpawnList.Count; i++) {
+				if (SpawnList[i].key==startingPositionName) {
+					startingCameraIndex = SpawnList [i].activeCamera;
+					position = SpawnList [i].position;
+					rotation = SpawnList [i].rotation;
+				}
 			}
 		}
 
@@ -229,9 +260,8 @@ public class LevelManager : MonoBehaviour
 		StartCoroutine (gameManager.sceneController.Fade (0f));
 		Debug.Log ("********** LevelManager Carga Completa **********");
 	}
-	void Init()
+	void SetearConfiguracion()
 	{
-		gameManager = GameManager.instance;
 		CargarConfiguracion ();
 		for (int i = 0; i < GamePlus [Round].LevelObjects.Length; i++) 
 		{	

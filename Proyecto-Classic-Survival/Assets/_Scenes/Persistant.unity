@@ -2664,7 +2664,17 @@ Prefab:
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 238249304}
+      objectReference: {fileID: 238249310}
+    - target: {fileID: 114139423437974440, guid: 6ad310c35dbbc4f408f48dd173ed7d7b,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: TapCerrarAplicacion
+      objectReference: {fileID: 0}
+    - target: {fileID: 114139423437974440, guid: 6ad310c35dbbc4f408f48dd173ed7d7b,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6ad310c35dbbc4f408f48dd173ed7d7b, type: 2}
   m_IsPrefabParent: 0
@@ -9139,9 +9149,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2558f0802554fdf4e828f5d8edd68f26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingSceneName: Laboratorio
-  startingPositionName: p1
-  startingCameraIndex: 0
+  startingLevelName: laboratorio
+  startingPositionName: p0
   faderCanvasGroup: {fileID: 568035257}
   fadeDuration: 0.5
   isFading: 0

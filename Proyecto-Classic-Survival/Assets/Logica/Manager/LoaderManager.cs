@@ -37,7 +37,8 @@ public class LoaderManager : MonoBehaviour
 		{
 			BinaryFormatter bf = new BinaryFormatter ();
 			FileStream file = File.Open (Application.persistentDataPath + "/PersistantData.txt", FileMode.Open);
-			Persistant.Data = (Persistant)bf.Deserialize (file); 
+			Persistant.Data = (Persistant)bf.Deserialize (file);
+			file.Close ();
 			mensage = "Datos Cargados Exitosamente: " + Application.persistentDataPath + "/PersistantData.txt";
 			resultado = true;
 		} 
@@ -47,6 +48,19 @@ public class LoaderManager : MonoBehaviour
 		}
 		Debug.Log (mensage);
 		return resultado;
+	}
+	public void SavePlayerPosition()
+	{	
+		GameManager gameManager = GameManager.instance;
+		Persistant.Data.SavedPlayerSpawn = new SavedPlayerSpawn ();
+		Persistant.Data.SavedPlayerSpawn.activeCamera = gameManager.ActualCameraManager.ActiveCamera;
+		Persistant.Data.SavedPlayerSpawn.levelName = gameManager.ActualLevelManager.LevelName;
+		Persistant.Data.SavedPlayerSpawn.posX = gameManager.LocalPlayer.transform.position.x;
+		Persistant.Data.SavedPlayerSpawn.posY = gameManager.LocalPlayer.transform.position.y;
+		Persistant.Data.SavedPlayerSpawn.posZ = gameManager.LocalPlayer.transform.position.z;
+		Persistant.Data.SavedPlayerSpawn.rotX = gameManager.LocalPlayer.transform.rotation.eulerAngles.x;
+		Persistant.Data.SavedPlayerSpawn.rotY = gameManager.LocalPlayer.transform.rotation.eulerAngles.y;
+		Persistant.Data.SavedPlayerSpawn.rotZ = gameManager.LocalPlayer.transform.rotation.eulerAngles.z;
 	}
 	public Item CargarItem(string path)
 	{

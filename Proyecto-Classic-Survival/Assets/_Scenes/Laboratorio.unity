@@ -200,14 +200,16 @@ MonoBehaviour:
       position: {x: -1, y: 0.2, z: -2}
       rotation: {x: 0, y: 0, z: 0}
   SpawnList:
-  - key: p1
-    activeCamera: 1
-    position: {x: -0.73, y: 0, z: -0.204}
-    rotation: {x: 0, y: 180, z: 0}
-  - key: p2
+  - key: p0
+    isLoading: 1
     activeCamera: 2
     position: {x: -3.925, y: 0, z: -5.025}
     rotation: {x: 0, y: 135, z: 0}
+  - key: p1
+    isLoading: 0
+    activeCamera: 1
+    position: {x: -0.73, y: 0, z: -0.204}
+    rotation: {x: 0, y: 180, z: 0}
   newO:
     ID: 30
     isActive: 1

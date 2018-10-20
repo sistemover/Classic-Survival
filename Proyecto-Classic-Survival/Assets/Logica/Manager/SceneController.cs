@@ -6,9 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour 
 {
-	public string startingSceneName;
+	public string startingLevelName;
 	public string startingPositionName;
-	public int startingCameraIndex;
 
 	public CanvasGroup faderCanvasGroup;
 	public float fadeDuration = 1f;
@@ -18,10 +17,18 @@ public class SceneController : MonoBehaviour
 	public IEnumerator On()
 	{
 		Debug.Log ("Inicia SceneController");
+		//Verificar si hay SavedPlayerSpawn.
+		if (Persistant.Data.SavedPlayerSpawn != null) 
+		{
+			startingLevelName = Persistant.Data.SavedPlayerSpawn.levelName;
+			startingPositionName = "p0";
+		}
+
+		//Inicia Corutina de todo.
 		yield return StartCoroutine (Fade(1f));
-		yield return StartCoroutine (LoadSceneAndSetActive(startingSceneName));
+		yield return StartCoroutine (LoadSceneAndSetActive(startingLevelName));
 	}
-	public IEnumerator QuitScene()
+	public IEnumerator Quit()
 	{
 		yield return StartCoroutine (Fade(1f));
 		yield return StartCoroutine (RemoveSceneAndDeactive ());
