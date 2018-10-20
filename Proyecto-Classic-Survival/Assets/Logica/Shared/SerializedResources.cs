@@ -45,7 +45,17 @@ public class CombinationItem
 public class Level
 {
 	public string key;
-	public ObjectsData[] LevelObjects;
+	public ObjectsSerData[] LevelSerObject;
+}
+
+[System.Serializable]
+public class ObjectsSerData
+{
+	public int ID;
+	public bool isActive;
+	public string path;
+	public int amount;
+	public float posX,posY,posZ,rotX,rotY,rotZ;
 }
 
 [System.Serializable]
@@ -60,12 +70,13 @@ public class ObjectsData
 	public int ID;
 	public bool isActive;
 	public string path;
-	public int Amount;
-	public float pX, pY, pZ, rX,rY,rZ;
+	public int amount;
+	public Vector3 position;
+	public Vector3 rotation;
 }
 
 [System.Serializable]
-public class Spawn
+public class PlayerSpawn
 {
 	public string key;
 	public int activeCamera;

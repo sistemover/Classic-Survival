@@ -8,7 +8,7 @@ public class LevelManager : MonoBehaviour
 	public string LevelName;
 	public GameObject ObjectContainer;
 	public List<GamePlus> GamePlus = new List<GamePlus>();
-	public List<Spawn> SpawnList = new List<Spawn> ();
+	public List<PlayerSpawn> SpawnList = new List<PlayerSpawn> ();
 	GameManager gameManager;
 
 	#region CRUD Objeto
@@ -51,7 +51,7 @@ public class LevelManager : MonoBehaviour
 
 		//Intercambiar elemento viejo por elemento nuevo.
 		actualObject.path = path;
-		actualObject.Amount = amount;
+		actualObject.amount = amount;
 
 		//Instanciar nuevo Objeto en mundo físico.
 		for (int i = 0; i < GamePlus [Round].LevelObjects.Length; i++)
@@ -107,7 +107,21 @@ public class LevelManager : MonoBehaviour
 	{
 		Level local = new Level ();
 		local.key = LevelName;
-		local.LevelObjects = GamePlus [Round].LevelObjects;
+		local.LevelSerObject = new ObjectsSerData[GamePlus [Round].LevelObjects.Length];
+		for (int i = 0; i < local.LevelSerObject.Length; i++) 
+		{
+			local.LevelSerObject[i] = new ObjectsSerData();
+			local.LevelSerObject [i].ID = GamePlus [Round].LevelObjects [i].ID;
+			local.LevelSerObject [i].isActive = GamePlus [Round].LevelObjects [i].isActive;
+			local.LevelSerObject [i].path = GamePlus [Round].LevelObjects [i].path;
+			local.LevelSerObject [i].amount = GamePlus [Round].LevelObjects [i].amount;
+			local.LevelSerObject [i].posX = GamePlus [Round].LevelObjects [i].position.x;
+			local.LevelSerObject [i].posY = GamePlus [Round].LevelObjects [i].position.y;
+			local.LevelSerObject [i].posZ = GamePlus [Round].LevelObjects [i].position.z;
+			local.LevelSerObject [i].rotX = GamePlus [Round].LevelObjects [i].rotation.x;
+			local.LevelSerObject [i].rotY = GamePlus [Round].LevelObjects [i].rotation.y;
+			local.LevelSerObject [i].rotZ = GamePlus [Round].LevelObjects [i].rotation.z;
+		}
 
 		Level[] levelContainer = Persistant.Data.SavedLevelContainer;
 
@@ -116,6 +130,7 @@ public class LevelManager : MonoBehaviour
 		{
 			Persistant.Data.SavedLevelContainer = new Level[1];
 			Persistant.Data.SavedLevelContainer [0] = local;
+
 			LoaderManager.Singleton.Guardar ();
 		} 
 		else 
@@ -125,7 +140,7 @@ public class LevelManager : MonoBehaviour
 			{
 				if (levelContainer [i].key == LevelName) 
 				{
-					levelContainer [i].LevelObjects = GamePlus [Round].LevelObjects;
+					levelContainer [i].LevelSerObject = local.LevelSerObject;
 					LoaderManager.Singleton.Guardar ();
 					Debug.Log ("Reemplazo");
 					return;
@@ -149,14 +164,34 @@ public class LevelManager : MonoBehaviour
 	public void CargarConfiguracion()
 	{
 		Level[] levelContainer = Persistant.Data.SavedLevelContainer;
+
 		if (levelContainer == null) 
 		{
 			Debug.Log ("CargaLevel null");
 			return;
 		}
-		for (int i = 0; i < levelContainer.Length; i++) {
-			if (levelContainer[i].key == LevelName) {
-				GamePlus [Round].LevelObjects = levelContainer [i].LevelObjects;
+
+		for (int i = 0; i < levelContainer.Length; i++) 
+		{
+			if (levelContainer[i].key == LevelName) 
+			{
+				GamePlus[Round].LevelObjects = new ObjectsData[levelContainer[i].LevelSerObject.Length];
+				for (int e = 0; e < levelContainer[i].LevelSerObject.Length; e++) 
+				{
+					GamePlus [Round].LevelObjects [e] = new ObjectsData ();
+					GamePlus [Round].LevelObjects [e].ID = levelContainer [i].LevelSerObject [e].ID;
+					GamePlus [Round].LevelObjects [e].isActive = levelContainer [i].LevelSerObject [e].isActive;
+					GamePlus [Round].LevelObjects [e].path = levelContainer [i].LevelSerObject [e].path;
+					GamePlus [Round].LevelObjects [e].amount = levelContainer [i].LevelSerObject [e].amount;
+
+					GamePlus [Round].LevelObjects [e].position.x = levelContainer [i].LevelSerObject [e].posX;
+					GamePlus [Round].LevelObjects [e].position.y =	levelContainer [i].LevelSerObject [e].posY;
+					GamePlus [Round].LevelObjects [e].position.z =levelContainer [i].LevelSerObject [e].posZ;
+
+					GamePlus [Round].LevelObjects [e].rotation.x = levelContainer [i].LevelSerObject [e].rotX;
+					GamePlus [Round].LevelObjects [e].rotation.y = levelContainer [i].LevelSerObject [e].rotY;
+					GamePlus [Round].LevelObjects [e].rotation.z = levelContainer [i].LevelSerObject [e].rotZ;
+				}
 				Debug.Log ("Datos cargados exitosamente!!");
 			}
 		}
@@ -186,8 +221,6 @@ public class LevelManager : MonoBehaviour
 		player.Init ();
 		player.transform.position = position;
 		player.transform.rotation =Quaternion.Euler(rotation.x,rotation.y,rotation.z);
-		Debug.Log (rotation);
-		Debug.Log (player.transform.rotation);
 
 		//Seteando Camaras.
 		gameManager.ActualCameraManager.ActiveCamera = startingCameraIndex;
@@ -209,19 +242,21 @@ public class LevelManager : MonoBehaviour
 		Item item;
 		int amount;
 		Vector3 pos = new Vector3();
-		Quaternion rot = new Quaternion();
+		Vector3 rot = new Vector3();
 		GameObject go;
 
 		item = LoaderManager.Singleton.CargarItem (actualGP.LevelObjects[i].path);
 		go = LoaderManager.Singleton.CargarGameObject(item.Modelo);
-		pos.x = actualGP.LevelObjects [i].pX;
-		pos.y = go.transform.position.y;
-		pos.z = actualGP.LevelObjects [i].pZ;
-		rot.x = actualGP.LevelObjects [i].rX;
-		rot.y = actualGP.LevelObjects [i].rY;
-		rot.z = actualGP.LevelObjects [i].rZ;
+
+		pos = new Vector3
+			(
+				actualGP.LevelObjects [i].position.x, 
+				go.transform.position.y, 
+				actualGP.LevelObjects [i].position.z
+			);
+		rot = actualGP.LevelObjects [i].rotation;
 		go.GetComponent<ObjectID> ().ID = actualGP.LevelObjects[i].ID;
-		go = Instantiate (go, pos, rot);
+		go = Instantiate (go, pos, Quaternion.Euler(rot.x,rot.y,rot.z));
 		go.transform.parent = ObjectContainer.transform;
 	}
 }
