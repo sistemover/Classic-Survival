@@ -18,6 +18,7 @@ public class EquipmentManager : MonoBehaviour
 
 	public void Init()
 	{
+		Debug.Log ("Start EquipmentManager");
 		int numSlots = System.Enum.GetNames (typeof(EquipType)).Length;
 		currentEquipment=new Equipment[numSlots];
 	}

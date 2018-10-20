@@ -8,6 +8,8 @@ public class LevelManager : MonoBehaviour
 	public string LevelName;
 	public GameObject ObjectContainer;
 	public List<GamePlus> GamePlus = new List<GamePlus>();
+	public List<Spawn> SpawnList = new List<Spawn> ();
+	GameManager gameManager;
 
 	#region CRUD Objeto
 
@@ -164,6 +166,36 @@ public class LevelManager : MonoBehaviour
 
 	public void Start()
 	{
+		Debug.Log ("Start LevelManager");
+		Init ();
+		string startingPositionName = gameManager.sceneController.startingPositionName;
+		int startingCameraIndex = gameManager.sceneController.startingCameraIndex;
+		Vector3 position = new Vector3();
+		Vector3 rotation = new Vector3();
+
+		for (int i = 0; i < SpawnList.Count; i++) {
+			if (SpawnList[i].key==startingPositionName) {
+				startingCameraIndex = SpawnList [i].activeCamera;
+				position = SpawnList [i].position;
+				rotation = SpawnList [i].rotation;
+			}
+		}
+
+		//Seteando Player.
+		PlayerManager player = gameManager.LocalPlayer;
+		player.Init ();
+		player.transform.position = position;
+		player.transform.rotation =Quaternion.Euler(rotation.x,rotation.y,rotation.z);
+		Debug.Log (rotation);
+		Debug.Log (player.transform.rotation);
+
+		//Seteando Camaras.
+		gameManager.ActualCameraManager.ActiveCamera = startingCameraIndex;
+		gameManager.ActualCameraManager.Init ();
+	}
+	void Init()
+	{
+		gameManager = GameManager.instance;
 		CargarConfiguracion ();
 		for (int i = 0; i < GamePlus [Round].LevelObjects.Length; i++) 
 		{	

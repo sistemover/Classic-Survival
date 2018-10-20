@@ -28,16 +28,18 @@ public class PlayerManager : MonoBehaviour
 
 	void Awake()
 	{
+		Debug.Log ("Awake PlayerManager");
 		JoinPlayer ();
 	}
 
-	void Start () 
+	public void Init () 
 	{	
-		Init ();
+		Debug.Log ("Start PlayerManager");
+		Initi ();
 		LocomocionMotor.Init (m_RigidBody, m_Animator);
 	}
 
-	void Init()
+	void Initi()
 	{
 		m_Animator = ActiveModel.GetComponent<Animator> ();
 		m_CapsuleCollider = GetComponent<CapsuleCollider> ();

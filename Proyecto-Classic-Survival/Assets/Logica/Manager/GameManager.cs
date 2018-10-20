@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour 
 {
-	public CargarPlayerCamera cargar;
-	
 	#region Singleton
 	public static GameManager instance;
 	void Awake ()
@@ -103,6 +101,7 @@ public class GameManager : MonoBehaviour
 
 	void Start () 
 	{
+		Debug.Log ("Start GameManager");
 		Init ();
 		canvasManager.Init();
 		localizationManager.Init();
@@ -127,7 +126,7 @@ public class GameManager : MonoBehaviour
 		GameObject goPlayer = GameObject.Find ("Player");
 		
 		if (LocalPlayer != null && goPlayer != null) {
-			Debug.Log ("Tick LocalPlayer");
+			//Debug.Log ("Tick LocalPlayer");
 			LocalPlayer.Tick 
 			(
 				delta, 
@@ -145,7 +144,7 @@ public class GameManager : MonoBehaviour
 		GameObject goPlayer = GameObject.Find ("Player");
 
 		if (LocalPlayer != null && goPlayer != null) {
-			Debug.Log ("fTick LocalPlayer");
+			//Debug.Log ("fTick LocalPlayer");
 			LocalPlayer.FixedTick 
 			(
 				fixedDelta, 

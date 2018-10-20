@@ -24,6 +24,7 @@ public class InventarioCanvasManager : MonoBehaviour
 	}
 	public void Init()
 	{
+		Debug.Log ("Start InventarioCanvasManager");
 		PocketItemsDriver = PocketItemDriverParent.GetComponentsInChildren<ItemDriver> ();
 		PickupItemsDriver = PickupItemDriverParent.GetComponentsInChildren<ItemDriver> ();
 		EquipItemsDriver = EquipItemDriverParent.GetComponentsInChildren<ItemDriver> ();

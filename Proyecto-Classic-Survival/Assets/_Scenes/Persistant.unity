@@ -9390,7 +9390,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12861dc02cf4b1142b1ae108fe449163, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cargar: {fileID: 0}
   InputManager: {fileID: 0}
   touchGamePadManager: {fileID: 0}
 --- !u!114 &1721186030
@@ -9454,6 +9453,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingSceneName: Laboratorio
+  startingPositionName: p2
+  startingCameraIndex: 0
 --- !u!1 &1728054212
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,11 +12,13 @@ public class CameraManager : MonoBehaviour
 
 	void Awake ()
 	{
+		Debug.Log ("Awake CameraManager");
 		JoinCamera ();
 	}
 
-	void Start()
+	public void Init()
 	{
+		Debug.Log ("Start CameraManager");
 		DesactivarCamaras (ActiveCamera);
 	}
 

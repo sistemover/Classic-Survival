@@ -11,3 +11,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/Laboratorio.unity
     guid: 6d66205da16ea2c40b3ae680025f3c1c
+  - enabled: 1
+    path: Assets/_Scenes/Laboratorio2.unity
+    guid: 00000000000000000000000000000000

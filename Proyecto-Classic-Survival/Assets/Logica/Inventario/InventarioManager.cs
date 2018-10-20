@@ -29,6 +29,7 @@ public class InventarioManager : MonoBehaviour
 
 	public void Init()
 	{
+		Debug.Log("Start InventarioManager");
 		inventarioCanvasManager = GameManager.instance.canvasManager.inventarioCanvasManager;
 		combinationManager = GetComponent<CombinationManager> ();
 	}

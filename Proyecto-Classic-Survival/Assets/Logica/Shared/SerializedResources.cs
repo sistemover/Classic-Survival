@@ -1,4 +1,5 @@
-﻿public class SerializedResources{}
+﻿using UnityEngine;
+public class SerializedResources{}
 
 [System.Serializable]
 public class Persistant
@@ -61,4 +62,13 @@ public class ObjectsData
 	public string path;
 	public int Amount;
 	public float pX, pY, pZ, rX,rY,rZ;
+}
+
+[System.Serializable]
+public class Spawn
+{
+	public string key;
+	public int activeCamera;
+	public Vector3 position;
+	public Vector3 rotation;
 }

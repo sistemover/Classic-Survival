@@ -13,6 +13,7 @@ public class LoaderManager : MonoBehaviour
 	public static LoaderManager Singleton;
 	void Awake ()
 	{
+		Debug.Log ("Awake LoaderManager");
 		if (Singleton != null)
 			return;
 		Singleton = this;

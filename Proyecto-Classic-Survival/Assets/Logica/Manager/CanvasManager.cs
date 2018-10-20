@@ -43,6 +43,7 @@ public class CanvasManager : MonoBehaviour
 
 	public void Init()
 	{
+		Debug.Log ("Start CanvasManager");
 		gameManager = GameManager.instance;
 		InstanciarMenus ();
 		touchGamePadManager.ActivarDesactivarGamePad (false);//Apaga el GamePad
