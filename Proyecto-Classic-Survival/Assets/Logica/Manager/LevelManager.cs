@@ -199,9 +199,9 @@ public class LevelManager : MonoBehaviour
 
 	#endregion
 
-	public void Start()
+	public IEnumerator Start()
 	{
-		Debug.Log ("Start LevelManager");
+		Debug.Log ("********* LevelManager Inicia la carga **********");
 		Init ();
 		string startingPositionName = gameManager.sceneController.startingPositionName;
 		int startingCameraIndex = gameManager.sceneController.startingCameraIndex;
@@ -225,6 +225,9 @@ public class LevelManager : MonoBehaviour
 		//Seteando Camaras.
 		gameManager.ActualCameraManager.ActiveCamera = startingCameraIndex;
 		gameManager.ActualCameraManager.Init ();
+		yield return new WaitForSeconds (1f);
+		StartCoroutine (gameManager.sceneController.Fade (0f));
+		Debug.Log ("********** LevelManager Carga Completa **********");
 	}
 	void Init()
 	{
@@ -251,7 +254,7 @@ public class LevelManager : MonoBehaviour
 		pos = new Vector3
 			(
 				actualGP.LevelObjects [i].position.x, 
-				go.transform.position.y, 
+				actualGP.LevelObjects [i].position.y, 
 				actualGP.LevelObjects [i].position.z
 			);
 		rot = actualGP.LevelObjects [i].rotation;

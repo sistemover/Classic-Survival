@@ -102,6 +102,7 @@ public class GameManager : MonoBehaviour
 	void Start () 
 	{
 		Debug.Log ("Start GameManager");
+		sceneController.faderCanvasGroup.alpha = 0f;
 		Init ();
 		canvasManager.Init();
 		localizationManager.Init();

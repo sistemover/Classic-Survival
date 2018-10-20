@@ -1,24 +1,26 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+#if UNITY_EDITOR
 using UnityEditor;
 
 [CustomEditor(typeof(FieldOfView))]
-	public class FieldOfViewEditor : Editor 
+public class FieldOfViewEditor : Editor 
+{
+	void OnSceneGUI()
 	{
-		void OnSceneGUI()
-		{
-			FieldOfView fow = (FieldOfView)target;
-			Handles.color = Color.white;
-			Handles.DrawWireArc (fow.transform.position, Vector3.up, Vector3.forward, 360, fow.viewRadius);
-			Vector3 viewAngleA = fow.DirFromAngle (-fow.viewAngle/2, false);
-			Vector3 viewAngleB = fow.DirFromAngle (fow.viewAngle/2, false);
+		FieldOfView fow = (FieldOfView)target;
+		Handles.color = Color.white;
+		Handles.DrawWireArc (fow.transform.position, Vector3.up, Vector3.forward, 360, fow.viewRadius);
+		Vector3 viewAngleA = fow.DirFromAngle (-fow.viewAngle/2, false);
+		Vector3 viewAngleB = fow.DirFromAngle (fow.viewAngle/2, false);
 
-			Handles.DrawLine (fow.transform.position, fow.transform.position + viewAngleA * fow.viewRadius);
-			Handles.DrawLine (fow.transform.position, fow.transform.position + viewAngleB * fow.viewRadius);
+		Handles.DrawLine (fow.transform.position, fow.transform.position + viewAngleA * fow.viewRadius);
+		Handles.DrawLine (fow.transform.position, fow.transform.position + viewAngleB * fow.viewRadius);
 
-			Handles.color = Color.red;
-			foreach (Transform visibleTarget in fow.VisibleTargets) 
-				Handles.DrawLine (fow.transform.position, visibleTarget.position);
-		}
+		Handles.color = Color.red;
+		foreach (Transform visibleTarget in fow.VisibleTargets) 
+			Handles.DrawLine (fow.transform.position, visibleTarget.position);
 	}
+}
+#endif

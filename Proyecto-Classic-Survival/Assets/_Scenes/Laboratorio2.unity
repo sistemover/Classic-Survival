@@ -248,7 +248,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &276022762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -432,7 +432,7 @@ MonoBehaviour:
       isActive: 1
       path: Items/Cilindro
       amount: 1
-      position: {x: -1, y: 0, z: 0.8}
+      position: {x: -1, y: 0.2, z: 0.8}
       rotation: {x: 0, y: 0, z: 0}
   SpawnList:
   - key: p1
@@ -444,7 +444,7 @@ MonoBehaviour:
     isActive: 1
     path: Items/Esfera
     amount: 1
-    position: {x: -0.5, y: 0, z: -0.5}
+    position: {x: -0.5, y: 0.2, z: -0.5}
     rotation: {x: 0, y: 0, z: 0}
   idToReplace: 0
   idToEliminate: 0
