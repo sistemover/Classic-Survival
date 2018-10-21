@@ -94,10 +94,11 @@ public class CanvasManager : MonoBehaviour
 			Debug.Log ("Cerrando Inventario");
 		}
 		//Abriendo Pickup
-		//TapPickup();
+		TapPickup();
 	}
 	public void TapPickup()
 	{
+		Debug.Log ("Abriendo Pickup");
 		if (gameManager.inventarioManager.PickupContainer.Count == 0) 
 		{
 			gameManager.touchGamePadManager.ActivarDesactivarLeftGamePad (true);

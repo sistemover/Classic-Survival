@@ -3152,7 +3152,17 @@ MonoBehaviour:
     Amount: 25
   - ItemPath: Equipments/knife_sharpener
     Amount: 5
-  PickupContainer: []
+  PickupContainer:
+  - ItemPath: Items/Esfera
+    Amount: 1
+  - ItemPath: Items/Cilindro
+    Amount: 1
+  - ItemPath: Items/cubo
+    Amount: 1
+  - ItemPath: Equipments/armor_paper
+    Amount: 1
+  - ItemPath: Equipments/armor_paper
+    Amount: 1
   EquipContainer: []
   StorageContainer: []
 --- !u!4 &500396981
@@ -9150,7 +9160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingLevelName: laboratorio
-  startingPositionName: p0
+  startingPositionName: p1
   faderCanvasGroup: {fileID: 568035257}
   fadeDuration: 0.5
   isFading: 0

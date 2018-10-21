@@ -6,69 +6,78 @@ using System.Linq;
 public class FieldOfView : MonoBehaviour 
 {
 	public float timeToScan = 0.2f;
-		public float viewRadius;
-		[Range(0,360)]public float viewAngle;
+	public float viewRadius;
+	[Range(0,360)]public float viewAngle;
 
-		public LayerMask targetMask;
-		public LayerMask obstacleMask;
+	public LayerMask targetMask;
+	public LayerMask obstacleMask;
 
-		public List<VTargets> vTargets = new List <VTargets>();
-		public List<Transform> VisibleTargets = new List<Transform>();
+	public List<VTargets> vTargets = new List <VTargets>();
+	public List<Transform> VisibleTargets = new List<Transform>();
 
-		//**************************************************************************************************************
+	//**************************************************************************************************************
 
-		void Start()
+	void Start()
+	{
+		StartCoroutine ("FindTargetsWithDelay", timeToScan);
+	}
+
+	IEnumerator FindTargetsWithDelay(float delay)
+	{
+		while (true) 
 		{
-			StartCoroutine ("FindTargetsWithDelay", timeToScan);
+			yield return new WaitForSeconds (delay);
+			FindVisibleTargets ();
 		}
+	}
 
-		IEnumerator FindTargetsWithDelay(float delay)
+	void FindVisibleTargets()
+	{
+		vTargets.Clear ();
+		VisibleTargets.Clear ();
+		Collider[] targetsInViewRadius = Physics.OverlapSphere (transform.position, viewRadius, targetMask);
+
+		for (int i = 0; i < targetsInViewRadius.Length; i++) 
 		{
-			while (true) 
+			Transform target = targetsInViewRadius [i].transform;
+			Vector3 dirToTarget = (target.position - transform.position).normalized;
+
+			if (Vector3.Angle(transform.forward, dirToTarget) < viewAngle/2) 
 			{
-				yield return new WaitForSeconds (delay);
-				FindVisibleTargets ();
-			}
-		}
+				float distToTarget = Vector3.Distance (transform.position, target.position);
 
-		void FindVisibleTargets()
-		{
-			vTargets.Clear ();
-			VisibleTargets.Clear ();
-			Collider[] targetsInViewRadius = Physics.OverlapSphere (transform.position, viewRadius, targetMask);
-
-			for (int i = 0; i < targetsInViewRadius.Length; i++) 
-			{
-				Transform target = targetsInViewRadius [i].transform;
-				Vector3 dirToTarget = (target.position - transform.position).normalized;
-
-				if (Vector3.Angle(transform.forward, dirToTarget) < viewAngle/2) 
+				//Agrega el target y la distancia a la lista.
+				if (!Physics.Raycast (transform.position, dirToTarget, distToTarget, obstacleMask)) 
 				{
-					float distToTarget = Vector3.Distance (transform.position, target.position);
-
-					//Agrega el target y la distancia a la lista.
-					if (!Physics.Raycast (transform.position, dirToTarget, distToTarget, obstacleMask)) 
-					{
-						vTargets.Add (new VTargets(target, distToTarget));
-						VisibleTargets.Add (target);
-					}						
-				}
+					vTargets.Add (new VTargets(target, distToTarget));
+					//VisibleTargets.Add (target);
+				}						
 			}
-			//Ordernar lista.
-			vTargets = vTargets.OrderBy(p=>p.Distance).ToList();
 		}
-
-		public Vector3 DirFromAngle(float angleInDegrees, bool angleIsGlobal)
+		
+		//Ordernar lista.
+		vTargets = vTargets.OrderBy(p=>p.Distance).ToList();
+		for (int i = 0; i < vTargets.Count; i++) 
 		{
-			if (!angleIsGlobal) 
+			if (vTargets[i].Distance <= 0.5f) 
 			{
-				angleInDegrees += transform.eulerAngles.y;
+				VisibleTargets.Add (vTargets[i].Target);
 			}
-
-			float xAngle = Mathf.Sin(angleInDegrees * Mathf.Deg2Rad);
-			float zAngle = Mathf.Cos(angleInDegrees * Mathf.Deg2Rad);
-			return new Vector3(xAngle, 0, zAngle);
 		}
+
+	}
+
+	public Vector3 DirFromAngle(float angleInDegrees, bool angleIsGlobal)
+	{
+		if (!angleIsGlobal) 
+		{
+			angleInDegrees += transform.eulerAngles.y;
+		}
+
+		float xAngle = Mathf.Sin(angleInDegrees * Mathf.Deg2Rad);
+		float zAngle = Mathf.Cos(angleInDegrees * Mathf.Deg2Rad);
+		return new Vector3(xAngle, 0, zAngle);
+	}
 }
 
 public class VTargets
