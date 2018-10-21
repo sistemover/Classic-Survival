@@ -4639,7 +4639,7 @@ GameObject:
   m_Component:
   - component: {fileID: 836011074}
   m_Layer: 0
-  m_Name: Desarrollo
+  m_Name: "Feature-Interacci\xF3n"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
