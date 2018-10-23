@@ -223,18 +223,6 @@ MonoBehaviour:
       amount: 1
       position: {x: -4.218, y: 0.2, z: -4.751}
       rotation: {x: 0, y: 0, z: 0}
-    - ID: 70
-      isActive: 1
-      path: Items/Cubo
-      amount: 1
-      position: {x: -4.218, y: 0.2, z: -4.751}
-      rotation: {x: 0, y: 0, z: 0}
-    - ID: 80
-      isActive: 1
-      path: Items/Cubo
-      amount: 1
-      position: {x: -4.218, y: 0.2, z: -4.751}
-      rotation: {x: 0, y: 0, z: 0}
   SpawnList:
   - key: p0
     activeCamera: 2
@@ -244,15 +232,6 @@ MonoBehaviour:
     activeCamera: 1
     position: {x: -0.73, y: 0, z: -0.204}
     rotation: {x: 0, y: 180, z: 0}
-  newO:
-    ID: 30
-    isActive: 1
-    path: Items/Cilindro
-    amount: 0
-    position: {x: -1, y: 0.2, z: -3}
-    rotation: {x: 0, y: 0, z: 0}
-  idToReplace: 10
-  idToEliminate: 20
 --- !u!1001 &214821730
 Prefab:
   m_ObjectHideFlags: 0
@@ -414,7 +393,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4253323296163980, guid: fb33a4630bc31b44a81c01fc1e8a887e, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -1.51
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4253323296163980, guid: fb33a4630bc31b44a81c01fc1e8a887e, type: 2}
       propertyPath: m_LocalPosition.y
@@ -422,7 +401,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4253323296163980, guid: fb33a4630bc31b44a81c01fc1e8a887e, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -5.56
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4253323296163980, guid: fb33a4630bc31b44a81c01fc1e8a887e, type: 2}
       propertyPath: m_LocalRotation.x
@@ -444,9 +423,17 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
-    - target: {fileID: 4253323296163980, guid: fb33a4630bc31b44a81c01fc1e8a887e, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
+    - target: {fileID: 4670662018801510, guid: fb33a4630bc31b44a81c01fc1e8a887e, type: 2}
+      propertyPath: m_LocalPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4670662018801510, guid: fb33a4630bc31b44a81c01fc1e8a887e, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0.00148
+      objectReference: {fileID: 0}
+    - target: {fileID: 4670662018801510, guid: fb33a4630bc31b44a81c01fc1e8a887e, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fb33a4630bc31b44a81c01fc1e8a887e, type: 2}

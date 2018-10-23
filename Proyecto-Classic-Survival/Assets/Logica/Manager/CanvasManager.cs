@@ -108,18 +108,12 @@ public class CanvasManager : MonoBehaviour
 		Interfaz.SetActive (!Interfaz.activeInHierarchy);
 		MenuInventario.SetActive (!MenuInventario.activeInHierarchy);
 		if (!MenuInventario.activeInHierarchy) 
-		{
 			gameManager.inventarioManager.GuardarInventario ();
-			Debug.Log ("Cerrando Inventario");
-		}
 		if (MenuPickup.activeInHierarchy) 
-		{
 			TapPickup();
-		}
 	}
 	public void TapPickup()
 	{
-		Debug.Log ("Abriendo Pickup");
 		if (gameManager.inventarioManager.PickupContainer.Count == 0) 
 		{
 			gameManager.touchGamePadManager.ActivarDesactivarLeftGamePad (true);

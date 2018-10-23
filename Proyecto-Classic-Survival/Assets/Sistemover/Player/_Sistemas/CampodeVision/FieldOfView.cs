@@ -7,7 +7,8 @@ public class FieldOfView : MonoBehaviour
 {
 	public float timeToScan = 0.2f;
 	public float viewRadius;
-	public float interactionDistance = .5f;
+	public float interactionDistance = 1f;
+	public IEnumerator coroutina;
 	[Range(0,360)]public float viewAngle;
 
 	public LayerMask targetMask;
@@ -20,7 +21,8 @@ public class FieldOfView : MonoBehaviour
 
 	void Start()
 	{
-		StartCoroutine ("FindTargetsWithDelay", timeToScan);
+		coroutina = FindTargetsWithDelay (timeToScan);
+		StartCoroutine (coroutina);
 	}
 
 	IEnumerator FindTargetsWithDelay(float delay)
@@ -34,6 +36,10 @@ public class FieldOfView : MonoBehaviour
 
 	void FindVisibleTargets()
 	{
+		if (GameManager.instance.canvasManager.MenuPickup.activeInHierarchy || GameManager.instance.canvasManager.MenuInventario.activeInHierarchy)
+		{
+			return;			
+		}
 		vTargets.Clear ();
 		VisibleTargets.Clear ();
 		Collider[] targetsInViewRadius = Physics.OverlapSphere (transform.position, viewRadius, targetMask);
@@ -77,11 +83,11 @@ public class FieldOfView : MonoBehaviour
 		}
 		switch (VisibleTargets[0].tag)
 		{
-		case "Pickable":
-			SetInteractionPickup ();
-			break;
-		default:
-			break;
+			case "Pickable":
+				SetInteractionPickup ();
+				break;
+			default:
+				break;
 		}
 	}
 	public Vector3 DirFromAngle(float angleInDegrees, bool angleIsGlobal)

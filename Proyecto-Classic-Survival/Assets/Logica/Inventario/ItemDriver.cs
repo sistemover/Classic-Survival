@@ -134,6 +134,16 @@ public class ItemDriver : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
 		this.transform.SetParent (originalParent);
 		this.transform.position = originalPosition;
 		GetComponent<CanvasGroup> ().blocksRaycasts = true;
+
+		//Se suelta Slot fuera del Inventario.
+		if (this.mySlotType.Equals(SlotType.Pocket) || this.mySlotType.Equals(SlotType.Equip)) 
+		{
+			if (eventData.pointerEnter == null) 
+			{
+				GameManager.instance.inventarioManager.DropToWorld (this.myPocketItem, this.mySlotType);
+			}
+		}
+
 	}
 	#endregion
 }

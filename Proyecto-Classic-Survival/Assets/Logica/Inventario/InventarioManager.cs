@@ -75,7 +75,7 @@ public class InventarioManager : MonoBehaviour
 	public void DropItemControl(ItemDriver dropDriver, ItemDriver hostDriver)
 	{
 		if (hostDriver == null)
-			return;
+			return;		
 		SeteandoVariables (dropDriver, hostDriver);
 		if(hostPocket == null)
 			DropToVoid ();
@@ -137,8 +137,55 @@ public class InventarioManager : MonoBehaviour
 				break;
 		}
 	}
+	public void DropToWorld(PocketItem p, SlotType s)
+	{
+		ItemDriver[] driver = inventarioCanvasManager.PocketItemsDriver;
+		List <PocketItem> container = new List<PocketItem> ();
+
+		//Según el tipo de slot, cargo las variables necesarias.
+		switch (s) 
+		{
+			case SlotType.Pocket:
+				container = PocketContainer;
+				break;
+			case SlotType.Equip:
+				container = EquipContainer;
+				break;
+			default:
+				break;
+		}
+
+		// Quito el pocket del container.
+		container.Remove(p);
+
+		//Actualizo y selecciono el primer slot de pocketslot
+		ActualizarInventario ();
+		inventarioCanvasManager.SeleccionarSlot (0, driver);
+		GuardarInventario ();
+
+
+		//Instanciar objeto fisico y adjuntarlo a levelmanager.
+		GameManager gameManager = GameManager.instance;
+		Vector3 dropSpawnPoint = gameManager.LocalPlayer.DropSpawnPoint.position;
+		LevelManager levelManager = gameManager.ActualLevelManager;
+		levelManager.Insertar (p.ItemPath, p.Amount, dropSpawnPoint);
+	}
 	void DropToVoid()
 	{
+		//Preparando identificador de movimiento en PickupContainer.
+		List <int> ids = new List<int> ();
+		if( IsPicking())
+			for (int i = 0; i < PickupContainer.Count; i++) 
+				ids.Add (PickupContainer[i].id);
+		
+		if (hostDriver.mySlotType.Equals(SlotType.Pickup)) 
+		{
+			Debug.Log ("Movimiento del inventario al pickupContainer");
+		}
+		if (dropDriver.mySlotType.Equals(SlotType.Pickup)) 
+		{
+			Debug.Log ("Movimiento del pickup al pocketContainer");
+		}
 		if (hostDriver.mySlotType.Equals (SlotType.Equip)) 
 		{
 			if (!dropDriver.myItem.isEquipment)
@@ -153,10 +200,21 @@ public class InventarioManager : MonoBehaviour
 
 		ActualizarInventario ();
 		inventarioCanvasManager.SeleccionarSlot (hostContainer.Count-1, hostItemsDriver);
+
+		//Procesando lo ocurrido en PickupContainer.
+		if (IsPicking()) 
+			ProcesandoPickupContainer (ids);
 	}
 	void DropToHost()
 	{
-		if (hostDriver.myItem == null)
+		//Preparando identificador de movimiento en PickupContainer.
+		List <int> ids = new List<int> ();
+		if( IsPicking())
+			for (int i = 0; i < PickupContainer.Count; i++) 
+				ids.Add (PickupContainer[i].id);
+
+		#region Proceso normal de DropToHost
+		if (hostDriver.myItem == null) 
 			return;
 		if (CheckIsFood (dropDriver.myItem, hostDriver.myItem) || CheckIsFood (hostDriver.myItem, dropDriver.myItem)) 
 		{
@@ -193,6 +251,39 @@ public class InventarioManager : MonoBehaviour
 				return;
 			Cambiar ();
 		}
+		#endregion
+
+		//Procesando lo ocurrido en PickupContainer.
+		if (IsPicking()) 
+			ProcesandoPickupContainer (ids);
+	}
+	void ProcesandoPickupContainer(List <int> ids)
+	{
+		bool isDelete = false;
+		if (PickupContainer.Count != ids.Count)
+			isDelete = true;			
+		if (isDelete) 
+		{
+			for (int e = 0; e < PickupContainer.Count; e++) 
+				ids.Remove (PickupContainer [e].id);				
+			GameManager.instance.ActualLevelManager.Eliminar(ids[0]);
+			isDelete = false;
+		}
+		for (int i = 0; i < PickupContainer.Count; i++) 
+		{
+			GameManager.instance.ActualLevelManager.Reemplazar 
+			(
+				PickupContainer[i].id,
+				PickupContainer[i].ItemPath,
+				PickupContainer[i].Amount
+			);
+		}
+	}
+	bool IsPicking()
+	{
+		if (hostDriver.mySlotType.Equals(SlotType.Pickup) || dropDriver.mySlotType.Equals(SlotType.Pickup))
+			return true;
+		return false;
 	}
 	bool AlgoritmoEquipar()
 	{

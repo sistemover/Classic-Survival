@@ -526,6 +526,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 1644529510696688, guid: 737a5f1ad12290f47b2e6c24f38c1587, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 737a5f1ad12290f47b2e6c24f38c1587, type: 2}
   m_IsPrefabParent: 0
@@ -2823,18 +2827,6 @@ MonoBehaviour:
   - id: 0
     ItemPath: Items/cinta_adhesiva
     Amount: 3
-  - id: 0
-    ItemPath: Equipments/black_eagle
-    Amount: 0
-  - id: 0
-    ItemPath: Equipments/samurai_bone_breakers
-    Amount: 50
-  - id: 0
-    ItemPath: Equipments/p_horn_bullets
-    Amount: 25
-  - id: 0
-    ItemPath: Equipments/knife_sharpener
-    Amount: 5
   PickupContainer: []
   EquipContainer: []
   StorageContainer: []

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class LevelManager : MonoBehaviour 
 {
@@ -23,17 +24,33 @@ public class LevelManager : MonoBehaviour
 	}
 
 	#region CRUD Objeto
-
-	public ObjectsData newO;
-	public int idToReplace;
-	public int idToEliminate;
-
-	public void TapAgregar()
+	public void Insertar(string nPath, int nAmount, Vector3 nPosition)
 	{
-		//Agregar elemento a Array ya declarado
+		List <ObjectsData> LevelObjectsList = new List<ObjectsData>();
 		int length = GamePlus[Round].LevelObjects.Length;
+		int nId;
+		ObjectsData newO = new ObjectsData ();
 		ObjectsData[] newObjects = new ObjectsData[length + 1];
 
+		//Obtener id más alta de listado.
+		for (int i = 0; i < length; i++)
+			LevelObjectsList.Add (GamePlus[Round].LevelObjects[i]);
+		LevelObjectsList = LevelObjectsList.OrderBy (p => p.ID).ToList ();
+
+		if (length == 0)
+			nId = 1;
+		else
+			nId = LevelObjectsList [length - 1].ID + 1;
+
+		//Preparando newO para agregarse a la levelObjects.
+		newO.ID=nId;
+		newO.isActive = true;
+		newO.path = nPath;
+		newO.amount = nAmount;
+		newO.position = nPosition;
+		newO.rotation = Vector3.zero;
+
+		//Agregar elemento a Array ya declarado
 		for (int i = 0; i < length; i++)
 			newObjects [i] = GamePlus [Round].LevelObjects [i];		
 
@@ -41,24 +58,23 @@ public class LevelManager : MonoBehaviour
 		GamePlus[Round].LevelObjects = newObjects;
 
 		//Instancia nuevo Objeto en mundo físico.
-		CargarLevelObjects (GamePlus[Round], length);
+		CargarLevelObjects (GamePlus[Round], length, null);
 
 		GuardarConfiguración ();
 	}
-
-	public void TapReemplazar(int id, string path, int amount)
+	public void Reemplazar(int id, string path, int amount)
 	{
 		ObjectsData actualObject = new ObjectsData ();
 
-		//tengo el objeto idToReplace, y quiero reemplazarlo por el newO
+		//tengo el objeto id, y quiero reemplazarlo por el newO
 		for (int i = 0; i < GamePlus[Round].LevelObjects.Length; i++)
 			if (id == GamePlus [Round].LevelObjects [i].ID) 
 				actualObject = GamePlus [Round].LevelObjects [i];
 
 		//Identificar objeto físico mediante ID y Destruirlo.
 		GameObject go = GetFisicObject(actualObject.ID);
+		Transform goT = go.transform;
 		Destroy (go);
-
 
 		//Intercambiar elemento viejo por elemento nuevo.
 		actualObject.path = path;
@@ -67,12 +83,11 @@ public class LevelManager : MonoBehaviour
 		//Instanciar nuevo Objeto en mundo físico.
 		for (int i = 0; i < GamePlus [Round].LevelObjects.Length; i++)
 			if (GamePlus [Round].LevelObjects [i].ID == actualObject.ID)
-				CargarLevelObjects (GamePlus [Round], i);
+				CargarLevelObjects (GamePlus [Round], i, goT);
 		
 		GuardarConfiguración ();
 	}
-
-	public void TapEliminar()
+	public void Eliminar(int idToDelete)
 	{
 		int e = 0;
 
@@ -83,9 +98,8 @@ public class LevelManager : MonoBehaviour
 		//Llenar nuevo Array con todos menos el que queremos eliminar.
 		for (int i = 0; i < length; i++) 
 		{
-			if (GamePlus [Round].LevelObjects [i].ID == idToEliminate) 
-				e = i + 1;
-			
+			if (GamePlus [Round].LevelObjects [i].ID == idToDelete) 
+				e = i + 1;			
 			newObjects [i] = GamePlus [Round].LevelObjects [e];
 			e++;
 		}
@@ -94,23 +108,10 @@ public class LevelManager : MonoBehaviour
 		GamePlus[Round].LevelObjects = newObjects;
 
 		//Destruir objeto físico.
-		GameObject go = GetFisicObject(idToEliminate);
+		GameObject go = GetFisicObject(idToDelete);
 		Destroy (go);
 		GuardarConfiguración ();
 	}
-
-	GameObject GetFisicObject(int id)
-	{
-		GameObject go = null;
-		int childCount = ObjectContainer.transform.childCount;
-
-		for (int i = 0; i < childCount; i++)
-			if (ObjectContainer.transform.GetChild (i).GetComponent<ObjectID> ().ID == id) 
-				go = ObjectContainer.transform.GetChild (i).gameObject;		
-
-		return go;
-	}
-
 	#endregion
 
 	#region Guardar/Cargar Configuración de Nivel
@@ -266,11 +267,11 @@ public class LevelManager : MonoBehaviour
 		for (int i = 0; i < GamePlus [Round].LevelObjects.Length; i++) 
 		{	
 			if(GamePlus [Round].LevelObjects[i].isActive)
-				CargarLevelObjects (GamePlus[Round], i);
+				CargarLevelObjects (GamePlus[Round], i, null);
 		}
 	}
 
-	void CargarLevelObjects(GamePlus actualGP, int i)
+	void CargarLevelObjects(GamePlus actualGP, int i, Transform t)
 	{
 		Item item;
 		Vector3 pos = new Vector3();
@@ -288,7 +289,22 @@ public class LevelManager : MonoBehaviour
 			);
 		rot = actualGP.LevelObjects [i].rotation;
 		go.GetComponent<ObjectID> ().ID = actualGP.LevelObjects[i].ID;
-		go = Instantiate (go, pos, Quaternion.Euler(rot.x,rot.y,rot.z));
+		if (t != null)
+			go = Instantiate (go, t.position, t.rotation);		
+		else
+			go = Instantiate (go, pos, Quaternion.Euler(rot.x,rot.y,rot.z));
+
 		go.transform.parent = ObjectContainer.transform;
+	}
+	GameObject GetFisicObject(int id)
+	{
+		GameObject go = null;
+		int childCount = ObjectContainer.transform.childCount;
+
+		for (int i = 0; i < childCount; i++)
+			if (ObjectContainer.transform.GetChild (i).GetComponent<ObjectID> ().ID == id) 
+				go = ObjectContainer.transform.GetChild (i).gameObject;		
+
+		return go;
 	}
 }

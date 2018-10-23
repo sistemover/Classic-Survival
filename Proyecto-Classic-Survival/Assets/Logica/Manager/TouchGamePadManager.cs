@@ -37,7 +37,7 @@ public class TouchGamePadManager : MonoBehaviour
 	{
 		BaseStickR.enabled = active;
 		StickR.enabled = active;
-		A.SetActive (active);
+		A.SetActive (false);
 		B.SetActive (active);
 	}
 }

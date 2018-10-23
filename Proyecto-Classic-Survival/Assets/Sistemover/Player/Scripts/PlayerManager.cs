@@ -6,6 +6,7 @@ public class PlayerManager : MonoBehaviour
 {
 	//VARIABLES PÚBLICAS
 	public GameObject ActiveModel;
+	public Transform DropSpawnPoint;
 	[HideInInspector] public Animator m_Animator;
 	[HideInInspector] public Rigidbody m_RigidBody;
 	[HideInInspector] public CapsuleCollider m_CapsuleCollider;

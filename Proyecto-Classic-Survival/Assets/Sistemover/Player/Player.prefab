@@ -658,6 +658,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1574273578639854
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4670662018801510}
+  m_Layer: 0
+  m_Name: DropSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1577748894087382
 GameObject:
   m_ObjectHideFlags: 1
@@ -1269,14 +1284,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1952724551901342}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -0.73, y: 0.559, z: -2.3}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4770262461448422}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4255132904944514
 Transform:
   m_ObjectHideFlags: 1
@@ -1642,6 +1657,7 @@ Transform:
   - {fileID: 4040709077187684}
   - {fileID: 4340271639718276}
   - {fileID: 4329526673652698}
+  - {fileID: 4670662018801510}
   m_Father: {fileID: 4902374757236058}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1700,6 +1716,19 @@ Transform:
   - {fileID: 4280405206629340}
   m_Father: {fileID: 4737104240124646}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4670662018801510
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1574273578639854}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.00071, z: 0.00385}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4570991258604574}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4670989289758162
 Transform:
@@ -2037,7 +2066,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1952724551901342}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 60
   m_Drag: 4
   m_AngularDrag: 999
   m_UseGravity: 1
@@ -2075,7 +2104,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeToScan: 0.2
   viewRadius: 3
-  interactionDistance: 0.5
+  interactionDistance: 1
   viewAngle: 170
   targetMask:
     serializedVersion: 2
@@ -2107,6 +2136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActiveModel: {fileID: 1357788700753096}
+  DropSpawnPoint: {fileID: 4670662018801510}
   m_Animator: {fileID: 0}
   m_RigidBody: {fileID: 0}
   m_CapsuleCollider: {fileID: 0}
