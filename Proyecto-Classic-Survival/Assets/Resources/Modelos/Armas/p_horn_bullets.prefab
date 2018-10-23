@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 54021237404564790}
   m_Layer: 10
   m_Name: p_horn_bullets
-  m_TagString: Untagged
+  m_TagString: Pickable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

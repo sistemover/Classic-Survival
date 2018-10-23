@@ -18,6 +18,7 @@ public class CanvasManager : MonoBehaviour
 	//Variables Privadas
 	private GameManager gameManager;
 	private LoaderManager loaderManager;
+	private List<GameObject> menus;
 
 	//Instanciaciones
 	private TouchGamePadManager m_touchGamePadManager;
@@ -54,12 +55,30 @@ public class CanvasManager : MonoBehaviour
 
 	void InstanciarMenus()//Setea los Menús, para poder luego cargar los idiomas.
 	{
-		GameObject[] menus = { MenuInicio, MenuOpciones, MenuIdioma, MenuInventario, MenuExaminar, Interfaz, MenuPausa,MenuPickup};
-		for (int i = 0; i < menus.Length; i++) 
+		menus = new List<GameObject>
+		{ 
+			MenuInicio, 
+			MenuOpciones, 
+			MenuIdioma, 
+			MenuInventario, 
+			MenuExaminar, 
+			Interfaz, 
+			MenuPausa,
+			MenuPickup
+		};
+		for (int i = 0; i < menus.Count; i++) 
 		{
 			menus [i].SetActive (true);
 			if (i > 0)//Se preocupa de Dejar activado solamente el menú de inicio.
 				menus [i].SetActive (false);
+		}
+	}
+	public void TapCerrarTodaInterfaz()
+	{
+		for (int i = 0; i < menus.Count; i++) {
+			if (menus[i].activeInHierarchy) {
+				menus [i].SetActive (false);
+			}
 		}
 	}
 	public void TapIniciar()
@@ -93,8 +112,10 @@ public class CanvasManager : MonoBehaviour
 			gameManager.inventarioManager.GuardarInventario ();
 			Debug.Log ("Cerrando Inventario");
 		}
-		//Abriendo Pickup
-		TapPickup();
+		if (MenuPickup.activeInHierarchy) 
+		{
+			TapPickup();
+		}
 	}
 	public void TapPickup()
 	{

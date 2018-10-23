@@ -273,7 +273,6 @@ public class LevelManager : MonoBehaviour
 	void CargarLevelObjects(GamePlus actualGP, int i)
 	{
 		Item item;
-		int amount;
 		Vector3 pos = new Vector3();
 		Vector3 rot = new Vector3();
 		GameObject go;

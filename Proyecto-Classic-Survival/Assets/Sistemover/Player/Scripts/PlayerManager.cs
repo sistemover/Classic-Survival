@@ -22,6 +22,27 @@ public class PlayerManager : MonoBehaviour
 		}
 	}
 
+	private FieldOfView m_FieldOfView;
+	public FieldOfView FieldOfView 
+	{
+		get 
+		{
+			if (m_FieldOfView == null)
+				m_FieldOfView = gameObject.GetComponent<FieldOfView> ();
+			return m_FieldOfView;
+		}
+	}
+
+	private PlayerInteractor m_PlayerInteractor;
+	public PlayerInteractor PlayerInteractor
+	{
+		get
+		{
+			if (m_PlayerInteractor == null) 
+				m_PlayerInteractor = gameObject.GetComponent<PlayerInteractor> ();
+			return m_PlayerInteractor;
+		}
+	}
 
 
 	//**************************************************
@@ -37,6 +58,7 @@ public class PlayerManager : MonoBehaviour
 		Debug.Log ("Start PlayerManager");
 		Initi ();
 		LocomocionMotor.Init (m_RigidBody, m_Animator);
+		PlayerInteractor.Init ();
 	}
 
 	void Initi()
@@ -49,6 +71,7 @@ public class PlayerManager : MonoBehaviour
 	public void Tick (float d, bool d_a, bool d_b, bool d_x, bool d_y, bool u_a, bool u_b, bool u_x, bool u_y) 
 	{
 		LocomocionMotor.Tick (d);
+		PlayerInteractor.Tick (d_a,u_a);
 	}
 
 	public void FixedTick(float d, Vector2 AxisL, Vector2 AxisR, GameObject c)

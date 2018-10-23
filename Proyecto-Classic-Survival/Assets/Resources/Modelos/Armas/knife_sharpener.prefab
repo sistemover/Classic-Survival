@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 54507630725255210}
   m_Layer: 10
   m_Name: knife_sharpener
-  m_TagString: Untagged
+  m_TagString: Pickable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

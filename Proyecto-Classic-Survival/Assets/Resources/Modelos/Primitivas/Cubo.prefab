@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 54009541880958726}
   m_Layer: 10
   m_Name: Cubo
-  m_TagString: Untagged
+  m_TagString: Pickable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -121,4 +121,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb28ebe8d24b61e48b429f56f1f7e4a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ID: 0
+  ID: 80

@@ -7,6 +7,7 @@ public class FieldOfView : MonoBehaviour
 {
 	public float timeToScan = 0.2f;
 	public float viewRadius;
+	public float interactionDistance = .5f;
 	[Range(0,360)]public float viewAngle;
 
 	public LayerMask targetMask;
@@ -59,14 +60,30 @@ public class FieldOfView : MonoBehaviour
 		vTargets = vTargets.OrderBy(p=>p.Distance).ToList();
 		for (int i = 0; i < vTargets.Count; i++) 
 		{
-			if (vTargets[i].Distance <= 0.5f) 
-			{
-				VisibleTargets.Add (vTargets[i].Target);
-			}
+			if (i == 6)
+				break;
+			if (vTargets[i].Distance <= interactionDistance)
+				VisibleTargets.Add (vTargets[i].Target);			
 		}
-
+		if (VisibleTargets == null || VisibleTargets.Count == 0) 
+		{
+			GameObject a = GameManager.instance.touchGamePadManager.A;
+			if (!a.activeInHierarchy) {
+				return;
+			}
+			Debug.Log ("Apagando A...");
+			a.SetActive (false);
+			return;
+		}
+		switch (VisibleTargets[0].tag)
+		{
+		case "Pickable":
+			SetInteractionPickup ();
+			break;
+		default:
+			break;
+		}
 	}
-
 	public Vector3 DirFromAngle(float angleInDegrees, bool angleIsGlobal)
 	{
 		if (!angleIsGlobal) 
@@ -77,6 +94,26 @@ public class FieldOfView : MonoBehaviour
 		float xAngle = Mathf.Sin(angleInDegrees * Mathf.Deg2Rad);
 		float zAngle = Mathf.Cos(angleInDegrees * Mathf.Deg2Rad);
 		return new Vector3(xAngle, 0, zAngle);
+	}
+	public void SetInteractionPickup()
+	{
+		int e = 0;
+		List <int> id = new List<int> ();
+		for (int i = 0; i < vTargets.Count; i++) 
+		{
+			if (vTargets[i].Distance <= interactionDistance) {
+				if (vTargets[i].Target.tag=="Pickable") 
+				{
+					e++;
+					id.Add (vTargets[i].Target.GetComponent<ObjectID>().ID);
+					if (e == 6)
+						break;
+				}
+			}
+		}
+		id = id.OrderBy (p=>p).ToList ();
+		vTargets = vTargets.OrderBy(p=>p.Distance).ToList();
+		gameObject.GetComponent<PlayerManager> ().PlayerInteractor.SetInteraction (id, "Pickable");
 	}
 }
 

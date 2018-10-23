@@ -14,6 +14,7 @@ public class Persistant
 [System.Serializable]
 public class PocketItem
 {
+	public int id;
 	public string ItemPath = "Items/";
 	public int Amount;
 }

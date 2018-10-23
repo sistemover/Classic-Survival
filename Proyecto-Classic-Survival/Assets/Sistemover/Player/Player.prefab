@@ -1017,6 +1017,7 @@ GameObject:
   - component: {fileID: 114516956357360118}
   - component: {fileID: 114632343465861672}
   - component: {fileID: 114007881050555184}
+  - component: {fileID: 114351740383913856}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -2074,6 +2075,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeToScan: 0.2
   viewRadius: 3
+  interactionDistance: 0.5
   viewAngle: 170
   targetMask:
     serializedVersion: 2
@@ -2082,6 +2084,17 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   VisibleTargets: []
+--- !u!114 &114351740383913856
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1952724551901342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3c95014ca3dcd74b8f9c9c7564153d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114408068334932730
 MonoBehaviour:
   m_ObjectHideFlags: 1
