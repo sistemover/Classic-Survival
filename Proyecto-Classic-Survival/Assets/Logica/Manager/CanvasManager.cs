@@ -18,7 +18,8 @@ public class CanvasManager : MonoBehaviour
 	//Variables Privadas
 	private GameManager gameManager;
 	private LoaderManager loaderManager;
-	private List<GameObject> menus;
+	private List<GameObject> allMenus;
+	private List<GameObject> openMenus;
 
 	//Instanciaciones
 	private TouchGamePadManager m_touchGamePadManager;
@@ -55,7 +56,7 @@ public class CanvasManager : MonoBehaviour
 
 	void InstanciarMenus()//Setea los Menús, para poder luego cargar los idiomas.
 	{
-		menus = new List<GameObject>
+		allMenus = new List<GameObject>
 		{ 
 			MenuInicio, 
 			MenuOpciones, 
@@ -66,20 +67,26 @@ public class CanvasManager : MonoBehaviour
 			MenuPausa,
 			MenuPickup
 		};
-		for (int i = 0; i < menus.Count; i++) 
+		for (int i = 0; i < allMenus.Count; i++) 
 		{
-			menus [i].SetActive (true);
+			allMenus [i].SetActive (true);
 			if (i > 0)//Se preocupa de Dejar activado solamente el menú de inicio.
-				menus [i].SetActive (false);
+				allMenus [i].SetActive (false);
 		}
 	}
-	public void TapCerrarTodaInterfaz()
+	void AbrirCerrarInterfaz(bool b)
 	{
-		for (int i = 0; i < menus.Count; i++) {
-			if (menus[i].activeInHierarchy) {
-				menus [i].SetActive (false);
-			}
-		}
+		if (openMenus == null)
+			return;
+		for (int i = 0; i < openMenus.Count; i++)
+			openMenus [i].SetActive (b);
+	}
+	void GuardarTodaInterfazAbierta()
+	{
+		openMenus = new List<GameObject> ();
+		for (int i = 0; i < allMenus.Count; i++) 
+			if (allMenus[i].activeInHierarchy) 
+				openMenus.Add (allMenus [i]);
 	}
 	public void TapIniciar()
 	{
@@ -127,15 +134,13 @@ public class CanvasManager : MonoBehaviour
 	}
 	public void TapExaminar()
 	{
-		TapInventario ();
-
+		if (!MenuExaminar.activeInHierarchy)
+			GuardarTodaInterfazAbierta ();
+		AbrirCerrarInterfaz (MenuExaminar.activeInHierarchy);
 		gameManager.touchGamePadManager.ActivarDesactivarGamePad (false);
-		
-		if(MenuInventario.activeInHierarchy)
-			gameManager.touchGamePadManager.ActivarDesactivarLeftGamePad (true);
-
 		Interfaz.SetActive (false);
-
+		if (MenuExaminar.activeInHierarchy)
+			gameManager.touchGamePadManager.ActivarDesactivarLeftGamePad (!MenuPickup.activeInHierarchy);
 		MenuExaminar.SetActive (!MenuExaminar.activeInHierarchy);
 	}
 	public void TapPausa()

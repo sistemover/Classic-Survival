@@ -36,10 +36,12 @@ public class FieldOfView : MonoBehaviour
 
 	void FindVisibleTargets()
 	{
-		if (GameManager.instance.canvasManager.MenuPickup.activeInHierarchy || GameManager.instance.canvasManager.MenuInventario.activeInHierarchy)
-		{
-			return;			
-		}
+		bool mPickup = GameManager.instance.canvasManager.MenuPickup.activeInHierarchy;
+		bool mInventario = GameManager.instance.canvasManager.MenuInventario.activeInHierarchy;
+		bool mExaminar = GameManager.instance.canvasManager.MenuExaminar.activeInHierarchy;
+		if (mPickup || mInventario || mExaminar)
+			return;
+		
 		vTargets.Clear ();
 		VisibleTargets.Clear ();
 		Collider[] targetsInViewRadius = Physics.OverlapSphere (transform.position, viewRadius, targetMask);
