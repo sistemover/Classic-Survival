@@ -2104,7 +2104,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeToScan: 0.2
   viewRadius: 3
-  interactionDistance: 1
+  interactionDistance: 1.5
   viewAngle: 170
   targetMask:
     serializedVersion: 2

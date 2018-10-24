@@ -439,15 +439,6 @@ MonoBehaviour:
     activeCamera: 1
     position: {x: -1.75, y: 0, z: -1.6}
     rotation: {x: 0, y: 90, z: 0}
-  newO:
-    ID: 20
-    isActive: 1
-    path: Items/Esfera
-    amount: 1
-    position: {x: -0.5, y: 0.2, z: -0.5}
-    rotation: {x: 0, y: 0, z: 0}
-  idToReplace: 0
-  idToEliminate: 0
 --- !u!1 &547209694
 GameObject:
   m_ObjectHideFlags: 0
@@ -1334,9 +1325,10 @@ GameObject:
   - component: {fileID: 1529577706}
   - component: {fileID: 1529577705}
   - component: {fileID: 1529577704}
+  - component: {fileID: 1529577707}
   m_Layer: 10
   m_Name: Puerta
-  m_TagString: Untagged
+  m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -1405,6 +1397,17 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1529577702}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1529577707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1529577702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bc2dca18eb62514481ba87ff4deb409, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1653270396
 GameObject:
   m_ObjectHideFlags: 0

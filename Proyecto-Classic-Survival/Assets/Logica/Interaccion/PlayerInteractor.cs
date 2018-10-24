@@ -10,8 +10,13 @@ public class PlayerInteractor : MonoBehaviour
 	LevelManager actualLevelManager;
 	InventarioManager inventarioManager;
 	InventarioCanvasManager inventarioCanvasManager;
-	List <int> Candidatos;
+
+	//Interacciones
 	bool isPicking;
+	bool isDoor;
+
+	List <int> Candidatos;
+	Transform Interaction;
 
 	public void Init () 
 	{
@@ -21,8 +26,27 @@ public class PlayerInteractor : MonoBehaviour
 		inventarioManager = gameManager.inventarioManager;
 		inventarioCanvasManager = canvasManager.inventarioCanvasManager;
 	}
-
-	public void SetInteraction(List <int> id, string key)
+	public void SetLevelInteraction(Transform interaction, string key)
+	{
+		GameObject a = gameManager.touchGamePadManager.A;
+		Text t = a.GetComponentInChildren<Text> ();
+		if (interaction == null || key == null) 
+			return;
+		if (!a.activeInHierarchy)
+			a.SetActive (true);
+		switch (key) 
+		{
+		case "Door":
+			t.text = "D";
+			Interaction = interaction;
+			isDoor = true;
+			break;
+		default:
+			t.text = "A";
+			break;
+		}
+	}
+	public void SetObjectInteraction(List <int> id, string key)
 	{
 		Candidatos = new List<int> ();
 		GameObject a = gameManager.touchGamePadManager.A;
@@ -30,26 +54,29 @@ public class PlayerInteractor : MonoBehaviour
 		if (id == null || key == null)
 			return;
 		if (!a.activeInHierarchy)
-			a.SetActive (true);
-		
+			a.SetActive (true);		
 		switch (key) 
 		{
-		case "Pickable":
-			t.text = "P";
-			Candidatos = id;
-			isPicking = true;
-			break;
-		default:
-			t.text = "A";
-			break;
+			case "Pickable":
+				t.text = "P";
+				Candidatos = id;
+				isPicking = true;
+				break;
+			default:
+				t.text = "A";
+				break;
 		}
 	}
 
 	public void Tick (bool d_a, bool u_a) 
 	{
 		if (u_a) 
+		{
 			if (isPicking)
-				IPicking ();		
+				IPicking ();
+			if (isDoor)
+				IDoor ();
+		}
 	}
 	void IPicking()
 	{
@@ -81,5 +108,11 @@ public class PlayerInteractor : MonoBehaviour
 			canvasManager.inventarioCanvasManager.SeleccionarSlot (0, inventarioCanvasManager.PickupItemsDriver);
 		}
 		isPicking = false;
+	}
+	void IDoor()
+	{
+		
+		Debug.Log ("Interacción de Door: " + Interaction.name);
+		isDoor = false;
 	}
 }

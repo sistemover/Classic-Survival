@@ -54,24 +54,19 @@ public class FieldOfView : MonoBehaviour
 			if (Vector3.Angle(transform.forward, dirToTarget) < viewAngle/2) 
 			{
 				float distToTarget = Vector3.Distance (transform.position, target.position);
-
-				//Agrega el target y la distancia a la lista.
-				if (!Physics.Raycast (transform.position, dirToTarget, distToTarget, obstacleMask)) 
-				{
-					vTargets.Add (new VTargets(target, distToTarget));
-					//VisibleTargets.Add (target);
-				}						
+				if (!Physics.Raycast (transform.position, dirToTarget, distToTarget, obstacleMask)) {
+					vTargets.Add (new VTargets (target, distToTarget));
+				}
 			}
 		}
-		
 		//Ordernar lista.
 		vTargets = vTargets.OrderBy(p=>p.Distance).ToList();
 		for (int i = 0; i < vTargets.Count; i++) 
 		{
 			if (i == 6)
 				break;
-			if (vTargets[i].Distance <= interactionDistance)
-				VisibleTargets.Add (vTargets[i].Target);			
+			if (vTargets [i].Distance <= interactionDistance)
+				VisibleTargets.Add (vTargets [i].Target);	
 		}
 		if (VisibleTargets == null || VisibleTargets.Count == 0) 
 		{
@@ -88,6 +83,9 @@ public class FieldOfView : MonoBehaviour
 			case "Pickable":
 				SetInteractionPickup ();
 				break;
+			case "Door":
+				SetInteractionDoor ();
+				break;
 			default:
 				break;
 		}
@@ -103,7 +101,7 @@ public class FieldOfView : MonoBehaviour
 		float zAngle = Mathf.Cos(angleInDegrees * Mathf.Deg2Rad);
 		return new Vector3(xAngle, 0, zAngle);
 	}
-	public void SetInteractionPickup()
+	void SetInteractionPickup()
 	{
 		int e = 0;
 		List <int> id = new List<int> ();
@@ -121,7 +119,11 @@ public class FieldOfView : MonoBehaviour
 		}
 		id = id.OrderBy (p=>p).ToList ();
 		vTargets = vTargets.OrderBy(p=>p.Distance).ToList();
-		gameObject.GetComponent<PlayerManager> ().PlayerInteractor.SetInteraction (id, "Pickable");
+		gameObject.GetComponent<PlayerManager> ().PlayerInteractor.SetObjectInteraction (id, "Pickable");
+	}
+	void SetInteractionDoor()
+	{
+		gameObject.GetComponent<PlayerManager> ().PlayerInteractor.SetLevelInteraction (VisibleTargets[0], "Door");
 	}
 }
 
