@@ -13,6 +13,10 @@ public class SceneController : MonoBehaviour
 	public float fadeDuration = 1f;
 	public bool isFading;
 
+	public void SwitchScenes(string s, string p)
+	{
+		StartCoroutine (FadeAndSwitchScenes(s,p));
+	}
 
 	public IEnumerator On()
 	{
@@ -45,6 +49,14 @@ public class SceneController : MonoBehaviour
 		}
 		isFading = false;
 		faderCanvasGroup.blocksRaycasts = false;
+	}
+	private IEnumerator FadeAndSwitchScenes(string sceneName, string doorName)
+	{
+		startingLevelName = sceneName;
+		startingPositionName = doorName;
+
+		yield return Quit();
+		yield return StartCoroutine (LoadSceneAndSetActive(startingLevelName));
 	}
 	private IEnumerator LoadSceneAndSetActive(string sceneName)
 	{

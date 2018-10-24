@@ -1408,6 +1408,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bc2dca18eb62514481ba87ff4deb409, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SceneName: Laboratorio
+  DoorName: p1
 --- !u!1 &1653270396
 GameObject:
   m_ObjectHideFlags: 0

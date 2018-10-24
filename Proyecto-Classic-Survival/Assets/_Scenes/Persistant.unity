@@ -9326,7 +9326,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2558f0802554fdf4e828f5d8edd68f26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingLevelName: laboratorio
+  startingLevelName: Laboratorio
   startingPositionName: p1
   faderCanvasGroup: {fileID: 568035257}
   fadeDuration: 0.5

@@ -10,10 +10,10 @@ public class PlayerInteractor : MonoBehaviour
 	LevelManager actualLevelManager;
 	InventarioManager inventarioManager;
 	InventarioCanvasManager inventarioCanvasManager;
+	LoaderManager loaderManager;
 
 	//Interacciones
-	bool isPicking;
-	bool isDoor;
+	int interaccion;
 
 	List <int> Candidatos;
 	Transform Interaction;
@@ -21,6 +21,7 @@ public class PlayerInteractor : MonoBehaviour
 	public void Init () 
 	{
 		gameManager = GameManager.instance;
+		loaderManager = LoaderManager.Singleton;
 		canvasManager = gameManager.canvasManager;
 		actualLevelManager = gameManager.ActualLevelManager;
 		inventarioManager = gameManager.inventarioManager;
@@ -39,7 +40,7 @@ public class PlayerInteractor : MonoBehaviour
 		case "Door":
 			t.text = "D";
 			Interaction = interaction;
-			isDoor = true;
+			interaccion = 0;
 			break;
 		default:
 			t.text = "A";
@@ -60,7 +61,7 @@ public class PlayerInteractor : MonoBehaviour
 			case "Pickable":
 				t.text = "P";
 				Candidatos = id;
-				isPicking = true;
+				interaccion = 1;
 				break;
 			default:
 				t.text = "A";
@@ -72,10 +73,17 @@ public class PlayerInteractor : MonoBehaviour
 	{
 		if (u_a) 
 		{
-			if (isPicking)
-				IPicking ();
-			if (isDoor)
-				IDoor ();
+			switch (interaccion) 
+			{
+				case 0:
+					IDoor ();
+					break;
+				case 1:
+					IPicking ();
+					break;
+				default:
+					break;
+			}
 		}
 	}
 	void IPicking()
@@ -107,12 +115,13 @@ public class PlayerInteractor : MonoBehaviour
 			GameManager.instance.inventarioManager.ActualizarInventario ();
 			canvasManager.inventarioCanvasManager.SeleccionarSlot (0, inventarioCanvasManager.PickupItemsDriver);
 		}
-		isPicking = false;
 	}
 	void IDoor()
 	{
-		
-		Debug.Log ("Interacción de Door: " + Interaction.name);
-		isDoor = false;
+		string sceneName = Interaction.GetComponent<DoorInteraction> ().SceneName;
+		string doorName = Interaction.GetComponent<DoorInteraction> ().DoorName;
+		loaderManager.Guardar ();
+		Persistant.Data.SavedPlayerSpawn = null;
+		gameManager.sceneController.SwitchScenes (sceneName,doorName);
 	}
 }
