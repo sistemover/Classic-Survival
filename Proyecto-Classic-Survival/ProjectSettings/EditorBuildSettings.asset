@@ -9,11 +9,8 @@ EditorBuildSettings:
     path: Assets/_Scenes/Persistant.unity
     guid: fa41f01ee0fd92c40bde9239c5a8c072
   - enabled: 1
-    path: Assets/_Scenes/Laboratorio.unity
-    guid: 6d66205da16ea2c40b3ae680025f3c1c
-  - enabled: 1
-    path: Assets/_Scenes/Laboratorio2.unity
-    guid: 8906cbe4cde20a5479d6700d9f0ddae9
+    path: Assets/_Scenes/Laboratorio1.unity
+    guid: 0b710d56a4a17ed48894cd12745befb9
   - enabled: 1
     path: Assets/_Scenes/Laboratorio3.unity
-    guid: 00000000000000000000000000000000
+    guid: a50b2cf46a4bac349a2c3b588398e983

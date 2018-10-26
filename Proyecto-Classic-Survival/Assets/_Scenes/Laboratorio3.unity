@@ -899,7 +899,7 @@ GameObject:
   m_Component:
   - component: {fileID: 652135273}
   m_Layer: 0
-  m_Name: Laboratorio2
+  m_Name: Laboratorio3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1555,7 +1555,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bc2dca18eb62514481ba87ff4deb409, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneName: Laboratorio
+  SceneName: Laboratorio1
   DoorName: p1
 --- !u!1 &1653270396
 GameObject:
