@@ -86,6 +86,9 @@ public class FieldOfView : MonoBehaviour
 			case "Door":
 				SetInteractionDoor ();
 				break;
+			case "Dialog":
+				SetInteractionDialog ();
+				break;
 			default:
 				break;
 		}
@@ -124,6 +127,10 @@ public class FieldOfView : MonoBehaviour
 	void SetInteractionDoor()
 	{
 		gameObject.GetComponent<PlayerManager> ().PlayerInteractor.SetLevelInteraction (VisibleTargets[0], "Door");
+	}
+	void SetInteractionDialog()
+	{
+		gameObject.GetComponent<PlayerManager> ().PlayerInteractor.SetLevelInteraction (VisibleTargets[0], "Dialog");
 	}
 }
 

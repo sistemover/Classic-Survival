@@ -136,5 +136,23 @@
 			"shortdescription" : "Description for Heap of Paper",
 			"longdescription"  : "Is a kind of Heap of Paper, it can be useful for, idk, make some kind of... armor, like a child, kakakaka"
 		}
+	],
+	"dialogs":
+	[
+		{
+			"key"              : "dial_test_1",
+			"dialog"           : "Hello, im a dialog input bitch!",
+			"soundclip"        : "clips/clips1"
+		},
+		{
+			"key"              : "dial_test_2",
+			"dialog"           : "ho!!, dont let me talking alond, get back bitch!!",
+			"soundclip"        : "clips/clips2"
+		},
+		{
+			"key"              : "dial_test_3",
+			"dialog"           : "hahahaha, garotto ratiña, supa du macaco, MACACOOO!!!",
+			"soundclip"        : "clips/clips3"
+		}
 	]
 }

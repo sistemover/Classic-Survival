@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class CanvasManager : MonoBehaviour 
 {
 	//Variables públicas
+	public GameObject Subtitulos;
 	public GameObject Interfaz;
 	public GameObject MenuInicio;
 	public GameObject MenuOpciones;
@@ -65,7 +66,8 @@ public class CanvasManager : MonoBehaviour
 			MenuExaminar, 
 			Interfaz, 
 			MenuPausa,
-			MenuPickup
+			MenuPickup,
+			Subtitulos
 		};
 		for (int i = 0; i < allMenus.Count; i++) 
 		{

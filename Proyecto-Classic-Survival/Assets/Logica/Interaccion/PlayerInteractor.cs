@@ -37,14 +37,19 @@ public class PlayerInteractor : MonoBehaviour
 			a.SetActive (true);
 		switch (key) 
 		{
-		case "Door":
-			t.text = "D";
-			Interaction = interaction;
-			interaccion = 0;
-			break;
-		default:
-			t.text = "A";
-			break;
+			case "Door":
+				t.text = "D";
+				Interaction = interaction;
+				interaccion = 0;
+				break;
+			case "Dialog":
+				t.text = "!";
+				Interaction = interaction;
+				interaccion = 2;
+				break;
+			default:
+				t.text = "A";
+				break;
 		}
 	}
 	public void SetObjectInteraction(List <int> id, string key)
@@ -80,6 +85,9 @@ public class PlayerInteractor : MonoBehaviour
 					break;
 				case 1:
 					IPicking ();
+					break;
+				case 2:
+					IDialog ();
 					break;
 				default:
 					break;
@@ -123,5 +131,11 @@ public class PlayerInteractor : MonoBehaviour
 		loaderManager.Guardar ();
 		Persistant.Data.SavedPlayerSpawn = null;
 		gameManager.sceneController.SwitchScenes (sceneName,doorName);
+	}
+	void IDialog()
+	{
+		string key = Interaction.GetComponent<DialogInteraction> ().key;
+
+		Debug.Log (GameManager.instance.localizationManager.GetlocalizedDialog (key).dialog);
 	}
 }

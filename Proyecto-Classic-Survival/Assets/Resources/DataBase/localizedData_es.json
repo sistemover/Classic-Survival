@@ -136,5 +136,23 @@
 			"shortdescription" : "Descripción corta para este item en Particular 1313",
 			"longdescription"  : "Puede ser util para hacer cohetes de papel y así bombardear zombies desde la seguridad de tu ventana."
 		}
+	],
+	"dialogs":
+	[
+		{
+			"key"              : "dial_test_1",
+			"dialog"           : "Hola, soy un dialogo",
+			"soundclip"        : "clips/clips1"
+		},
+		{
+			"key"              : "dial_test_2",
+			"dialog"           : "Hey, no te alejes, que te pasa!!",
+			"soundclip"        : "clips/clips2"
+		},
+		{
+			"key"              : "dial_test_3",
+			"dialog"           : "Jajaja, no pongo cosas con la horrorgrafía, no se pasen.",
+			"soundclip"        : "clips/clips3"
+		}
 	]
 }
