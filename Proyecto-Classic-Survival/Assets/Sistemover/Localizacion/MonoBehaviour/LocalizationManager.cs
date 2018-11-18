@@ -50,7 +50,7 @@ public class LocalizationManager : MonoBehaviour
 		}
 		for (int i = 0; i < loadedData.dialogs.Length; i++) 
 		{
-			Debug.Log (loadedData.dialogs[i].key);
+			//Debug.Log (loadedData.dialogs[i].key);
 			DialogText dialogText = new DialogText ();
 			dialogText.dialog = loadedData.dialogs [i].dialog;
 			dialogText.soundclip = loadedData.dialogs [i].soundclip;
