@@ -140,19 +140,14 @@
 	"dialogs":
 	[
 		{
-			"key"              : "dial_test_1",
-			"dialog"           : "Hello, im a dialog input bitch!",
+			"key"              : "cubo_default_1",
+			"dialog"           : "Hello, im MR Cube",
 			"soundclip"        : "clips/clips1"
 		},
 		{
-			"key"              : "dial_test_2",
-			"dialog"           : "ho!!, dont let me talking alond, get back bitch!!",
+			"key"              : "cubo_condicion_1_1",
+			"dialog"           : "Leave me alone",
 			"soundclip"        : "clips/clips2"
-		},
-		{
-			"key"              : "dial_test_3",
-			"dialog"           : "hahahaha, garotto ratiña, supa du macaco, MACACOOO!!!",
-			"soundclip"        : "clips/clips3"
 		}
 	]
 }

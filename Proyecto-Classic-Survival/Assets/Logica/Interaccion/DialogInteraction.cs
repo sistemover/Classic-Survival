@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class DialogInteraction : MonoBehaviour 
 {
-	public string key;
+	public List<Dialogos> dialogos;
 }

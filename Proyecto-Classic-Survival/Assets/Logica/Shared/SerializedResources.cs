@@ -9,6 +9,21 @@ public class Persistant
 	public PocketItem[] SavedEquipContainer;
 	public Level[] SavedLevelContainer;
 	public SavedPlayerSpawn SavedPlayerSpawn;
+	public Condiciones[] SavedCondiciones; 
+}
+
+[System.Serializable]
+public class Dialogos
+{
+	public string condicion;
+	public string[] dialKeys;
+}
+
+[System.Serializable]
+public class Condiciones
+{
+	public string condicion;
+	public bool status;
 }
 
 [System.Serializable]

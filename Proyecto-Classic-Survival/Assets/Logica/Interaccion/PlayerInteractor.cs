@@ -134,8 +134,29 @@ public class PlayerInteractor : MonoBehaviour
 	}
 	void IDialog()
 	{
-		string key = Interaction.GetComponent<DialogInteraction> ().key;
+		List<Dialogos> dialogos = Interaction.GetComponent<DialogInteraction> ().dialogos;
+		List<Condiciones> condiciones = new List<Condiciones>();
+		int activeCondition;
+		for (int i = 0; i < dialogos.Count; i++) 
+		{
+			Condiciones temp = new Condiciones ();
+			temp.condicion = dialogos [i].condicion;
+			temp.status = false;
+			condiciones.Add (temp);
+		}
 
-		Debug.Log (GameManager.instance.localizationManager.GetlocalizedDialog (key).dialog);
+		/*
+		for (int i = 0; i < gameManager.condicionesManager.condiciones.Count; i++) {
+			for (int e = 0; e < condiciones.Count; e++) {
+				Condiciones c = gameManager.condicionesManager.condiciones [i];
+				if (c.condicion == condiciones[e]) {
+					condiciones [e].status = c.status;
+					break;
+				}
+			}
+		}
+		*/
+
+		//Debug.Log (GameManager.instance.localizationManager.GetlocalizedDialog (key).dialog);
 	}
 }

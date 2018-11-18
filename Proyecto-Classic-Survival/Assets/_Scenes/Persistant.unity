@@ -10582,6 +10582,7 @@ GameObject:
   - component: {fileID: 1721186032}
   - component: {fileID: 1721186033}
   - component: {fileID: 1721186034}
+  - component: {fileID: 1721186031}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -10636,6 +10637,22 @@ MonoBehaviour:
   u_b: 0
   AxisL: {x: 0, y: 0}
   AxisR: {x: 0, y: 0}
+--- !u!114 &1721186031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1721186027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef1a43bfe1777aa4f9bc38ae2b679f21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  condiciones:
+  - condicion: "Se\xF1orCubo"
+    status: 0
+  - condicion: "Se\xF1oraEsfera"
+    status: 0
 --- !u!114 &1721186032
 MonoBehaviour:
   m_ObjectHideFlags: 0

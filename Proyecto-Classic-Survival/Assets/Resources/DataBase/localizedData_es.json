@@ -140,19 +140,14 @@
 	"dialogs":
 	[
 		{
-			"key"              : "dial_test_1",
-			"dialog"           : "Hola, soy un dialogo",
+			"key"              : "cubo_default_1",
+			"dialog"           : "Hola, Soy el Señor Cubo",
 			"soundclip"        : "clips/clips1"
 		},
 		{
-			"key"              : "dial_test_2",
-			"dialog"           : "Hey, no te alejes, que te pasa!!",
+			"key"              : "cubo_condicion_1_1",
+			"dialog"           : "Ya te salude, dejame solo, POR FAVOR!!",
 			"soundclip"        : "clips/clips2"
-		},
-		{
-			"key"              : "dial_test_3",
-			"dialog"           : "Jajaja, no pongo cosas con la horrorgrafía, no se pasen.",
-			"soundclip"        : "clips/clips3"
 		}
 	]
 }

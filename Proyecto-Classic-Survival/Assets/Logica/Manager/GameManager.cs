@@ -113,6 +113,17 @@ public class GameManager : MonoBehaviour
 		}
 	}
 
+	private CondicionesManager m_condicionesManager;
+	public CondicionesManager condicionesManager
+	{
+		get
+		{
+			if (m_condicionesManager == null)
+				m_condicionesManager = transform.GetComponent<CondicionesManager> ();
+			return m_condicionesManager;
+		}
+	}
+
 	//**************************************************
 
 	void Start () 
@@ -124,6 +135,7 @@ public class GameManager : MonoBehaviour
 		localizationManager.Init();
 		EquipmentManager.Singleton.Init ();
 		inventarioManager.Init ();
+		condicionesManager.Init ();
 		//canvasManager.TapIniciar ();
 		if (!LoaderManager.Singleton.Cargar ())
 			return;

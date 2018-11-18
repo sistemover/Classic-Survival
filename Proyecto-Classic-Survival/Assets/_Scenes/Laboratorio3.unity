@@ -1535,7 +1535,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f3eb7dd34871264baeb7ffdbf2176e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: dial_test_1
+  dialogos:
+  - condicion: default
+    dialKeys:
+    - cubo_default_1
+  - condicion: "habloSe\xF1orCubo"
+    dialKeys:
+    - cubo_condicion_1_1
 --- !u!23 &1388819454
 MeshRenderer:
   m_ObjectHideFlags: 0
