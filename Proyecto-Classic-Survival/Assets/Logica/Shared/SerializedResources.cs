@@ -62,11 +62,11 @@ public class CombinationItem
 public class Level
 {
 	public string key;
-	public ObjectsSerData[] LevelSerObject;
+	public ObjectsSetData[] LevelSerObject;
 }
 
 [System.Serializable]
-public class ObjectsSerData
+public class ObjectsSetData
 {
 	public int ID;
 	public bool isActive;

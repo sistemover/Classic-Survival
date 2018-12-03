@@ -97,7 +97,7 @@ public class CanvasManager : MonoBehaviour
 	private IEnumerator IEIniciar()
 	{
 		yield return gameManager.sceneController.On ();
-
+		gameManager.condicionesManager.Init ();
 		gameManager.inventarioManager.CargarInventario ();
 		gameManager.touchGamePadManager.ActivarDesactivarGamePad (MenuInicio.activeInHierarchy);
 		Interfaz.SetActive (MenuInicio.activeInHierarchy);

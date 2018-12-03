@@ -157,6 +157,9 @@ public class PlayerInteractor : MonoBehaviour
 		}
 		*/
 
-		//Debug.Log (GameManager.instance.localizationManager.GetlocalizedDialog (key).dialog);
+		//Debug de Dialogos
+		string key = Interaction.GetComponent<DialogInteraction> ().key;
+		Debug.Log (GameManager.instance.localizationManager.GetlocalizedDialog (key).dialog);
+		gameManager.condicionesManager.SaveCondicionesState ();
 	}
 }

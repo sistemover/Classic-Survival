@@ -29,6 +29,10 @@ public class LoaderManager : MonoBehaviour
 		file.Close ();
 		mensage = "Datos Guardados Exitosamente: " + Application.persistentDataPath + "/PersistantData.txt";
 		Debug.Log (mensage);
+		for (int i = 0; i < Persistant.Data.SavedCondiciones.Length; i++) {
+			Debug.Log (Persistant.Data.SavedCondiciones[i].condicion + " " + Persistant.Data.SavedCondiciones[i].status);
+		}
+
 	}
 	public bool Cargar()
 	{

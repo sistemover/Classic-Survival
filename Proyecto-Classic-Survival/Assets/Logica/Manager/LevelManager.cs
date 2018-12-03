@@ -119,10 +119,10 @@ public class LevelManager : MonoBehaviour
 	{
 		Level local = new Level ();
 		local.key = LevelName;
-		local.LevelSerObject = new ObjectsSerData[GamePlus [Round].LevelObjects.Length];
+		local.LevelSerObject = new ObjectsSetData[GamePlus [Round].LevelObjects.Length];
 		for (int i = 0; i < local.LevelSerObject.Length; i++) 
 		{
-			local.LevelSerObject[i] = new ObjectsSerData();
+			local.LevelSerObject[i] = new ObjectsSetData();
 			local.LevelSerObject [i].ID = GamePlus [Round].LevelObjects [i].ID;
 			local.LevelSerObject [i].isActive = GamePlus [Round].LevelObjects [i].isActive;
 			local.LevelSerObject [i].path = GamePlus [Round].LevelObjects [i].path;

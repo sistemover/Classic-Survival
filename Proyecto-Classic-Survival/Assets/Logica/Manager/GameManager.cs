@@ -135,7 +135,7 @@ public class GameManager : MonoBehaviour
 		localizationManager.Init();
 		EquipmentManager.Singleton.Init ();
 		inventarioManager.Init ();
-		condicionesManager.Init ();
+		//condicionesManager.Init ();
 		//canvasManager.TapIniciar ();
 		if (!LoaderManager.Singleton.Cargar ())
 			return;
