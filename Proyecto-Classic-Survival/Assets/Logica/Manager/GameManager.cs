@@ -112,7 +112,6 @@ public class GameManager : MonoBehaviour
 			return m_sceneController;
 		}
 	}
-
 	private CondicionesManager m_condicionesManager;
 	public CondicionesManager condicionesManager
 	{
