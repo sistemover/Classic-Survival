@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/_Scenes/Persistant.unity
+    path: Assets/_Scenes/_Persistant.unity
     guid: fa41f01ee0fd92c40bde9239c5a8c072
   - enabled: 1
     path: Assets/_Scenes/Laboratorio1.unity
@@ -14,3 +14,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/Laboratorio3.unity
     guid: a50b2cf46a4bac349a2c3b588398e983
+  m_configObjects: {}

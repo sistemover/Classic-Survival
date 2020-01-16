@@ -42,10 +42,12 @@ namespace Sistemover.TouchGamePad
 			//abs_movementRange = Convert.ToInt32 (MovementRange*(c.GetComponent<Transform>().transform.localScale.x));
 			//t.text = Convert.ToString(p_movementRange);
             m_StartPos = transform.position;
+			Debug.Log("*** START: " + m_StartPos);
         }
 
 		void UpdateVirtualAxes(Vector3 value)
 		{
+			Debug.Log("*** UPDATE: " + m_StartPos);
 			var delta = m_StartPos - value;
 			delta.y = -delta.y;
 			delta /= p_movementRange;
