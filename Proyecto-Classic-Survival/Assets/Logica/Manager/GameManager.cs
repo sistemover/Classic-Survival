@@ -182,5 +182,11 @@ public class GameManager : MonoBehaviour
 			);
 		}
 	}
+
+	public void UpdateJoystickStarPosition()
+	{
+		canvasManager.touchGamePadManager.joystickL.UpdateStarPosition();
+		canvasManager.touchGamePadManager.joystickR.UpdateStarPosition();
+	}
 		
 }

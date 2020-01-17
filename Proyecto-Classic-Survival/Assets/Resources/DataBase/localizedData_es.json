@@ -18,6 +18,10 @@
 			"value" : "Idioma"
 		},
 		{
+			"key"   : "tap_resolucion",
+			"value" : "Resolución"
+		},
+		{
 			"key"   : "tap_volver",
 			"value" : "Volver"
 		},
@@ -30,12 +34,20 @@
 			"value" : "Inglés"
 		},
 		{
+			"key"   : "tap_default",
+			"value" : "Por Defecto"
+		},
+		{
 			"key"   : "titulo_opciones",
 			"value" : "OPCIONES"
 		},
 		{
 			"key"   : "titulo_idioma",
 			"value" : "IDIOMA"
+		},
+		{
+			"key"   : "titulo_resolucion",
+			"value" : "RESOLUCIÓN"
 		},
 		{
 			"key"   : "titulo_inventario",
@@ -72,6 +84,18 @@
 		{
 			"key"   : "titulo_pickup",
 			"value" : "RECOGER"
+		},
+		{
+			"key"   : "titulo_framrerate",
+			"value" : "CUADROS POR SEGUNDO"
+		},
+		{
+			"key"   : "tap_framerate",
+			"value" : "Cuadros por Segundo"
+		},
+		{
+			"key"   : "tap_desbloquear",
+			"value" : "Desbloquear"
 		}
 	],
 	"items":

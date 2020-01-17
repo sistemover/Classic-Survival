@@ -259,6 +259,8 @@ public class LevelManager : MonoBehaviour
 		gameManager.ActualCameraManager.Init ();
 		yield return new WaitForSeconds (1f);
 		StartCoroutine (gameManager.sceneController.Fade (0f));
+		LoaderManager.Singleton.SavePlayerPosition();
+		LoaderManager.Singleton.Guardar();
 		Debug.Log ("********** LevelManager Carga Completa **********");
 	}
 	void SetearConfiguracion()

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Sistemover.TouchGamePad;
 
 public class TouchGamePadManager : MonoBehaviour 
 {
@@ -13,6 +14,9 @@ public class TouchGamePadManager : MonoBehaviour
 	public GameObject B;
 	public GameObject X;
 	public GameObject Y;
+
+	public Joystick joystickL;
+	public Joystick joystickR;
 
 	public void ActivarDesactivarGamePad(bool active)
 	{

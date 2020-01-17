@@ -15,6 +15,8 @@ public class CanvasManager : MonoBehaviour
 	public GameObject MenuExaminar;
 	public GameObject MenuPausa;
 	public GameObject MenuPickup;
+	public GameObject MenuResolucion;
+	public GameObject MenuFrameRate;
 
 	//Variables Privadas
 	private GameManager gameManager;
@@ -61,13 +63,15 @@ public class CanvasManager : MonoBehaviour
 		{ 
 			MenuInicio, 
 			MenuOpciones, 
-			MenuIdioma, 
+			MenuIdioma,
 			MenuInventario, 
 			MenuExaminar, 
 			Interfaz, 
 			MenuPausa,
 			MenuPickup,
-			Subtitulos
+			Subtitulos,
+			MenuResolucion,
+			MenuFrameRate
 		};
 		for (int i = 0; i < allMenus.Count; i++) 
 		{
@@ -110,6 +114,14 @@ public class CanvasManager : MonoBehaviour
 	public void TapIdioma()
 	{
 		MenuIdioma.SetActive (!MenuIdioma.activeInHierarchy);
+	}
+	public void TapResolucion()
+	{
+		MenuResolucion.SetActive(!MenuResolucion.activeInHierarchy);
+	}
+	public void TapFrameRate()
+	{
+		MenuFrameRate.SetActive(!MenuFrameRate.activeInHierarchy);
 	}
 	public void TapInventario()
 	{

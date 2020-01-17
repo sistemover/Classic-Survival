@@ -18,6 +18,10 @@
 			"value" : "Language"
 		},
 		{
+			"key"   : "tap_resolucion",
+			"value" : "Resolution"
+		},
+		{
 			"key"   : "tap_volver",
 			"value" : "Back"
 		},
@@ -28,6 +32,10 @@
 		{
 			"key"   : "tap_ingles",
 			"value" : "English"
+		},
+		{
+			"key"   : "tap_default",
+			"value" : "Default"
 		},
 		{
 			"key"   : "titulo_opciones",
@@ -72,6 +80,22 @@
 		{
 			"key"   : "titulo_pickup",
 			"value" : "PICKUP"
+		},
+		{
+			"key"   : "titulo_resolucion",
+			"value" : "RESOLUTION"
+		},
+		{
+			"key"   : "titulo_framrerate",
+			"value" : "FRAME RATE"
+		},
+		{
+			"key"   : "tap_framerate",
+			"value" : "Frame Rate"
+		},
+		{
+			"key"   : "tap_desbloquear",
+			"value" : "Unlock"
 		}
 	],	
 	"items":

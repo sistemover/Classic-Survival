@@ -41,7 +41,10 @@ public class InventarioManager : MonoBehaviour
 		Persistant.Data.SavedEquipContainer = new PocketItem[EquipContainer.Count];
 		Persistant.Data.SavedEquipContainer = GuardarPockets (Persistant.Data.SavedEquipContainer, EquipContainer);
 
+		Debug.Log("*****************Guardado desde inventario");
+		LoaderManager.Singleton.SavePlayerPosition();
 		LoaderManager.Singleton.Guardar ();
+		
 	}
 
 	public void CargarInventario()
