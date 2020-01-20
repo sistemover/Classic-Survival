@@ -17,7 +17,7 @@ public class TouchGamePadManager : MonoBehaviour
 
 	public Joystick joystickL;
 	public Joystick joystickR;
-	
+
 	public void ActivarDesactivarGamePad(bool active)
 	{
 		Image[] Sticks = { BaseStickL, BaseStickR, StickL, StickR };
@@ -27,8 +27,6 @@ public class TouchGamePadManager : MonoBehaviour
 
 		for (int i = 0; i < Botones.Length; i++)
 			Botones [i].SetActive (active);
-		if (active == true)
-			GameManager.instance.UpdateJoystickStarPosition();
 	}
 
 	public void ActivarDesactivarLeftGamePad(bool active)

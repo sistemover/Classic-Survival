@@ -16,6 +16,7 @@ public class CanvasManager : MonoBehaviour
 	public GameObject MenuPausa;
 	public GameObject MenuPickup;
 	public GameObject MenuResolucion;
+	public GameObject MenuFrameRate;
 
 	//Variables Privadas
 	private GameManager gameManager;
@@ -70,6 +71,7 @@ public class CanvasManager : MonoBehaviour
 			MenuPickup,
 			Subtitulos,
 			MenuResolucion,
+			MenuFrameRate
 		};
 		for (int i = 0; i < allMenus.Count; i++) 
 		{
@@ -116,6 +118,10 @@ public class CanvasManager : MonoBehaviour
 	public void TapResolucion()
 	{
 		MenuResolucion.SetActive(!MenuResolucion.activeInHierarchy);
+	}
+	public void TapFrameRate()
+	{
+		MenuFrameRate.SetActive(!MenuFrameRate.activeInHierarchy);
 	}
 	public void TapInventario()
 	{
@@ -195,16 +201,5 @@ public class CanvasManager : MonoBehaviour
 			loaderManager.Guardar ();
 		}
 		Debug.Log ("Cerrando aplicación!!");
-	}
-	private void OnApplicationPause(bool pause)
-	{
-		if (pause == true)
-		{
-			if (gameManager.LocalPlayer != null)
-			{
-				loaderManager.SavePlayerPosition();
-				loaderManager.Guardar();
-			}
-		}	
 	}
 }

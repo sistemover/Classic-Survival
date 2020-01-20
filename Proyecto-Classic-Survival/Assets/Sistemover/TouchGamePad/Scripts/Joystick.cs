@@ -25,7 +25,6 @@ namespace Sistemover.TouchGamePad
 
 		public bool enableDebug;
 
-		float defaultResolutionDensity;
 		bool m_UseX; // Toggle for using the x axis
 		bool m_UseY; // Toggle for using the Y axis
 		CrossPlatformInputManager.VirtualAxis m_HorizontalVirtualAxis; // Reference to the joystick in the cross platform input
@@ -47,7 +46,6 @@ namespace Sistemover.TouchGamePad
 			p_movementRange = MovementRange*(c.GetComponent<Transform>().transform.localScale.x);
 			//abs_movementRange = Convert.ToInt32 (MovementRange*(c.GetComponent<Transform>().transform.localScale.x));
 			//t.text = Convert.ToString(p_movementRange);
-			defaultResolutionDensity = Screen.currentResolution.width * Screen.currentResolution.height;
 			UpdateStarPosition();
         }
 
@@ -87,15 +85,12 @@ namespace Sistemover.TouchGamePad
 		}
 		public void UpdateStarPosition()
 		{
-			float currentResolutionDensity = Screen.currentResolution.width * Screen.currentResolution.height;
 			StartPosition = transform.position;
-			//MovementRange = 70 * currentResolutionDensity / defaultResolutionDensity;
-			p_movementRange = MovementRange * (c.GetComponent<Transform>().transform.localScale.x);
 			if (enableDebug)
 			{
 				debugGame.JoystickStartPosition = StartPosition;
-				debugGame.MovementRange = p_movementRange;
-			}		
+				Debug.Log("*********************" + StartPosition);
+			}			
 		}
 
 		public void OnDrag(PointerEventData data)

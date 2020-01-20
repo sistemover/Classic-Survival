@@ -11,6 +11,7 @@ public class Resolution : MonoBehaviour
 
     public bool[] CurrentResolution;
 
+    // Start is called before the first frame update
     void Start()
     {
         gameManager = GameManager.instance;
@@ -29,6 +30,11 @@ public class Resolution : MonoBehaviour
                 CurrentResolution[e] = true;
         }
     }
+    void setFrameRate(int i)
+    {
+        Screen.SetResolution(Screen.currentResolution.width, Screen.currentResolution.height,true,i);
+        //Application.targetFrameRate = i;
+    }
     void SetResolutionScreen(int h, int v) 
     {
         Screen.SetResolution(h,v,true);
@@ -42,22 +48,43 @@ public class Resolution : MonoBehaviour
     {
         SetResolutionScreen(CalcNewWidth(1080),1080);
         setResolution(1);
+        gameManager.UpdateJoystickStarPosition();
     }
     public void setRes720() 
     {
         SetResolutionScreen(CalcNewWidth(720), 720);
         setResolution(2);
+        gameManager.UpdateJoystickStarPosition();
     }
     public void setRes480() 
     {
         SetResolutionScreen(CalcNewWidth(480),480);
         setResolution(3);
+        gameManager.UpdateJoystickStarPosition();
     }
 
     public void setRes360()
     {
         SetResolutionScreen(CalcNewWidth(360), 360);
         setResolution(5);
+        gameManager.UpdateJoystickStarPosition();
+    }
+    public void setFrameRateUnlock()
+    {
+        setFrameRate(0);
+    }
+    public void setFrameRate60()
+    {
+        setFrameRate(60);
+    }
+    public void setFrameRate30()
+    {
+        setFrameRate(30);
+    }
+
+    public void setFrameRate20()
+    {
+        setFrameRate(20);
     }
     public int CalcNewWidth(int baseResolution)
     {
