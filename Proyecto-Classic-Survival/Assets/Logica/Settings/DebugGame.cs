@@ -18,7 +18,6 @@ public class DebugGame : MonoBehaviour
     
     public Text DebugText;
     public Vector3 JoystickStartPosition;
-    public float MovementRange;
 
     int framecount;
     float Deltatime;
@@ -36,18 +35,11 @@ public class DebugGame : MonoBehaviour
         {
             fps = System.Math.Round(framecount / Deltatime, 1);
 
-            m_debug = fps.ToString() + " FPS " + " || " + Screen.currentResolution.width + "X" + Screen.currentResolution.height + " || " + JoystickStartPosition + "||" + MovementRange;
+            m_debug = fps.ToString() + " FPS " + " || " + Screen.currentResolution.width + "X" + Screen.currentResolution.height + " || " + JoystickStartPosition;
             DebugText.text = m_debug;
 
             framecount = 0;
             Deltatime -= 1 / UpdateRate;
         }        
     }
-
-    /*
-    private void OnApplicationPause(bool pause)
-    {
-        m_debug = m_debug + " || " + pause;
-        debugText.text = m_debug;
-    }*/
 }

@@ -89,12 +89,10 @@ namespace Sistemover.TouchGamePad
 		{
 			float currentResolutionDensity = Screen.currentResolution.width * Screen.currentResolution.height;
 			StartPosition = transform.position;
-			//MovementRange = 70 * currentResolutionDensity / defaultResolutionDensity;
 			p_movementRange = MovementRange * (c.GetComponent<Transform>().transform.localScale.x);
 			if (enableDebug)
 			{
 				debugGame.JoystickStartPosition = StartPosition;
-				debugGame.MovementRange = p_movementRange;
 			}		
 		}
 
