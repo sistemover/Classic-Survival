@@ -313,30 +313,30 @@ MonoBehaviour:
     - ID: 2
       isActive: 1
       path: Equipments/armor_paper
-      amount: 1
+      amount: 50
       position: {x: -4.218, y: 0.2, z: -4.897}
       rotation: {x: 0, y: 0, z: 0}
     - ID: 3
       isActive: 1
-      path: Items/Cubo
+      path: Equipments/black_eagle
       amount: 1
       position: {x: -4.25, y: 0.2, z: -5.042}
       rotation: {x: 0, y: 0, z: 0}
     - ID: 4
       isActive: 1
-      path: Items/Cubo
-      amount: 1
+      path: Equipments/knife_sharpener
+      amount: 4
       position: {x: -4.218, y: 0.2, z: -5.192}
       rotation: {x: 0, y: 0, z: 0}
     - ID: 5
       isActive: 1
-      path: Items/Cubo
-      amount: 1
+      path: Equipments/p_horn_bullets
+      amount: 5
       position: {x: -4.108, y: 0.2, z: -4.751}
       rotation: {x: 0, y: 0, z: 0}
     - ID: 6
       isActive: 1
-      path: Items/Cubo
+      path: Equipments/samurai_bone_breakers
       amount: 1
       position: {x: -4.218, y: 0.2, z: -4.751}
       rotation: {x: 0, y: 0, z: 0}
