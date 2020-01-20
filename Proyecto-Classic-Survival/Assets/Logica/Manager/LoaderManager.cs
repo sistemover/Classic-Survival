@@ -66,7 +66,7 @@ public class LoaderManager : MonoBehaviour
 		Persistant.Data.SavedPlayerSpawn.rotX = gameManager.LocalPlayer.transform.rotation.eulerAngles.x;
 		Persistant.Data.SavedPlayerSpawn.rotY = gameManager.LocalPlayer.transform.rotation.eulerAngles.y;
 		Persistant.Data.SavedPlayerSpawn.rotZ = gameManager.LocalPlayer.transform.rotation.eulerAngles.z;
-		Debug.Log("***********************************Player Position Saved!!!");
+		Debug.Log("********** Player Position Saved!!!**********");
 	}
 	public Item CargarItem(string path)
 	{
