@@ -2586,6 +2586,7 @@ MonoBehaviour:
   MenuPausa: {fileID: 386070391}
   MenuPickup: {fileID: 740575057}
   MenuResolucion: {fileID: 1845577090}
+  MenuFrameRate: {fileID: 687235058}
 --- !u!114 &238249311
 MonoBehaviour:
   m_ObjectHideFlags: 0
