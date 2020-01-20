@@ -302,44 +302,7 @@ MonoBehaviour:
   Round: 0
   LevelName: Laboratorio1
   ObjectContainer: {fileID: 915800123}
-  GamePlus:
-  - LevelObjects:
-    - ID: 1
-      isActive: 1
-      path: Items/Cubo
-      amount: 1
-      position: {x: -4.218, y: 0.2, z: -4.75}
-      rotation: {x: 0, y: 0, z: 0}
-    - ID: 2
-      isActive: 1
-      path: Equipments/armor_paper
-      amount: 1
-      position: {x: -4.218, y: 0.2, z: -4.897}
-      rotation: {x: 0, y: 0, z: 0}
-    - ID: 3
-      isActive: 1
-      path: Items/Cubo
-      amount: 1
-      position: {x: -4.25, y: 0.2, z: -5.042}
-      rotation: {x: 0, y: 0, z: 0}
-    - ID: 4
-      isActive: 1
-      path: Items/Cubo
-      amount: 1
-      position: {x: -4.218, y: 0.2, z: -5.192}
-      rotation: {x: 0, y: 0, z: 0}
-    - ID: 5
-      isActive: 1
-      path: Items/Cubo
-      amount: 1
-      position: {x: -4.108, y: 0.2, z: -4.751}
-      rotation: {x: 0, y: 0, z: 0}
-    - ID: 6
-      isActive: 1
-      path: Items/Cubo
-      amount: 1
-      position: {x: -4.218, y: 0.2, z: -4.751}
-      rotation: {x: 0, y: 0, z: 0}
+  GamePlus: []
   SpawnList:
   - key: p0
     activeCamera: 2

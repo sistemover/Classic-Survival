@@ -682,7 +682,7 @@ MonoBehaviour:
   - LevelObjects:
     - ID: 1
       isActive: 1
-      path: Items/Esfera
+      path: Items/cubo
       amount: 1
       position: {x: -1, y: 0.2, z: 0.8}
       rotation: {x: 0, y: 0, z: 0}
