@@ -3666,7 +3666,7 @@ MonoBehaviour:
   PocketContainer:
   - id: 0
     ItemPath: Items/heap_of_paper
-    Amount: 5
+    Amount: 4
   - id: 0
     ItemPath: Items/cinta_adhesiva
     Amount: 3
@@ -10035,7 +10035,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DebugText: {fileID: 635028300}
   JoystickStartPosition: {x: 0, y: 0, z: 0}
-  MovementRange: 0
 --- !u!114 &1361442342
 MonoBehaviour:
   m_ObjectHideFlags: 0
