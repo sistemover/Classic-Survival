@@ -307,7 +307,7 @@ MonoBehaviour:
     - ID: 1
       isActive: 1
       path: Items/Cubo
-      amount: 5
+      amount: 4
       position: {x: -4.218, y: 0.2, z: -4.75}
       rotation: {x: 0, y: 0, z: 0}
     - ID: 2
@@ -340,6 +340,12 @@ MonoBehaviour:
       amount: 1
       position: {x: -4.218, y: 0.2, z: -4.751}
       rotation: {x: 0, y: 0, z: 0}
+    - ID: 7
+      isActive: 1
+      path: Equipments/samurai_bone_breakers
+      amount: 50
+      position: {x: -1, y: 0.2, z: -4.751}
+      rotation: {x: 0, y: 0, z: 0}
   SpawnList:
   - key: p0
     activeCamera: 2
@@ -347,7 +353,7 @@ MonoBehaviour:
     rotation: {x: 0, y: 135, z: 0}
   - key: p1
     activeCamera: 1
-    position: {x: -0.73, y: 0, z: -0.204}
+    position: {x: -0.73, y: 0.5, z: -2.5}
     rotation: {x: 0, y: 180, z: 0}
 --- !u!1 &54411690
 GameObject:

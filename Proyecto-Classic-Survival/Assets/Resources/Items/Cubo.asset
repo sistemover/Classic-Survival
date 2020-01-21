@@ -16,7 +16,7 @@ MonoBehaviour:
   "IconoPeque\xF1o": Sprites/Primitivas/Simples/Cubo
   IconoGrande: Sprites/Primitivas/Amplios/Cubo
   Modelo: Modelos/Primitivas/Cubo
-  MaxAmount: 20
+  MaxAmount: 5
   isStackable: 1
   isUsable: 1
   isEquipment: 0

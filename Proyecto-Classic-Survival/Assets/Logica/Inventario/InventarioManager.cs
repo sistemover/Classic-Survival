@@ -388,38 +388,46 @@ public class InventarioManager : MonoBehaviour
 	}
 	void Acumular()
 	{
+		Debug.Log("* Inicia Acumular!!");
 		SumarAmount (hostDriver.myItem.MaxAmount, dropPocket, hostPocket);
 		if (dropPocket.Amount <= 0) 
 		{
 			dropContainer.Remove (dropPocket);
 			ActualizarInventario ();
 			hostItemsDriver [GetContainerIndex (hostPocket, hostItemsDriver)].TapSeleccionarItem ();
+			Debug.Log("* Completa Acumular!!");
 			return;
 		}
 		ActualizarInventario ();
 		hostDriver.TapSeleccionarItem ();
+		Debug.Log("* Completa Acumular!!");
 		return;
 	}
 	void Alimentar(EquipType type)
 	{
+		Debug.Log("* Inicia Alimentar!!");
 		if (type.Equals (EquipType.ArmaDeFuego))
 			Debug.Log ("Recargando");
 		else
 			Debug.Log ("Reparando");
 		ActualizarInventario ();
 		dropDriver.TapSeleccionarItem ();
+		Debug.Log("* Completa Alimentar!!");
 	}
 	void Combinar(PocketItem reactPocket, ItemDriver[] reactItemsDriver)
 	{
+		Debug.Log("* Inicia Combinar!!");
 		basePocket.Amount--;
 		reactPocket.ItemPath = combinationManager.ActualCombinationItem.itemPath;
 		reactPocket.Amount = combinationManager.ActualCombinationItem.amount;
 		combinationManager.CloseDictionary ();
 		ActualizarInventario ();
 		reactItemsDriver [GetContainerIndex (reactPocket, reactItemsDriver)].TapSeleccionarItem ();
+		Debug.Log("* Completa Combinar!!");
 	}
 	void Cambiar()
 	{
+		Debug.Log("* Inicia Cambiar!!");
 		string dropPath = dropPocket.ItemPath;
 		string hostPath = hostPocket.ItemPath;
 		int dropAmount = dropPocket.Amount;
@@ -432,6 +440,8 @@ public class InventarioManager : MonoBehaviour
 
 		ActualizarInventario ();
 		hostDriver.TapSeleccionarItem ();
+
+		Debug.Log("* Completa Cambiar!!");
 	}
 	bool CheckStackable(Item a, Item b)
 	{

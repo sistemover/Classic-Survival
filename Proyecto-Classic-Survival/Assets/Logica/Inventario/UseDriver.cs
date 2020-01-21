@@ -37,7 +37,7 @@ public class UseDriver : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 	}
 	public void OnDrop(PointerEventData eventData)
 	{
-
+		Debug.Log("Se ha soltado un objeto en: " + gameObject.name);
 	}
 	void Init(PointerEventData eventData)
 	{

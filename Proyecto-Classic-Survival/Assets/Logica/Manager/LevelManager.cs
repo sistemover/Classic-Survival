@@ -26,6 +26,7 @@ public class LevelManager : MonoBehaviour
 	#region CRUD Objeto
 	public void Insertar(string nPath, int nAmount, Vector3 nPosition)
 	{
+		Debug.Log("** Inicia Insertar!!");
 		List <ObjectsData> LevelObjectsList = new List<ObjectsData>();
 		int length = GamePlus[Round].LevelObjects.Length;
 		int nId;
@@ -61,9 +62,11 @@ public class LevelManager : MonoBehaviour
 		CargarLevelObjects (GamePlus[Round], length, null);
 
 		GuardarConfiguración ();
+		Debug.Log("** Completa Insertar!!");
 	}
 	public void Reemplazar(int id, string path, int amount)
 	{
+		Debug.Log("** Inicia Reemplazar!!");
 		ObjectsData actualObject = new ObjectsData ();
 
 		//tengo el objeto id, y quiero reemplazarlo por el newO
@@ -86,9 +89,11 @@ public class LevelManager : MonoBehaviour
 				CargarLevelObjects (GamePlus [Round], i, goT);
 		
 		GuardarConfiguración ();
+		Debug.Log("** Completa Reemplazar!!");
 	}
 	public void Eliminar(int idToDelete)
 	{
+		Debug.Log("** Inicia Eliminar!!");
 		int e = 0;
 
 		//Declarar nuevo array para dataObjects.
@@ -111,12 +116,15 @@ public class LevelManager : MonoBehaviour
 		GameObject go = GetFisicObject(idToDelete);
 		Destroy (go);
 		GuardarConfiguración ();
+		Debug.Log("** Completa Eliminar!!");
 	}
 	#endregion
 
 	#region Guardar/Cargar Configuración de Nivel
 	public void GuardarConfiguración()
 	{
+		Debug.Log("Inicia Guardar Configuracón!!");
+
 		Level local = new Level ();
 		local.key = LevelName;
 		local.LevelSerObject = new ObjectsSetData[GamePlus [Round].LevelObjects.Length];
@@ -142,24 +150,24 @@ public class LevelManager : MonoBehaviour
 		{
 			Persistant.Data.SavedLevelContainer = new Level[1];
 			Persistant.Data.SavedLevelContainer [0] = local;
-
-			LoaderManager.Singleton.Guardar ();
+			Debug.Log("Level Container == null");					
 		} 
 		else 
 		{
 			//En caso de existir, reemplazo con la nueva data.
+			Debug.Log("* Actualizando LevelManager!!");
 			for (int i = 0; i < levelContainer.Length; i++) 
 			{
 				if (levelContainer [i].key == LevelName) 
 				{
-					levelContainer [i].LevelSerObject = local.LevelSerObject;
-					LoaderManager.Singleton.Guardar ();
-					Debug.Log ("Reemplazo");
+					levelContainer [i].LevelSerObject = local.LevelSerObject;					
+					Debug.Log("Termina Guardar Configuracón!!!");					
 					return;
 				}
 			}
 
 			// en caso de que no exista, añado un item con la info local en el persistente.
+			Debug.Log("Añadir item a local");
 			int length = levelContainer.Length;
 			Level[] newLevel = new Level[length + 1];
 
@@ -168,9 +176,8 @@ public class LevelManager : MonoBehaviour
 
 			newLevel[newLevel.Length - 1] = local;
 			Persistant.Data.SavedLevelContainer = newLevel;
-
-			LoaderManager.Singleton.Guardar ();
 		}
+		Debug.Log("Termina Guardar Configuracón!!!");
 	}
 
 	public void CargarConfiguracion()

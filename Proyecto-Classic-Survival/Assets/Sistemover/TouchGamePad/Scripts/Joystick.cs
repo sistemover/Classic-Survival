@@ -45,8 +45,6 @@ namespace Sistemover.TouchGamePad
         {
 			debugGame = DebugGame.instance;
 			p_movementRange = MovementRange*(c.GetComponent<Transform>().transform.localScale.x);
-			//abs_movementRange = Convert.ToInt32 (MovementRange*(c.GetComponent<Transform>().transform.localScale.x));
-			//t.text = Convert.ToString(p_movementRange);
 			defaultResolutionDensity = Screen.currentResolution.width * Screen.currentResolution.height;
 			UpdateStarPosition();
         }

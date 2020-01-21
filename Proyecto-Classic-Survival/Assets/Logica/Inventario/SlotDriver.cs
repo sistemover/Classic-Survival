@@ -19,6 +19,7 @@ public class SlotDriver : MonoBehaviour, IDropHandler
 	}
 	public void OnDrop(PointerEventData eventData)
 	{
+		Debug.Log("*** Inicia OnDrop!!");
 		Init (eventData);
 		inventarioManager.DropItemControl (dropDriver, hostDriver);
 		/*
@@ -33,6 +34,8 @@ public class SlotDriver : MonoBehaviour, IDropHandler
 			if (dropDriver.myItem.isEquipment) 				
 				inventarioManager.DropEquipControl (dropDriver, hostDriver);
 		}*/
+		GameManager.instance.inventarioManager.GuardarInventario();
+		Debug.Log("*** Completa OnDrop!!");
 	}
 	void Init(PointerEventData eventData)
 	{
