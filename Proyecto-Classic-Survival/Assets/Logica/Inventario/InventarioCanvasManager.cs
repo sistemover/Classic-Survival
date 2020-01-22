@@ -15,16 +15,13 @@ public class InventarioCanvasManager : MonoBehaviour
 	[HideInInspector] public ItemDriver[] EquipItemsDriver;
 	[HideInInspector] public ItemDriver[] StorageItemsDriver;
 
-	InventarioManager inventarioManager
-	{
-		get
-		{
-			return GameManager.instance.inventarioManager;
-		}
-	}
+	GameManager gameManager;
+	InventarioManager inventarioManager;
 	public void Init()
 	{
 		Debug.Log ("Start InventarioCanvasManager");
+		gameManager = GameManager.instance;
+		inventarioManager = gameManager.inventarioManager;
 		PocketItemsDriver = PocketItemDriverParent.GetComponentsInChildren<ItemDriver> ();
 		PickupItemsDriver = PickupItemDriverParent.GetComponentsInChildren<ItemDriver> ();
 		EquipItemsDriver = EquipItemDriverParent.GetComponentsInChildren<ItemDriver> ();
@@ -52,7 +49,7 @@ public class InventarioCanvasManager : MonoBehaviour
 		List<PocketItem> Container = inventarioManager.PickupContainer;
 
 		if (Container.Count == 0)
-			GameManager.instance.canvasManager.TapPickup ();
+			gameManager.canvasManager.TapPickup ();
 
 		CheckAmount (Container);
 
@@ -83,14 +80,15 @@ public class InventarioCanvasManager : MonoBehaviour
 	}
 	void CheckAmount(List<PocketItem> Container)
 	{
+		Debug.Log("Inicia CheckAmount");
 		for (int i = 0; i < Container.Count; i++) 
 		{
 			int amount = Container[i].Amount;
 			bool isStackable = LoaderManager.Singleton.CargarItem (Container [i].ItemPath).isStackable;
 			if (amount == 0 && isStackable)
 				Container.Remove (Container [i]);
-
 		}
+		Debug.Log("Completa CheckAmount");
 	}
 	public void SeleccionarSlot(int index, ItemDriver[] itemDrivers)
 	{

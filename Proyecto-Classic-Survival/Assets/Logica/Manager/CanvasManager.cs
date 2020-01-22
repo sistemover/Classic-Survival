@@ -101,7 +101,7 @@ public class CanvasManager : MonoBehaviour
 		yield return gameManager.sceneController.On ();
 		gameManager.condicionesManager.Init ();
 		gameManager.inventarioManager.CargarInventario ();
-		gameManager.touchGamePadManager.ActivarDesactivarGamePad (MenuInicio.activeInHierarchy);
+		gameManager.TouchGamePadManager.ActivarDesactivarGamePad (MenuInicio.activeInHierarchy);
 		Interfaz.SetActive (MenuInicio.activeInHierarchy);
 		MenuInicio.SetActive (!MenuInicio.activeInHierarchy);
 	}
@@ -119,7 +119,7 @@ public class CanvasManager : MonoBehaviour
 	}
 	public void TapInventario()
 	{
-		gameManager.touchGamePadManager.ActivarDesactivarRightGamePad (MenuInventario.activeInHierarchy);
+		gameManager.TouchGamePadManager.ActivarDesactivarRightGamePad (MenuInventario.activeInHierarchy);
 		Interfaz.SetActive (!Interfaz.activeInHierarchy);
 		MenuInventario.SetActive (!MenuInventario.activeInHierarchy);
 		if (!MenuInventario.activeInHierarchy) 
@@ -131,12 +131,12 @@ public class CanvasManager : MonoBehaviour
 	{
 		if (gameManager.inventarioManager.PickupContainer.Count == 0) 
 		{
-			gameManager.touchGamePadManager.ActivarDesactivarLeftGamePad (true);
+			gameManager.TouchGamePadManager.ActivarDesactivarLeftGamePad (true);
 			MenuPickup.SetActive (false);
 		} 
 		else 
 		{
-			gameManager.touchGamePadManager.ActivarDesactivarLeftGamePad (MenuPickup.activeInHierarchy);
+			gameManager.TouchGamePadManager.ActivarDesactivarLeftGamePad (MenuPickup.activeInHierarchy);
 			MenuPickup.SetActive (!MenuPickup.activeInHierarchy);
 		}
 	}
@@ -145,10 +145,10 @@ public class CanvasManager : MonoBehaviour
 		if (!MenuExaminar.activeInHierarchy)
 			GuardarTodaInterfazAbierta ();
 		AbrirCerrarInterfaz (MenuExaminar.activeInHierarchy);
-		gameManager.touchGamePadManager.ActivarDesactivarGamePad (false);
+		gameManager.TouchGamePadManager.ActivarDesactivarGamePad (false);
 		Interfaz.SetActive (false);
 		if (MenuExaminar.activeInHierarchy)
-			gameManager.touchGamePadManager.ActivarDesactivarLeftGamePad (!MenuPickup.activeInHierarchy);
+			gameManager.TouchGamePadManager.ActivarDesactivarLeftGamePad (!MenuPickup.activeInHierarchy);
 		MenuExaminar.SetActive (!MenuExaminar.activeInHierarchy);
 	}
 	public void TapPausa()
@@ -157,7 +157,7 @@ public class CanvasManager : MonoBehaviour
 			Time.timeScale = 1f;
 		else
 			Time.timeScale = 0f;
-		gameManager.touchGamePadManager.ActivarDesactivarGamePad (MenuPausa.activeInHierarchy);
+		gameManager.TouchGamePadManager.ActivarDesactivarGamePad (MenuPausa.activeInHierarchy);
 		gameManager.LocalPlayer.GetComponent<PlayerClick> ().enabled = MenuPausa.activeInHierarchy;
 		Interfaz.SetActive (!Interfaz.activeInHierarchy);
 		MenuPausa.SetActive (!MenuPausa.activeInHierarchy);
@@ -180,7 +180,7 @@ public class CanvasManager : MonoBehaviour
 		yield return gameManager.sceneController.Quit ();
 
 		gameManager.inventarioManager.CargarInventario ();
-		gameManager.touchGamePadManager.ActivarDesactivarGamePad (MenuInicio.activeInHierarchy);
+		gameManager.TouchGamePadManager.ActivarDesactivarGamePad (MenuInicio.activeInHierarchy);
 		Interfaz.SetActive (MenuInicio.activeInHierarchy);
 		MenuInicio.SetActive (!MenuInicio.activeInHierarchy);
 		MenuPausa.SetActive (!MenuPausa.activeInHierarchy);

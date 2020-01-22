@@ -12,6 +12,7 @@ public class Item : ScriptableObject
 
 	public int MaxAmount;
 
+	public bool isUnique;
 	public bool isStackable = false;
 	public bool isUsable = false;
 	public bool isEquipment = false;

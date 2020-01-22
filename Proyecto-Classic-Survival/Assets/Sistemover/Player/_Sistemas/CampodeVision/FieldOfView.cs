@@ -17,12 +17,15 @@ public class FieldOfView : MonoBehaviour
 	public List<VTargets> vTargets = new List <VTargets>();
 	public List<Transform> VisibleTargets = new List<Transform>();
 
+	GameManager gameManager;
+
 	//**************************************************************************************************************
 
 	void Start()
 	{
 		coroutina = FindTargetsWithDelay (timeToScan);
 		StartCoroutine (coroutina);
+		gameManager = GameManager.instance;
 	}
 
 	IEnumerator FindTargetsWithDelay(float delay)
@@ -36,9 +39,9 @@ public class FieldOfView : MonoBehaviour
 
 	void FindVisibleTargets()
 	{
-		bool mPickup = GameManager.instance.canvasManager.MenuPickup.activeInHierarchy;
-		bool mInventario = GameManager.instance.canvasManager.MenuInventario.activeInHierarchy;
-		bool mExaminar = GameManager.instance.canvasManager.MenuExaminar.activeInHierarchy;
+		bool mPickup = gameManager.canvasManager.MenuPickup.activeInHierarchy;
+		bool mInventario = gameManager.canvasManager.MenuInventario.activeInHierarchy;
+		bool mExaminar = gameManager.canvasManager.MenuExaminar.activeInHierarchy;
 		if (mPickup || mInventario || mExaminar)
 			return;
 		
@@ -70,7 +73,7 @@ public class FieldOfView : MonoBehaviour
 		}
 		if (VisibleTargets == null || VisibleTargets.Count == 0) 
 		{
-			GameObject a = GameManager.instance.touchGamePadManager.A;
+			GameObject a = gameManager.TouchGamePadManager.A;
 			if (!a.activeInHierarchy) {
 				return;
 			}

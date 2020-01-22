@@ -10,6 +10,13 @@ public class DescriptionManager : MonoBehaviour
 
 	Item myItem;
 	ItemText itemText;
+	GameManager gameManager
+	{
+		get
+		{
+			return GameManager.instance;
+		}
+	}
 
 	public void FillDescription(Item item)
 	{
@@ -20,7 +27,7 @@ public class DescriptionManager : MonoBehaviour
 			descripcion.text = "";
 			return;
 		}
-		itemText = GameManager.instance.localizationManager.GetlocalizedItem (myItem.name_key);
+		itemText = gameManager.localizationManager.GetlocalizedItem (myItem.name_key);
 		nombre.text = itemText.name;
 		descripcion.text = itemText.shortdescription;
 	}
@@ -30,7 +37,7 @@ public class DescriptionManager : MonoBehaviour
 		if (myItem == null)
 			return;
 
-		CanvasManager canvasManager = GameManager.instance.canvasManager;
+		CanvasManager canvasManager = gameManager.canvasManager;
 		GameObject menuExaminar = canvasManager.MenuExaminar;
 		ExamineManager examineManager = menuExaminar.GetComponent<ExamineManager> ();
 

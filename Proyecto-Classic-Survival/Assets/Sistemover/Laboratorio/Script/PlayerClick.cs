@@ -4,14 +4,21 @@ using UnityEngine;
 
 public class PlayerClick : MonoBehaviour 
 {
+	GameManager gameManager
+	{
+		get
+		{
+			return GameManager.instance;
+		}
+	}
 	void OnMouseDown()
 	{
-		CanvasManager canvasManager = GameManager.instance.canvasManager;
+		CanvasManager canvasManager = gameManager.canvasManager;
 		GameObject menuInventario = canvasManager.MenuInventario;
 		canvasManager.TapInventario ();
 		if (menuInventario.activeInHierarchy) 
 		{
-			GameManager.instance.inventarioManager.ActualizarInventario ();
+			gameManager.inventarioManager.ActualizarInventario ();
 			canvasManager.inventarioCanvasManager.SeleccionarSlot (0, canvasManager.inventarioCanvasManager.PocketItemsDriver);
 		}
 	}

@@ -3,8 +3,9 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -16,7 +17,8 @@ MonoBehaviour:
   IconoGrande: Sprites/Primitivas/Amplios/Esfera
   Modelo: Modelos/Primitivas/Esfera
   MaxAmount: 1
-  isStackable: 0
+  isUnique: 0
+  isStackable: 1
   isUsable: 0
   isEquipment: 0
   isCombinable: 1

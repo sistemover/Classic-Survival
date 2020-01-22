@@ -20,5 +20,6 @@ public class ColorManager : MonoBehaviour
 	public Color Pocket;
 	public Color Pickup; 
 	public Color Equip;
+	public Color Storage;
 
 }

@@ -871,6 +871,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1952724551901342, guid: fb33a4630bc31b44a81c01fc1e8a887e, type: 3}
+      propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 4253323296163980, guid: fb33a4630bc31b44a81c01fc1e8a887e, type: 3}
       propertyPath: m_LocalPosition.x
       value: -6.748
@@ -903,13 +907,16 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
-    - target: {fileID: 4834850945431390, guid: fb33a4630bc31b44a81c01fc1e8a887e, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -2.652
+    - target: {fileID: 4253323296163980, guid: fb33a4630bc31b44a81c01fc1e8a887e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 137683273837407752, guid: fb33a4630bc31b44a81c01fc1e8a887e,
-        type: 3}
-      propertyPath: m_CastShadows
+    - target: {fileID: 4253323296163980, guid: fb33a4630bc31b44a81c01fc1e8a887e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4253323296163980, guid: fb33a4630bc31b44a81c01fc1e8a887e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -4100,6 +4107,22 @@ PrefabInstance:
     - target: {fileID: 1547899949723226, guid: 327b476a88a9fa941b0c077c95668a63, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4303954770521060, guid: 327b476a88a9fa941b0c077c95668a63, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4303954770521060, guid: 327b476a88a9fa941b0c077c95668a63, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4303954770521060, guid: 327b476a88a9fa941b0c077c95668a63, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4303954770521060, guid: 327b476a88a9fa941b0c077c95668a63, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.575
       objectReference: {fileID: 0}
     - target: {fileID: 4441078090520770, guid: 327b476a88a9fa941b0c077c95668a63, type: 3}
       propertyPath: m_LocalPosition.x

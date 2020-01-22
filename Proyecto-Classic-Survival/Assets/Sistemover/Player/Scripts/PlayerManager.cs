@@ -7,11 +7,19 @@ public class PlayerManager : MonoBehaviour
 	//VARIABLES PÚBLICAS
 	public GameObject ActiveModel;
 	public Transform DropSpawnPoint;
+	public bool Testing;
 	[HideInInspector] public Animator m_Animator;
 	[HideInInspector] public Rigidbody m_RigidBody;
 	[HideInInspector] public CapsuleCollider m_CapsuleCollider;
 
 	//INSTANCIADORES
+	GameManager gameManager
+	{
+		get
+		{
+			return GameManager.instance;
+		}
+	}
 	private LocomocionMotor m_LocomocionMotor;
 	public LocomocionMotor LocomocionMotor
 	{
@@ -59,7 +67,8 @@ public class PlayerManager : MonoBehaviour
 		Debug.Log ("Start PlayerManager");
 		Initi ();
 		LocomocionMotor.Init (m_RigidBody, m_Animator);
-		PlayerInteractor.Init ();
+		if(PlayerInteractor.enabled)
+			PlayerInteractor.Init ();
 	}
 
 	void Initi()
@@ -82,6 +91,9 @@ public class PlayerManager : MonoBehaviour
 
 	void JoinPlayer()
 	{
-		GameManager.instance.LocalPlayer = this;
+		if (Testing)
+			TestingGameManager.instance.LocalPlayer = this;
+		else
+			gameManager.LocalPlayer = this;
 	}
 }

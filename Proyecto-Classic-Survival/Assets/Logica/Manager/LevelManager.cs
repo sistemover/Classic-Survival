@@ -10,7 +10,13 @@ public class LevelManager : MonoBehaviour
 	public GameObject ObjectContainer;
 	public List<GamePlus> GamePlus = new List<GamePlus>();
 	public List<PlayerSpawn> SpawnList = new List<PlayerSpawn> ();
-	GameManager gameManager;
+	GameManager gameManager
+	{
+		get
+		{
+			return GameManager.instance;
+		}
+	}
 
 	void Awake ()
 	{
@@ -20,7 +26,7 @@ public class LevelManager : MonoBehaviour
 
 	void JoinLevel()
 	{
-		GameManager.instance.ActualLevelManager = this;
+		gameManager.ActualLevelManager = this;
 	}
 
 	#region CRUD Objeto
@@ -221,7 +227,6 @@ public class LevelManager : MonoBehaviour
 	public IEnumerator Start()
 	{
 		Debug.Log ("********* LevelManager Inicia la carga **********");
-		gameManager = GameManager.instance;
 		SetearConfiguracion ();
 
 		//Setear Spawn de Player.

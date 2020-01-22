@@ -18,8 +18,14 @@ public class PlayerInteractor : MonoBehaviour
 	List <int> Candidatos;
 	Transform Interaction;
 
+	private void Start()
+	{
+		Debug.Log("Start Player Interactor!!");
+	}
+
 	public void Init () 
 	{
+		Debug.Log("Init PlayerInteractor!!");
 		gameManager = GameManager.instance;
 		loaderManager = LoaderManager.Singleton;
 		canvasManager = gameManager.canvasManager;
@@ -29,7 +35,7 @@ public class PlayerInteractor : MonoBehaviour
 	}
 	public void SetLevelInteraction(Transform interaction, string key)
 	{
-		GameObject a = gameManager.touchGamePadManager.A;
+		GameObject a = gameManager.TouchGamePadManager.A;
 		Text t = a.GetComponentInChildren<Text> ();
 		if (interaction == null || key == null) 
 			return;
@@ -55,7 +61,7 @@ public class PlayerInteractor : MonoBehaviour
 	public void SetObjectInteraction(List <int> id, string key)
 	{
 		Candidatos = new List<int> ();
-		GameObject a = gameManager.touchGamePadManager.A;
+		GameObject a = gameManager.TouchGamePadManager.A;
 		Text t = a.GetComponentInChildren<Text> ();
 		if (id == null || key == null)
 			return;
@@ -120,7 +126,7 @@ public class PlayerInteractor : MonoBehaviour
 		canvasManager.TapPickup ();
 		if (canvasManager.MenuInventario.activeInHierarchy) 
 		{
-			GameManager.instance.inventarioManager.ActualizarInventario ();
+			gameManager.inventarioManager.ActualizarInventario ();
 			canvasManager.inventarioCanvasManager.SeleccionarSlot (0, inventarioCanvasManager.PickupItemsDriver);
 		}
 	}
@@ -159,7 +165,7 @@ public class PlayerInteractor : MonoBehaviour
 
 		//Debug de Dialogos
 		string key = Interaction.GetComponent<DialogInteraction> ().key;
-		Debug.Log (GameManager.instance.localizationManager.GetlocalizedDialog (key).dialog);
+		Debug.Log (gameManager.localizationManager.GetlocalizedDialog (key).dialog);
 		gameManager.condicionesManager.SaveCondicionesState ();
 	}
 }

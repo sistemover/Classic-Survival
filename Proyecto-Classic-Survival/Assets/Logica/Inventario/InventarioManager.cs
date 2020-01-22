@@ -27,10 +27,13 @@ public class InventarioManager : MonoBehaviour
 	InventarioCanvasManager inventarioCanvasManager;
 	CombinationManager combinationManager;
 
+	GameManager gameManager;
+
 	public void Init()
 	{
 		Debug.Log("Start InventarioManager");
-		inventarioCanvasManager = GameManager.instance.canvasManager.inventarioCanvasManager;
+		gameManager = GameManager.instance;
+		inventarioCanvasManager = gameManager.canvasManager.inventarioCanvasManager;
 		combinationManager = GetComponent<CombinationManager> ();
 	}
 	public void GuardarInventario ()
@@ -168,7 +171,6 @@ public class InventarioManager : MonoBehaviour
 
 
 		//Instanciar objeto fisico y adjuntarlo a levelmanager.
-		GameManager gameManager = GameManager.instance;
 		Vector3 dropSpawnPoint = gameManager.LocalPlayer.DropSpawnPoint.position;
 		LevelManager levelManager = gameManager.ActualLevelManager;
 		levelManager.Insertar (p.ItemPath, p.Amount, dropSpawnPoint);
@@ -269,12 +271,12 @@ public class InventarioManager : MonoBehaviour
 		{
 			for (int e = 0; e < PickupContainer.Count; e++) 
 				ids.Remove (PickupContainer [e].id);				
-			GameManager.instance.ActualLevelManager.Eliminar(ids[0]);
+			gameManager.ActualLevelManager.Eliminar(ids[0]);
 			isDelete = false;
 		}
 		for (int i = 0; i < PickupContainer.Count; i++) 
 		{
-			GameManager.instance.ActualLevelManager.Reemplazar 
+			gameManager.ActualLevelManager.Reemplazar 
 			(
 				PickupContainer[i].id,
 				PickupContainer[i].ItemPath,
@@ -470,6 +472,7 @@ public class InventarioManager : MonoBehaviour
 		} 
 		else 
 		{
+			Debug.Log("No hay combinación posible");
 			combinationManager.CloseDictionary ();
 			result = false;
 		}

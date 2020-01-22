@@ -21,6 +21,14 @@ public class LoaderManager : MonoBehaviour
 	}
 	#endregion
 
+	GameManager gameManager
+	{
+		get
+		{
+			return GameManager.instance;
+		}
+	}
+
 	public void Guardar()
 	{
 		BinaryFormatter bf = new BinaryFormatter ();
@@ -56,7 +64,6 @@ public class LoaderManager : MonoBehaviour
 	}
 	public void SavePlayerPosition()
 	{	
-		GameManager gameManager = GameManager.instance;
 		Persistant.Data.SavedPlayerSpawn = new SavedPlayerSpawn ();
 		Persistant.Data.SavedPlayerSpawn.activeCamera = gameManager.ActualCameraManager.ActiveCamera;
 		Persistant.Data.SavedPlayerSpawn.levelName = gameManager.ActualLevelManager.LevelName;

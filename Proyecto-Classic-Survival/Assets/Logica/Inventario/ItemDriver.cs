@@ -23,6 +23,14 @@ public class ItemDriver : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
 	private Transform originalParent;
 	private Vector3 originalPosition;
 
+	GameManager gameManager
+	{
+		get
+		{
+			return GameManager.instance;
+		}
+	}
+
 	public void AgregarItem(PocketItem pocketItem)
 	{
 		myPocketItem = pocketItem;
@@ -72,7 +80,7 @@ public class ItemDriver : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
 	}
 	public void TapSeleccionarItem()
 	{
-		InventarioCanvasManager inventarioCanvasManager = GameManager.instance.canvasManager.inventarioCanvasManager;
+		InventarioCanvasManager inventarioCanvasManager = gameManager.canvasManager.inventarioCanvasManager;
 
 		inventarioCanvasManager.descriptionManager [0].FillDescription (myItem);
 
@@ -140,7 +148,7 @@ public class ItemDriver : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDr
 		{
 			if (eventData.pointerEnter == null) 
 			{
-				GameManager.instance.inventarioManager.DropToWorld (this.myPocketItem, this.mySlotType);
+				gameManager.inventarioManager.DropToWorld (this.myPocketItem, this.mySlotType);
 			}
 		}
 

@@ -21,7 +21,8 @@ public class GameManager : MonoBehaviour
 
 	//VARIABLES PÚBLICAS
 	[HideInInspector]public InputManager InputManager;
-	[HideInInspector]public TouchGamePadManager touchGamePadManager;
+	[HideInInspector]public TouchGamePadManager TouchGamePadManager;
+	public bool autoStart;
 
 	//INSTANCIADORES
 	private  PlayerManager m_Player;
@@ -138,12 +139,16 @@ public class GameManager : MonoBehaviour
 		//canvasManager.TapIniciar ();
 		if (!LoaderManager.Singleton.Cargar ())
 			return;
+		if (autoStart)
+		{
+			canvasManager.TapIniciar();
+		}
 	}
 
 	void Init()
 	{
 		InputManager = gameObject.GetComponent<InputManager> ();
-		touchGamePadManager = canvasManager.touchGamePadManager;
+		TouchGamePadManager = canvasManager.touchGamePadManager;
 	}
 
 	void Update () 
